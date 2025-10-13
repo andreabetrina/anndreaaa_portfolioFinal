@@ -112,23 +112,25 @@ body{
 
 .hero-card{
   width:100%;
-  max-width:860px;
+  max-width:1100px;
   background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.995));
   border-radius:18px;
   box-shadow:0 28px 80px rgba(12,18,25,0.07), 0 12px 24px rgba(138,102,255,0.04);
   display:flex;
-  flex-direction:column;
+  flex-direction:row; /* layout: content left, photo right */
   align-items:center;
-  gap:22px;
-  padding:56px 32px;
+  justify-content:space-between;
+  gap:28px;
+  padding:56px 48px;
   position:relative;
   overflow:visible;
-  text-align:center;
+  text-align:left;
   backdrop-filter: blur(8px);
 }
 
 .content{
-  width:100%;
+  flex:1 1 auto;
+  max-width:60%;
   padding:0;
 }
 
@@ -184,7 +186,10 @@ body{
   position:relative;
   flex:0 0 300px;
   transition:transform .4s ease;
-  margin-left:16px;
+  margin-left:0;
+  align-self:center;
+  /* Push photo 40% outside the card (to the right) */
+  margin-right:-100px; /* 40% of 300px = 120px extends outside */
 }
 .photo-square{
   width:100%;
@@ -210,6 +215,7 @@ body{
   height:100%;
   object-fit:cover;
   display:block;
+  
 }
 
 .photo-wrap::before{
@@ -243,8 +249,9 @@ body{
 
 @media (max-width:900px){
   .slide{padding:40px 16px}
-  .hero-card{padding:36px 24px;gap:18px}
-  .photo-wrap{width:240px;height:240px}
+  /* stack back to column on medium / small screens */
+  .hero-card{padding:36px 24px;gap:18px; flex-direction:column; align-items:center; text-align:center}
+  .photo-wrap{width:240px;height:240px; margin-right:0;} /* reset overflow on mobile */
   .name{font-size:56px}
   .intro.small{font-size:22px}
   .caption{font-size:18px}
