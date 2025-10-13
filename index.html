@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Andrea Betrina — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="bg-blobs" aria-hidden="true">
+        <span class="b b1"></span>
+        <span class="b b2"></span>
+        <span class="b b3"></span>
+        <span class="b b4"></span>
+        <span class="b b5"></span>
+        <span class="b b6"></span>
+      </div>
+
+      <!-- Canvas for cursor-driven fluid color flow -->
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+
+      <!-- Navigation dots -->
+      <nav class="nav-dots" aria-label="Slide navigation">
+        <button class="nav-dot active" data-slide="0" aria-label="Go to hero"></button>
+        <button class="nav-dot" data-slide="1" aria-label="Go to about"></button>
+        <button class="nav-dot" data-slide="2" aria-label="Go to skills"></button>
+        <button class="nav-dot" data-slide="3" aria-label="Go to achievements"></button>
+        <button class="nav-dot" data-slide="4" aria-label="Go to projects"></button>
+        <button class="nav-dot" data-slide="5" aria-label="Go to certifications"></button>
+        <button class="nav-dot" data-slide="6" aria-label="Go to contact"></button>
+      </nav>
+
+      <section class="hero slide">
+        <div class="hero-card">
+          <div class="content">
+            <p class="intro small">Hi, I'm</p>
+            <h1 class="name" aria-label="Andrea Betrina">
+              <span class="letter">A</span><span class="letter">n</span><span class="letter">d</span><span class="letter">r</span><span class="letter">e</span><span class="letter">a</span>
+              <span class="letter">&nbsp;</span>
+              <span class="letter">B</span><span class="letter">e</span><span class="letter">t</span><span class="letter">r</span><span class="letter">i</span><span class="letter">n</span><span class="letter">a</span>
+            </h1>
+            <p class="caption">Turning ideas into digital experiences ✨</p>
+          </div>
+
+          <div class="photo-wrap" aria-hidden="true">
+            <div class="photo-square">
+              <img class="photo" src="WhatsApp Image 2025-10-11 at 9.48.19 AM.jpeg" alt="Andrea Betrina smiling" />
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- About -->
+      <section class="about slide" id="about">
+        <div class="about-inner">
+          <h2 class="about-title">A Little About Andrea</h2>
+          <p class="about-text">Hey, I'm Andrea Betrina — a passionate learner and creative soul, currently pursuing my Engineering degree. I love creating things in a minimal and aesthetic way, expressing ideas with creativity and heart.</p>
+
+          <p class="about-text">I'm a public speaker, a proud Toastmaster at Stella Mary's Toastmasters, and an active Basher at Byte Bash Blitz. Beyond that, I'm deeply involved in sports and athletics, especially basketball, and I love dancing — it's one of the ways I express energy and joy.</p>
+
+          <p class="about-text">I believe that doing small things with great love can lead to something truly beautiful. That thought inspires me to keep learning, growing, and creating every single day. 🌷</p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="skills slide" id="skills">
+        <div class="section-card">
+          <h2 class="section-title">Skills & Expertise</h2>
+          <div class="skill-grid">
+            <div class="skill-item">
+              <span class="skill-icon">💻</span>
+              <h3>Web Development</h3>
+              <p>HTML, CSS, JavaScript</p>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">🎨</span>
+              <h3>UI/UX Design</h3>
+              <p>Figma, Adobe XD</p>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">🎤</span>
+              <h3>Public Speaking</h3>
+              <p>Presentations & Events</p>
+            </div>
+            <div class="skill-item">
+              <span class="skill-icon">⚡</span>
+              <h3>Problem Solving</h3>
+              <p>Coding Challenges</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements -->
+      <section class="achievements slide" id="achievements">
+        <div class="section-card">
+          <h2 class="section-title">Achievements</h2>
+          <div class="achievement-grid">
+            <div class="achievement-card">
+              <span class="achievement-icon">🏆</span>
+              <h3>Winner - Byte Bash Blitz</h3>
+              <p>2024</p>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-icon">🎯</span>
+              <h3>Basketball Team Captain</h3>
+              <p>University Athletics</p>
+            </div>
+            <div class="achievement-card">
+              <span class="achievement-icon">🎙️</span>
+              <h3>Active Toastmaster</h3>
+              <p>Stella Mary's Club</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects/Works -->
+      <section class="projects slide" id="projects">
+        <div class="section-card">
+          <h2 class="section-title">Projects & Works</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-thumb"></div>
+              <h3>Portfolio Website</h3>
+              <p>Personal portfolio with modern design and animations</p>
+            </div>
+            <div class="project-card">
+              <div class="project-thumb"></div>
+              <h3>UI Design System</h3>
+              <p>Component library for web applications</p>
+            </div>
+            <div class="project-card">
+              <div class="project-thumb"></div>
+              <h3>Hackathon Project</h3>
+              <p>Byte Bash Blitz winning submission</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="certifications slide" id="certifications">
+        <div class="section-card">
+          <h2 class="section-title">Certifications</h2>
+          <div class="cert-list">
+            <div class="cert-item">
+              <span class="cert-icon">📜</span>
+              <div class="cert-info">
+                <h3>Public Speaking Excellence</h3>
+                <p>Toastmasters International</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">💼</span>
+              <div class="cert-info">
+                <h3>Web Development</h3>
+                <p>Online Course Certification</p>
+              </div>
+            </div>
+            <div class="cert-item">
+              <span class="cert-icon">🎨</span>
+              <div class="cert-info">
+                <h3>UI/UX Design Fundamentals</h3>
+                <p>Design Institute</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="contact slide" id="contact">
+        <div class="section-card">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="contact-intro">Let's connect! Feel free to reach out for collaborations or just a friendly chat.</p>
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+            <a href="#" class="social-link" aria-label="GitHub">🔗</a>
+            <a href="#" class="social-link" aria-label="Email">✉️</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      // register service worker for PWA/offline support
+      if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('/service-worker.js').catch(()=>{/* silent */});
+      }
+document.addEventListener('DOMContentLoaded', function(){
+  // Respect prefers-reduced-motion
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if(!reduced){
+    // small orchestrated entrance for the name (delay for a pleasant feel)
+    const name = document.querySelector('.name');
+    if(name){
+      // existing single-line entrance is replaced by per-letter animation
+      const letters = Array.from(name.querySelectorAll('.letter'));
+      letters.forEach((el,i)=>{
+        const delay = 120 + i * 60; // stagger
+        el.style.animation = `letterFloat 900ms cubic-bezier(.2,.8,.2,1) ${delay}ms both`;
+      });
+    }
+  }
+});
+
+/* Cursor-driven fluid flow animation */
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return; // disable if user prefers
+
+  const canvas = document.getElementById('flow-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+
+  const particles = [];
+  const maxParticles = 80;
+
+  const palette = [
+    'rgba(255,144,179,0.14)',
+    'rgba(138,102,255,0.12)',
+    'rgba(255,210,180,0.08)'
+  ];
+
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+
+  let pointer = {x: w/2, y: h/2, px: w/2, py: h/2, moving: false};
+  window.addEventListener('pointermove', (e)=>{
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+    pointer.moving = true;
+    spawnParticle(pointer.x, pointer.y);
+  });
+
+  function spawnParticle(x,y){
+    if(particles.length > maxParticles) particles.shift();
+    const vx = (Math.random()-0.5) * 0.6;
+    const vy = (Math.random()-0.5) * 0.6;
+    const size = 60 + Math.random()*80;
+    const col = palette[Math.floor(Math.random()*palette.length)];
+    particles.push({x,y,vx,vy,size,life:1,dec:0.008,col});
+  }
+
+  function draw(){
+    // soft fade to create trails
+    ctx.fillStyle = 'rgba(255,255,255,0.18)';
+    ctx.fillRect(0,0,w,h);
+
+    for(let i=0;i<particles.length;i++){
+      const p = particles[i];
+      p.x += (pointer.x - p.x) * 0.08 + p.vx;
+      p.y += (pointer.y - p.y) * 0.08 + p.vy;
+      p.life -= p.dec;
+      const alpha = Math.max(0, p.life);
+
+      ctx.beginPath();
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+      // parse rgb from the particle color (expected format: rgba(r,g,b,a))
+      const m = p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);
+      if(m){
+        const r = m[1], g = m[2], b = m[3];
+        const innerAlpha = (0.65 * alpha).toFixed(3);
+        grad.addColorStop(0, `rgba(${r},${g},${b},${innerAlpha})`);
+        grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.fillStyle = grad;
+      } else {
+        // fallback to solid color
+        ctx.fillStyle = p.col;
+      }
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    // remove dead
+    while(particles.length && particles[0].life <= 0) particles.shift();
+
+    requestAnimationFrame(draw);
+  }
+
+  // pre-spawn a few gentle blobs in center
+  for(let i=0;i<8;i++) spawnParticle(w/2 + (Math.random()-0.5)*200, h/2 + (Math.random()-0.5)*200);
+  draw();
+})();
+
+// remove per-letter animations after a while to keep layout steady
+setTimeout(()=>{
+  const letters = document.querySelectorAll('.letter');
+  letters.forEach(l=>{
+    l.style.animation = '';
+    l.style.opacity = '1';
+  });
+}, 3200);
+
+// --- Simple hash router: support links like #/about or #about and smooth-scroll to sections ---
+(function(){
+  function goTo(hash){
+    if(!hash) return window.scrollTo({top:0,behavior:'smooth'});
+    // allow both #about and #/about
+    const id = hash.replace(/^#\/?/,'');
+    const el = document.getElementById(id);
+    if(el){
+      el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  }
+
+  // handle initial load
+  goTo(location.hash);
+
+  // listen for hash changes
+  window.addEventListener('hashchange', ()=> goTo(location.hash));
+
+  // intercept clicks on internal links to update hash without full reload
+  document.addEventListener('click', (e)=>{
+    const a = e.target.closest('a');
+    if(!a) return;
+    const href = a.getAttribute('href') || '';
+    if(href.startsWith('#')){
+      e.preventDefault();
+      history.pushState(null,'',href);
+      goTo(href);
+    }
+  });
+})();
+
+// --- Navigation: dots, keyboard, swipe ---
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dots = Array.from(document.querySelectorAll('.nav-dot'));
+  if(!slides.length || !dots.length) return;
+
+  let currentSlide = 0;
+
+  function updateDots(){
+    dots.forEach((d,i)=>{
+      d.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function goToSlide(index){
+    if(index < 0 || index >= slides.length) return;
+    currentSlide = index;
+    slides[index].scrollIntoView({behavior:'smooth',block:'start'});
+    updateDots();
+  }
+
+  // Dot click
+  dots.forEach((d,i)=>{
+    d.addEventListener('click', ()=> goToSlide(i));
+  });
+
+  // Keyboard navigation (Up/Down arrows)
+  window.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowDown' || e.key === 'Down'){
+      e.preventDefault();
+      goToSlide(currentSlide + 1);
+    } else if(e.key === 'ArrowUp' || e.key === 'Up'){
+      e.preventDefault();
+      goToSlide(currentSlide - 1);
+    }
+  });
+
+  // Touch swipe support (mobile)
+  let touchStartY = 0;
+  let touchEndY = 0;
+  window.addEventListener('touchstart', (e)=>{
+    touchStartY = e.changedTouches[0].screenY;
+  }, {passive:true});
+  window.addEventListener('touchend', (e)=>{
+    touchEndY = e.changedTouches[0].screenY;
+    const diff = touchStartY - touchEndY;
+    if(Math.abs(diff) > 50){ // swipe threshold
+      if(diff > 0){
+        // swipe up = next slide
+        goToSlide(currentSlide + 1);
+      } else {
+        // swipe down = prev slide
+        goToSlide(currentSlide - 1);
+      }
+    }
+  }, {passive:true});
+
+  // Update active dot on scroll (in case user scrolls manually)
+  const scrollObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        const idx = slides.indexOf(en.target);
+        if(idx !== -1 && idx !== currentSlide){
+          currentSlide = idx;
+          updateDots();
+        }
+      }
+    });
+  },{threshold:0.5});
+  slides.forEach(s=> scrollObserver.observe(s));
+})();
+
+// --- Contact form handler ---
+(function(){
+  const form = document.querySelector('.contact-form');
+  if(!form) return;
+
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+
+    // Simple validation
+    if(!name || !email || !message){
+      alert('Please fill in all fields');
+      return;
+    }
+
+    // Demo mode - show success message
+    alert(`Thanks ${name}! Your message has been received. (Demo mode - no actual email sent)`);
+    form.reset();
+  });
+})();
+
+    </script>
+  </body>
+</html>
