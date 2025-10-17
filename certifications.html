@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Certifications - Andrea Betrina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="floating-elements" aria-hidden="true">
+      <span class="float-icon" style="top: 15%; left: 10%;">✨</span>
+      <span class="float-icon" style="top: 25%; left: 85%;">⭐</span>
+      <span class="float-icon" style="top: 60%; left: 8%;">💫</span>
+      <span class="float-icon" style="top: 70%; left: 90%;">🌸</span>
+      <span class="float-icon" style="top: 40%; left: 5%;">✦</span>
+      <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="certifications.html" class="nav-link active">Certifications</a>
+      <a href="timeline.html" class="nav-link">Timeline</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <main class="page">
+      <!-- Dreamy Animated Gradient Background -->
+      <div class="dreamy-gradient-bg"></div>
+      
+      <!-- Floating Gradient Blobs -->
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="bg-blobs" aria-hidden="true">
+        <span class="b b1"></span><span class="b b2"></span><span class="b b3"></span>
+        <span class="b b4"></span><span class="b b5"></span><span class="b b6"></span>
+      </div>
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+      <section class="certifications slide" id="certifications">
+        <div class="section-card">
+          <h2 class="section-title">Certifications & Learning</h2>
+          <p class="cert-intro">Continuous learning fuels my growth — here's proof of my commitment to excellence! 🎓✨</p>
+          
+          <!-- Filter Tabs -->
+          <div class="cert-filters">
+            <button class="cert-filter-btn active" data-filter="all">
+              <span class="filter-emoji">✨</span>
+              <span>All</span>
+            </button>
+            <button class="cert-filter-btn" data-filter="tech">
+              <span class="filter-emoji">💻</span>
+              <span>Tech</span>
+            </button>
+            <button class="cert-filter-btn" data-filter="design">
+              <span class="filter-emoji">🎨</span>
+              <span>Design</span>
+            </button>
+            <button class="cert-filter-btn" data-filter="communication">
+              <span class="filter-emoji">�️</span>
+              <span>Communication</span>
+            </button>
+            <button class="cert-filter-btn" data-filter="others">
+              <span class="filter-emoji">🌟</span>
+              <span>Others</span>
+            </button>
+          </div>
+
+          <!-- Certifications Grid -->
+          <div class="cert-grid-new">
+            
+            <!-- Tech Certifications -->
+            <div class="cert-card" data-category="tech">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">💻</div>
+                <div class="cert-badge tech">Tech</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Complete Web Development Bootcamp</h3>
+                <p class="cert-issuer">Udemy · 2024</p>
+                <p class="cert-description">Comprehensive course covering HTML, CSS, JavaScript, React, Node.js, and MongoDB.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="tech">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">⚛️</div>
+                <div class="cert-badge tech">Tech</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">React - The Complete Guide</h3>
+                <p class="cert-issuer">Udemy · 2024</p>
+                <p class="cert-description">Deep dive into React, including hooks, context, Redux, and Next.js fundamentals.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="tech">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🐍</div>
+                <div class="cert-badge tech">Tech</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Python for Data Science</h3>
+                <p class="cert-issuer">Coursera · 2023</p>
+                <p class="cert-description">Python fundamentals, data analysis with pandas, and data visualization.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <!-- Design Certifications -->
+            <div class="cert-card" data-category="design">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🎨</div>
+                <div class="cert-badge design">Design</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">UI/UX Design Fundamentals</h3>
+                <p class="cert-issuer">Google UX Design · 2024</p>
+                <p class="cert-description">User-centered design principles, wireframing, prototyping, and usability testing.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="design">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">✨</div>
+                <div class="cert-badge design">Design</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Figma for UI Design</h3>
+                <p class="cert-issuer">Skillshare · 2024</p>
+                <p class="cert-description">Mastering Figma for interface design, prototyping, and design systems.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="design">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🎭</div>
+                <div class="cert-badge design">Design</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Digital Illustration & Character Design</h3>
+                <p class="cert-issuer">Domestika · 2023</p>
+                <p class="cert-description">Creating expressive characters and illustrations using digital tools.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <!-- Communication Certifications -->
+            <div class="cert-card" data-category="communication">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🗣️</div>
+                <div class="cert-badge communication">Communication</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Toastmasters Competent Communicator</h3>
+                <p class="cert-issuer">Toastmasters International · 2024</p>
+                <p class="cert-description">Completed 10 speeches demonstrating competence in public speaking.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="communication">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">💬</div>
+                <div class="cert-badge communication">Communication</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Effective Communication Skills</h3>
+                <p class="cert-issuer">LinkedIn Learning · 2024</p>
+                <p class="cert-description">Professional communication, active listening, and interpersonal skills.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <!-- Others Certifications -->
+            <div class="cert-card" data-category="others">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🏆</div>
+                <div class="cert-badge others">Others</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Leadership & Team Management</h3>
+                <p class="cert-issuer">Coursera · 2024</p>
+                <p class="cert-description">Leading teams effectively, conflict resolution, and motivational strategies.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="others">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🎯</div>
+                <div class="cert-badge others">Others</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Project Management Essentials</h3>
+                <p class="cert-issuer">Google Project Management · 2023</p>
+                <p class="cert-description">Agile methodologies, project planning, and stakeholder management.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="others">
+              <div class="cert-thumbnail">
+                <div class="cert-thumb-icon">🌱</div>
+                <div class="cert-badge others">Others</div>
+              </div>
+              <div class="cert-content">
+                <h3 class="cert-title">Personal Branding & Career Development</h3>
+                <p class="cert-issuer">LinkedIn Learning · 2024</p>
+                <p class="cert-description">Building a personal brand, networking strategies, and career growth.</p>
+                <button class="verify-btn" onclick="window.open('#', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function(){const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),b=document.body,c=localStorage.getItem('theme')||'light';b.setAttribute('data-theme',c);i.textContent=c==='dark'?'☀️':'🌙';t.addEventListener('click',()=>{const th=b.getAttribute('data-theme')==='light'?'dark':'light';b.setAttribute('data-theme',th);localStorage.setItem('theme',th);i.textContent=th==='dark'?'☀️':'🌙';});});
+
+// Certification Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.cert-filter-btn');
+  const certCards = document.querySelectorAll('.cert-card');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const filter = btn.dataset.filter;
+      
+      // Filter certificates with animation
+      certCards.forEach((card, index) => {
+        const category = card.dataset.category;
+        
+        if (filter === 'all' || category === filter) {
+          setTimeout(() => {
+            card.style.display = 'flex';
+            setTimeout(() => card.classList.add('show'), 10);
+          }, index * 50);
+        } else {
+          card.classList.remove('show');
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+  
+  // Initialize - show all certificates with stagger
+  setTimeout(() => {
+    certCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('show');
+      }, index * 80);
+    });
+  }, 100);
+});
+(function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const canvas=document.getElementById('flow-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;const particles=[],maxParticles=80,palette=['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});let pointer={x:w/2,y:h/2};window.addEventListener('pointermove',(e)=>{pointer.x=e.clientX;pointer.y=e.clientY;spawnParticle(pointer.x,pointer.y);});function spawnParticle(x,y){if(particles.length>maxParticles)particles.shift();particles.push({x,y,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,size:60+Math.random()*80,life:1,dec:0.008,col:palette[Math.floor(Math.random()*palette.length)]});}function draw(){ctx.fillStyle='rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p=particles[i];p.x+=(pointer.x-p.x)*0.08+p.vx;p.y+=(pointer.y-p.y)*0.08+p.vy;p.life-=p.dec;const alpha=Math.max(0,p.life);ctx.beginPath();const grad=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);const m=p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r=m[1],g=m[2],b=m[3],innerAlpha=(0.65*alpha).toFixed(3);grad.addColorStop(0,`rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=grad;}ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}while(particles.length&&particles[0].life<=0)particles.shift();requestAnimationFrame(draw);}for(let i=0;i<8;i++)spawnParticle(w/2+(Math.random()-0.5)*200,h/2+(Math.random()-0.5)*200);draw();})();
+    </script>
+  </body>
+</html>

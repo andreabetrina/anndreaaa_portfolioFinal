@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Achievements - Andrea Betrina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="floating-elements" aria-hidden="true">
+      <span class="float-icon" style="top: 15%; left: 10%;">✨</span>
+      <span class="float-icon" style="top: 25%; left: 85%;">⭐</span>
+      <span class="float-icon" style="top: 60%; left: 8%;">💫</span>
+      <span class="float-icon" style="top: 70%; left: 90%;">🌸</span>
+      <span class="float-icon" style="top: 40%; left: 5%;">✦</span>
+      <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="achievements.html" class="nav-link active">Achievements</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="certifications.html" class="nav-link">Certifications</a>
+      <a href="timeline.html" class="nav-link">Timeline</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <main class="page">
+      <!-- Dreamy Animated Gradient Background -->
+      <div class="dreamy-gradient-bg"></div>
+      
+      <!-- Floating Gradient Blobs -->
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="bg-blobs" aria-hidden="true">
+        <span class="b b1"></span><span class="b b2"></span><span class="b b3"></span>
+        <span class="b b4"></span><span class="b b5"></span><span class="b b6"></span>
+      </div>
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+      <section class="achievements slide" id="achievements">
+        <div class="section-card">
+          <h2 class="section-title">Achievements & Milestones</h2>
+          <p class="achievements-intro">Every achievement tells a story of growth, courage, and passion</p>
+
+          <!-- Achievement Tabs -->
+          <div class="achievement-tabs">
+            <button class="achievement-tab active" data-tab="speaking">
+              <span class="tab-emoji">🗣️</span>
+              <span class="tab-label">Public Speaking</span>
+            </button>
+            <button class="achievement-tab" data-tab="art">
+              <span class="tab-emoji">🎨</span>
+              <span class="tab-label">Art & Design</span>
+            </button>
+            <button class="achievement-tab" data-tab="leadership">
+              <span class="tab-emoji">🎓</span>
+              <span class="tab-label">Leadership</span>
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content-container">
+            <!-- Public Speaking Tab -->
+            <div class="tab-content active" data-content="speaking">
+              <div class="achievement-grid-new">
+                <div class="achievement-item" data-story="toastmasters">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">�</span>
+                    <h3 class="achievement-title">Active Toastmaster</h3>
+                    <p class="achievement-subtitle">Stella Mary's Toastmasters Club</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"This journey helped me overcome stage fear! From trembling hands to confident speeches, Toastmasters taught me that voice is power."</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-story="hosting">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">🎙️</span>
+                    <h3 class="achievement-title">Event Host</h3>
+                    <p class="achievement-subtitle">Multiple University Events</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Hosting taught me to think on my feet and connect with diverse audiences. Every event was a chance to bring energy and joy to the room!"</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-story="presentation">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">📊</span>
+                    <h3 class="achievement-title">Best Presentation Award</h3>
+                    <p class="achievement-subtitle">Tech Symposium 2024</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Winning this award validated all the late-night preparation. It showed me that passion and preparation create magic together."</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Art & Design Tab -->
+            <div class="tab-content" data-content="art">
+              <div class="achievement-grid-new">
+                <div class="achievement-item" data-story="design-contest">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">�</span>
+                    <h3 class="achievement-title">Design Competition Winner</h3>
+                    <p class="achievement-subtitle">University Art Festival</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"My minimal aesthetic caught everyone's attention! This win proved that simplicity speaks volumes when done with intention."</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-story="portfolio">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">🖼️</span>
+                    <h3 class="achievement-title">Featured Portfolio</h3>
+                    <p class="achievement-subtitle">Creative Showcase 2024</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Seeing my work displayed alongside talented artists reminded me that creativity is about expressing your unique perspective."</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-story="digital-art">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">✨</span>
+                    <h3 class="achievement-title">Digital Art Exhibition</h3>
+                    <p class="achievement-subtitle">College Art Week</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Blending traditional sketches with digital techniques opened new creative horizons. Art is limitless when imagination leads!"</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leadership Tab -->
+            <div class="tab-content" data-content="leadership">
+              <div class="achievement-grid-new">
+                <div class="achievement-item" data-story="basher">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">🏆</span>
+                    <h3 class="achievement-title">Active Basher</h3>
+                    <p class="achievement-subtitle">Byte Bash Blitz</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Being part of this tech community taught me collaboration and innovation. We didn't just compete—we grew together!"</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-story="captain">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">�</span>
+                    <h3 class="achievement-title">Basketball Team Captain</h3>
+                    <p class="achievement-subtitle">University Athletics</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Leading my team taught me that true leadership is about lifting others up. Every game was a lesson in trust and teamwork."</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+
+                <div class="achievement-item" data-story="coordinator">
+                  <div class="achievement-front">
+                    <span class="achievement-icon-new">📋</span>
+                    <h3 class="achievement-title">Event Coordinator</h3>
+                    <p class="achievement-subtitle">Tech Fest 2024</p>
+                    <span class="click-hint">Click to see the story</span>
+                  </div>
+                  <div class="achievement-story">
+                    <span class="story-icon">💭</span>
+                    <p class="story-text">"Organizing this fest from scratch was challenging but rewarding. I learned that great events are built on great teams and clear vision."</p>
+                    <span class="story-close">← Back</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function(){
+  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),b=document.body,c=localStorage.getItem('theme')||'light';
+  b.setAttribute('data-theme',c);
+  i.textContent=c==='dark'?'☀️':'🌙';
+  t.addEventListener('click',()=>{
+    const th=b.getAttribute('data-theme')==='light'?'dark':'light';
+    b.setAttribute('data-theme',th);
+    localStorage.setItem('theme',th);
+    i.textContent=th==='dark'?'☀️':'🌙';
+  });
+
+  // Achievement Tabs Switching
+  const tabs = document.querySelectorAll('.achievement-tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const tabName = this.getAttribute('data-tab');
+      
+      // Remove active from all tabs and contents
+      tabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+      
+      // Add active to clicked tab
+      this.classList.add('active');
+      
+      // Show corresponding content with animation
+      const activeContent = document.querySelector(`[data-content="${tabName}"]`);
+      if (activeContent) {
+        setTimeout(() => {
+          activeContent.classList.add('active');
+        }, 150);
+      }
+    });
+  });
+
+  // Achievement Story Toggle
+  const achievementItems = document.querySelectorAll('.achievement-item');
+
+  achievementItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const isFlipped = this.classList.contains('flipped');
+      
+      // Close all other items
+      achievementItems.forEach(i => i.classList.remove('flipped'));
+      
+      // Toggle this item
+      if (!isFlipped) {
+        this.classList.add('flipped');
+      }
+    });
+  });
+
+  // Close story when clicking back
+  const storyCloses = document.querySelectorAll('.story-close');
+  storyCloses.forEach(close => {
+    close.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.closest('.achievement-item').classList.remove('flipped');
+    });
+  });
+});
+(function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const canvas=document.getElementById('flow-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;const particles=[],maxParticles=80,palette=['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});let pointer={x:w/2,y:h/2};window.addEventListener('pointermove',(e)=>{pointer.x=e.clientX;pointer.y=e.clientY;spawnParticle(pointer.x,pointer.y);});function spawnParticle(x,y){if(particles.length>maxParticles)particles.shift();particles.push({x,y,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,size:60+Math.random()*80,life:1,dec:0.008,col:palette[Math.floor(Math.random()*palette.length)]});}function draw(){ctx.fillStyle='rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p=particles[i];p.x+=(pointer.x-p.x)*0.08+p.vx;p.y+=(pointer.y-p.y)*0.08+p.vy;p.life-=p.dec;const alpha=Math.max(0,p.life);ctx.beginPath();const grad=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);const m=p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r=m[1],g=m[2],b=m[3],innerAlpha=(0.65*alpha).toFixed(3);grad.addColorStop(0,`rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=grad;}ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}while(particles.length&&particles[0].life<=0)particles.shift();requestAnimationFrame(draw);}for(let i=0;i<8;i++)spawnParticle(w/2+(Math.random()-0.5)*200,h/2+(Math.random()-0.5)*200);draw();})();
+    </script>
+  </body>
+</html>

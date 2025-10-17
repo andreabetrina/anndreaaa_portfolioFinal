@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Skills - Andrea Betrina</title>
+    <!-- Poppins Font for Modern, Clean Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Floating Stars/Icons for Magical Background -->
+    <div class="floating-elements" aria-hidden="true">
+      <span class="float-icon" style="top: 15%; left: 10%;">✨</span>
+      <span class="float-icon" style="top: 25%; left: 85%;">⭐</span>
+      <span class="float-icon" style="top: 60%; left: 8%;">💫</span>
+      <span class="float-icon" style="top: 70%; left: 90%;">🌸</span>
+      <span class="float-icon" style="top: 40%; left: 5%;">✦</span>
+      <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
+    </div>
+
+    <!-- Theme Toggle Button (top-left) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+
+    <!-- Top Navigation with Glassy Effect -->
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link active">Skills</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="certifications.html" class="nav-link">Certifications</a>
+      <a href="timeline.html" class="nav-link">Timeline</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    
+    <main class="page">
+      <!-- Dreamy Animated Gradient Background -->
+      <div class="dreamy-gradient-bg"></div>
+      
+      <!-- Floating Gradient Blobs -->
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="bg-blobs" aria-hidden="true">
+        <span class="b b1"></span>
+        <span class="b b2"></span>
+        <span class="b b3"></span>
+        <span class="b b4"></span>
+        <span class="b b5"></span>
+        <span class="b b6"></span>
+      </div>
+
+      <!-- Canvas for cursor-driven fluid color flow -->
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+
+      <section class="skills slide" id="skills">
+        <div class="section-card">
+          <h2 class="section-title">Skills & Expertise</h2>
+          <p class="skills-intro">A blend of technical abilities, creative vision, and soft skills</p>
+
+          <!-- Technical Skills Category -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-icon">💻</span>
+              <h3 class="category-title">Technical Skills</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML & CSS</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Figma</span>
+                  <span class="skill-percent">75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="75"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Canva</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">GitHub Basics</span>
+                  <span class="skill-percent">70%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Creative Skills Category -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-icon">🎨</span>
+              <h3 class="category-title">Creative Skills</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Digital Art</span>
+                  <span class="skill-percent">75%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill creative-fill" data-progress="75"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Sketching</span>
+                  <span class="skill-percent">80%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill creative-fill" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Design Sense</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill creative-fill" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">UI/UX Principles</span>
+                  <span class="skill-percent">70%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill creative-fill" data-progress="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills Category -->
+          <div class="skill-category">
+            <div class="category-header">
+              <span class="category-icon">🗣️</span>
+              <h3 class="category-title">Soft Skills</h3>
+            </div>
+            <div class="skills-list">
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Communication</span>
+                  <span class="skill-percent">90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill soft-fill" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Leadership</span>
+                  <span class="skill-percent">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill soft-fill" data-progress="85"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Presentation</span>
+                  <span class="skill-percent">88%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill soft-fill" data-progress="88"></div>
+                </div>
+              </div>
+              <div class="skill-bar-item">
+                <div class="skill-info">
+                  <span class="skill-name">Teamwork</span>
+                  <span class="skill-percent">87%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill soft-fill" data-progress="87"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Currently Learning Section -->
+          <div class="learning-section">
+            <h3 class="learning-title">
+              <span class="learning-icon">🌱</span>
+              Currently Learning
+            </h3>
+            <div class="learning-badges">
+              <div class="learning-badge">
+                <span class="badge-emoji">⚡</span>
+                <span class="badge-text">JavaScript</span>
+                <span class="badge-status">In Progress</span>
+              </div>
+              <div class="learning-badge">
+                <span class="badge-emoji">⚛️</span>
+                <span class="badge-text">React</span>
+                <span class="badge-status">Exploring</span>
+              </div>
+              <div class="learning-badge">
+                <span class="badge-emoji">🚀</span>
+                <span class="badge-text">Next.js</span>
+                <span class="badge-status">Starting Soon</span>
+              </div>
+              <div class="learning-badge">
+                <span class="badge-emoji">🎯</span>
+                <span class="badge-text">TypeScript</span>
+                <span class="badge-status">Planning</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function(){
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const body = document.body;
+  
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  body.setAttribute('data-theme', currentTheme);
+  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  
+  themeToggle.addEventListener('click', () => {
+    const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+  });
+
+  // Animate Progress Bars
+  const progressBars = document.querySelectorAll('.progress-fill');
+  
+  const animateProgressBars = () => {
+    progressBars.forEach((bar, index) => {
+      const progress = bar.getAttribute('data-progress');
+      setTimeout(() => {
+        bar.style.width = progress + '%';
+      }, index * 100); // Stagger animation by 100ms each
+    });
+  };
+
+  // Trigger animation on page load
+  setTimeout(animateProgressBars, 300);
+
+  // Optional: Animate when scrolling into view (if you want)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressFill = entry.target;
+        const progress = progressFill.getAttribute('data-progress');
+        progressFill.style.width = progress + '%';
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progressBars.forEach(bar => observer.observe(bar));
+});
+
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return;
+  const canvas = document.getElementById('flow-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+  const particles = [];
+  const maxParticles = 80;
+  const palette = ['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];
+  function resize(){w = canvas.width = window.innerWidth;h = canvas.height = window.innerHeight;}
+  window.addEventListener('resize', resize);
+  let pointer = {x: w/2, y: h/2};
+  window.addEventListener('pointermove', (e)=>{pointer.x = e.clientX;pointer.y = e.clientY;spawnParticle(pointer.x, pointer.y);});
+  function spawnParticle(x,y){if(particles.length > maxParticles) particles.shift();const vx = (Math.random()-0.5)*0.6;const vy = (Math.random()-0.5)*0.6;const size = 60+Math.random()*80;const col = palette[Math.floor(Math.random()*palette.length)];particles.push({x,y,vx,vy,size,life:1,dec:0.008,col});}
+  function draw(){ctx.fillStyle = 'rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p = particles[i];p.x += (pointer.x - p.x)*0.08 + p.vx;p.y += (pointer.y - p.y)*0.08 + p.vy;p.life -= p.dec;const alpha = Math.max(0, p.life);ctx.beginPath();const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);const m = p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r = m[1], g = m[2], b = m[3];const innerAlpha = (0.65*alpha).toFixed(3);grad.addColorStop(0, `rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1, `rgba(${r},${g},${b},0)`);ctx.fillStyle = grad;}ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);ctx.fill();}while(particles.length && particles[0].life <= 0) particles.shift();requestAnimationFrame(draw);}
+  for(let i=0;i<8;i++) spawnParticle(w/2 + (Math.random()-0.5)*200, h/2 + (Math.random()-0.5)*200);
+  draw();
+})();
+    </script>
+  </body>
+</html>

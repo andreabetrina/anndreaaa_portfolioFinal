@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About - Andrea Betrina</title>
+    <!-- Poppins Font for Modern, Clean Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Floating Stars/Icons for Magical Background -->
+    <div class="floating-elements" aria-hidden="true">
+      <span class="float-icon" style="top: 15%; left: 10%;">✨</span>
+      <span class="float-icon" style="top: 25%; left: 85%;">⭐</span>
+      <span class="float-icon" style="top: 60%; left: 8%;">💫</span>
+      <span class="float-icon" style="top: 70%; left: 90%;">🌸</span>
+      <span class="float-icon" style="top: 40%; left: 5%;">✦</span>
+      <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
+    </div>
+
+    <!-- Theme Toggle Button (top-left) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+
+    <!-- Top Navigation with Glassy Effect -->
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="certifications.html" class="nav-link">Certifications</a>
+      <a href="timeline.html" class="nav-link">Timeline</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    
+    <main class="page">
+      <!-- Dreamy Animated Gradient Background -->
+      <div class="dreamy-gradient-bg"></div>
+      
+      <!-- Floating Gradient Blobs -->
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="bg-blobs" aria-hidden="true">
+        <span class="b b1"></span>
+        <span class="b b2"></span>
+        <span class="b b3"></span>
+        <span class="b b4"></span>
+        <span class="b b5"></span>
+        <span class="b b6"></span>
+      </div>
+
+      <!-- Canvas for cursor-driven fluid color flow -->
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+
+      <section class="about slide" id="about">
+        <div class="about-inner">
+          <h2 class="about-title">A Little About Andrea</h2>
+          <p class="about-text">Hey, I'm Andrea Betrina — a passionate learner and creative soul, currently pursuing my Engineering degree. I love creating things in a minimal and aesthetic way, expressing ideas with creativity and heart.</p>
+
+          <p class="about-text">I'm a public speaker, a proud Toastmaster at Stella Mary's Toastmasters, and an active Basher at Byte Bash Blitz. Beyond that, I'm deeply involved in sports and athletics, especially basketball, and I love dancing — it's one of the ways I express energy and joy.</p>
+
+          <p class="about-text">I believe that doing small things with great love can lead to something truly beautiful. That thought inspires me to keep learning, growing, and creating every single day. 🌷</p>
+
+          <!-- Personality Selector -->
+          <div class="personality-section">
+            <!-- Animated Background Blobs -->
+            <div class="personality-bg-blobs" aria-hidden="true">
+              <span class="gradient-blob blob-1"></span>
+              <span class="gradient-blob blob-2"></span>
+              <span class="gradient-blob blob-3"></span>
+            </div>
+
+            <h3 class="personality-title">Explore My Personality ✨</h3>
+            <p class="personality-subtitle">Click to discover different facets of who I am</p>
+            
+            <div class="personality-buttons">
+              <button class="personality-btn active" data-personality="speaker">
+                <span class="btn-emoji">💬</span>
+                <span class="btn-label">Speaker</span>
+              </button>
+              <button class="personality-btn" data-personality="dancer">
+                <span class="btn-emoji">💃</span>
+                <span class="btn-label">Dancer</span>
+              </button>
+              <button class="personality-btn" data-personality="athlete">
+                <span class="btn-emoji">🏀</span>
+                <span class="btn-label">Athlete</span>
+              </button>
+              <button class="personality-btn" data-personality="creator">
+                <span class="btn-emoji">🎨</span>
+                <span class="btn-label">Creator</span>
+              </button>
+              <button class="personality-btn" data-personality="artist">
+                <span class="btn-emoji">🖌️</span>
+                <span class="btn-label">Artist</span>
+              </button>
+            </div>
+
+            <div class="personality-display">
+              <!-- Speaker Content -->
+              <div class="personality-card active" data-card="speaker">
+                <div class="personality-image">
+                  <div class="image-placeholder">
+                    <span class="placeholder-icon">💬</span>
+                  </div>
+                </div>
+                <div class="personality-content">
+                  <h4 class="personality-role">Public Speaker</h4>
+                  <p class="personality-quote">"Voice with purpose."</p>
+                  <p class="personality-description">
+                    As a proud member of Stella Mary's Toastmasters, I've honed my skills in public speaking and leadership. 
+                    I believe in the power of words to inspire, motivate, and create meaningful connections. Every speech is 
+                    an opportunity to touch hearts and minds.
+                  </p>
+                  <div class="personality-tags">
+                    <span class="tag">Toastmasters</span>
+                    <span class="tag">Leadership</span>
+                    <span class="tag">Communication</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dancer Content -->
+              <div class="personality-card" data-card="dancer">
+                <div class="personality-image">
+                  <div class="image-placeholder">
+                    <span class="placeholder-icon">💃</span>
+                  </div>
+                </div>
+                <div class="personality-content">
+                  <h4 class="personality-role">Passionate Dancer</h4>
+                  <p class="personality-quote">"Movement is my language."</p>
+                  <p class="personality-description">
+                    Dancing is where I find my flow and express pure joy. Whether it's on stage or just moving to the rhythm, 
+                    dance allows me to communicate emotions that words sometimes can't capture. It's my creative outlet and 
+                    a way to stay connected with my energetic side.
+                  </p>
+                  <div class="personality-tags">
+                    <span class="tag">Expression</span>
+                    <span class="tag">Rhythm</span>
+                    <span class="tag">Energy</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Athlete Content -->
+              <div class="personality-card" data-card="athlete">
+                <div class="personality-image">
+                  <div class="image-placeholder">
+                    <span class="placeholder-icon">🏀</span>
+                  </div>
+                </div>
+                <div class="personality-content">
+                  <h4 class="personality-role">Dedicated Athlete</h4>
+                  <p class="personality-quote">"Strength in every stride."</p>
+                  <p class="personality-description">
+                    Basketball and athletics are more than just sports to me — they're lessons in discipline, teamwork, and 
+                    perseverance. On the court, I've learned that success comes from dedication, practice, and the will to 
+                    push beyond limits. Every game is a new challenge to embrace.
+                  </p>
+                  <div class="personality-tags">
+                    <span class="tag">Basketball</span>
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Discipline</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Creator Content -->
+              <div class="personality-card" data-card="creator">
+                <div class="personality-image">
+                  <div class="image-placeholder">
+                    <span class="placeholder-icon">🎨</span>
+                  </div>
+                </div>
+                <div class="personality-content">
+                  <h4 class="personality-role">Creative Designer</h4>
+                  <p class="personality-quote">"Creativity is my quiet superpower."</p>
+                  <p class="personality-description">
+                    As a creator, I'm driven by the desire to make things beautiful and meaningful. From web design to 
+                    visual aesthetics, I believe in minimalism with purpose. Every project is an opportunity to blend 
+                    creativity with functionality, turning ideas into elegant digital experiences.
+                  </p>
+                  <div class="personality-tags">
+                    <span class="tag">Design</span>
+                    <span class="tag">Aesthetics</span>
+                    <span class="tag">Innovation</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Artist Content -->
+              <div class="personality-card artist-card" data-card="artist">
+                <div class="personality-image">
+                  <div class="image-placeholder artist-placeholder">
+                    <span class="placeholder-icon">🖌️</span>
+                    <div class="paint-splashes" aria-hidden="true">
+                      <span class="paint-splash splash-1">✨</span>
+                      <span class="paint-splash splash-2">💫</span>
+                      <span class="paint-splash splash-3">🌸</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="personality-content">
+                  <h4 class="personality-role">Passionate Artist</h4>
+                  <p class="personality-quote">"Colors are my language, imagination is my voice."</p>
+                  <p class="personality-description">
+                    Art for me is more than expression — it's connection. I love creating minimal yet aesthetic visuals 
+                    that carry meaning. Whether it's a sketch, a design, or digital artwork, I believe creativity gives 
+                    emotion its form and helps me see the world differently every time I draw.
+                  </p>
+                  <div class="personality-tags">
+                    <span class="tag">Creativity</span>
+                    <span class="tag">Visual Thinking</span>
+                    <span class="tag">Expression</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Theme Toggle Functionality
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const body = document.body;
+  
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  body.setAttribute('data-theme', currentTheme);
+  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  
+  themeToggle.addEventListener('click', () => {
+    const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+  });
+
+  // Personality Selector Functionality
+  const personalityBtns = document.querySelectorAll('.personality-btn');
+  const personalityCards = document.querySelectorAll('.personality-card');
+  const personalityDisplay = document.querySelector('.personality-display');
+
+  personalityBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const personality = this.getAttribute('data-personality');
+      
+      // Remove active class from all buttons
+      personalityBtns.forEach(b => b.classList.remove('active'));
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Add button click animation
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+      
+      // Hide all cards with fade out
+      personalityCards.forEach(card => {
+        card.classList.remove('active');
+        card.style.animation = 'none';
+      });
+      
+      // Show selected card with pop animation after a brief delay
+      setTimeout(() => {
+        const activeCard = document.querySelector(`[data-card="${personality}"]`);
+        if (activeCard) {
+          // Force reflow to restart animation
+          void activeCard.offsetWidth;
+          activeCard.classList.add('active');
+          
+          // Smooth scroll to the card
+          setTimeout(() => {
+            activeCard.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'nearest',
+              inline: 'nearest'
+            });
+          }, 100);
+        }
+      }, 250);
+    });
+  });
+});
+
+/* Cursor-driven fluid flow animation */
+(function(){
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced) return;
+
+  const canvas = document.getElementById('flow-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+
+  const particles = [];
+  const maxParticles = 80;
+
+  const palette = [
+    'rgba(255,144,179,0.14)',
+    'rgba(138,102,255,0.12)',
+    'rgba(255,210,180,0.08)'
+  ];
+
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+
+  let pointer = {x: w/2, y: h/2};
+  window.addEventListener('pointermove', (e)=>{
+    pointer.x = e.clientX;
+    pointer.y = e.clientY;
+    spawnParticle(pointer.x, pointer.y);
+  });
+
+  function spawnParticle(x,y){
+    if(particles.length > maxParticles) particles.shift();
+    const vx = (Math.random()-0.5) * 0.6;
+    const vy = (Math.random()-0.5) * 0.6;
+    const size = 60 + Math.random()*80;
+    const col = palette[Math.floor(Math.random()*palette.length)];
+    particles.push({x,y,vx,vy,size,life:1,dec:0.008,col});
+  }
+
+  function draw(){
+    ctx.fillStyle = 'rgba(255,255,255,0.18)';
+    ctx.fillRect(0,0,w,h);
+
+    for(let i=0;i<particles.length;i++){
+      const p = particles[i];
+      p.x += (pointer.x - p.x) * 0.08 + p.vx;
+      p.y += (pointer.y - p.y) * 0.08 + p.vy;
+      p.life -= p.dec;
+      const alpha = Math.max(0, p.life);
+
+      ctx.beginPath();
+      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+      const m = p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);
+      if(m){
+        const r = m[1], g = m[2], b = m[3];
+        const innerAlpha = (0.65 * alpha).toFixed(3);
+        grad.addColorStop(0, `rgba(${r},${g},${b},${innerAlpha})`);
+        grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+        ctx.fillStyle = grad;
+      }
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      ctx.fill();
+    }
+
+    while(particles.length && particles[0].life <= 0) particles.shift();
+    requestAnimationFrame(draw);
+  }
+
+  for(let i=0;i<8;i++) spawnParticle(w/2 + (Math.random()-0.5)*200, h/2 + (Math.random()-0.5)*200);
+  draw();
+})();
+    </script>
+  </body>
+</html>

@@ -4,11 +4,40 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Andrea Betrina — Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Poppins Font for Modern, Clean Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Theme Toggle Button (top-left) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+
+    <!-- Top Navigation with Glassy Effect -->
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="certifications.html" class="nav-link">Certifications</a>
+      <a href="timeline.html" class="nav-link">Timeline</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
     <main class="page">
+      <!-- Dreamy Animated Gradient Background -->
+      <div class="dreamy-gradient-bg"></div>
+      
+      <!-- Floating Gradient Blobs -->
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+
       <div class="gradient-overlay" aria-hidden="true"></div>
       <div class="bg-blobs" aria-hidden="true">
         <span class="b b1"></span>
@@ -22,177 +51,60 @@
       <!-- Canvas for cursor-driven fluid color flow -->
       <canvas id="flow-canvas" aria-hidden="true"></canvas>
 
-      <!-- Navigation dots -->
-      <nav class="nav-dots" aria-label="Slide navigation">
-        <button class="nav-dot active" data-slide="0" aria-label="Go to hero"></button>
-        <button class="nav-dot" data-slide="1" aria-label="Go to about"></button>
-        <button class="nav-dot" data-slide="2" aria-label="Go to skills"></button>
-        <button class="nav-dot" data-slide="3" aria-label="Go to achievements"></button>
-        <button class="nav-dot" data-slide="4" aria-label="Go to projects"></button>
-        <button class="nav-dot" data-slide="5" aria-label="Go to certifications"></button>
-        <button class="nav-dot" data-slide="6" aria-label="Go to contact"></button>
-      </nav>
-
-      <section class="hero slide">
+      <section class="hero slide" id="hero">
         <div class="hero-card">
           <div class="content">
-            <p class="intro small">Hi, I'm</p>
-            <h1 class="name" aria-label="Andrea Betrina">
-              <span class="letter">A</span><span class="letter">n</span><span class="letter">d</span><span class="letter">r</span><span class="letter">e</span><span class="letter">a</span>
-              <span class="letter">&nbsp;</span>
-              <span class="letter">B</span><span class="letter">e</span><span class="letter">t</span><span class="letter">r</span><span class="letter">i</span><span class="letter">n</span><span class="letter">a</span>
+            <!-- Greeting with fade-in animation -->
+            <p class="intro small fade-in" style="animation-delay: 0.1s;">Hi, I'm</p>
+            
+            <!-- Name with Gradient Highlight and Text Glow -->
+            <h1 class="name gradient-text fade-in" style="animation-delay: 0.3s;" aria-label="Andrea Betrina">
+              Andrea Betrina
             </h1>
-            <p class="caption">Turning ideas into digital experiences ✨</p>
+            
+            <!-- Tagline with fade-in -->
+            <p class="caption fade-in" style="animation-delay: 0.5s;">
+              Turning ideas into digital experiences ✨
+            </p>
+            
+            <!-- Call-to-Action Buttons with Gradient and Hover Effects -->
+            <div class="cta-buttons fade-in" style="animation-delay: 0.7s;">
+              <a href="projects.html" class="cta-btn primary">
+                <span class="btn-icon">🌸</span>
+                View My Work
+              </a>
+            </div>
+
+            <!-- Social Icons Row -->
+            <div class="social-icons fade-in" style="animation-delay: 0.9s;">
+              <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+              <a href="https://github.com" target="_blank" class="social-icon" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                </svg>
+              </a>
+              <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                </svg>
+              </a>
+              <a href="mailto:andrea@example.com" class="social-icon" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
-          <div class="photo-wrap" aria-hidden="true">
+          <!-- Profile Photo with Glowing Border and Hover Scale Effect -->
+          <div class="photo-wrap fade-in" style="animation-delay: 0.5s;" aria-hidden="true">
             <div class="photo-square">
               <img class="photo" src="WhatsApp Image 2025-10-11 at 9.48.19 AM.jpeg" alt="Andrea Betrina smiling" />
             </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- About -->
-      <section class="about slide" id="about">
-        <div class="about-inner">
-          <h2 class="about-title">A Little About Andrea</h2>
-          <p class="about-text">Hey, I'm Andrea Betrina — a passionate learner and creative soul, currently pursuing my Engineering degree. I love creating things in a minimal and aesthetic way, expressing ideas with creativity and heart.</p>
-
-          <p class="about-text">I'm a public speaker, a proud Toastmaster at Stella Mary's Toastmasters, and an active Basher at Byte Bash Blitz. Beyond that, I'm deeply involved in sports and athletics, especially basketball, and I love dancing — it's one of the ways I express energy and joy.</p>
-
-          <p class="about-text">I believe that doing small things with great love can lead to something truly beautiful. That thought inspires me to keep learning, growing, and creating every single day. 🌷</p>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="skills slide" id="skills">
-        <div class="section-card">
-          <h2 class="section-title">Skills & Expertise</h2>
-          <div class="skill-grid">
-            <div class="skill-item">
-              <span class="skill-icon">💻</span>
-              <h3>Web Development</h3>
-              <p>HTML, CSS, JavaScript</p>
-            </div>
-            <div class="skill-item">
-              <span class="skill-icon">🎨</span>
-              <h3>UI/UX Design</h3>
-              <p>Figma, Adobe XD</p>
-            </div>
-            <div class="skill-item">
-              <span class="skill-icon">🎤</span>
-              <h3>Public Speaking</h3>
-              <p>Presentations & Events</p>
-            </div>
-            <div class="skill-item">
-              <span class="skill-icon">⚡</span>
-              <h3>Problem Solving</h3>
-              <p>Coding Challenges</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Achievements -->
-      <section class="achievements slide" id="achievements">
-        <div class="section-card">
-          <h2 class="section-title">Achievements</h2>
-          <div class="achievement-grid">
-            <div class="achievement-card">
-              <span class="achievement-icon">🏆</span>
-              <h3>Winner - Byte Bash Blitz</h3>
-              <p>2024</p>
-            </div>
-            <div class="achievement-card">
-              <span class="achievement-icon">🎯</span>
-              <h3>Basketball Team Captain</h3>
-              <p>University Athletics</p>
-            </div>
-            <div class="achievement-card">
-              <span class="achievement-icon">🎙️</span>
-              <h3>Active Toastmaster</h3>
-              <p>Stella Mary's Club</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects/Works -->
-      <section class="projects slide" id="projects">
-        <div class="section-card">
-          <h2 class="section-title">Projects & Works</h2>
-          <div class="projects-grid">
-            <div class="project-card">
-              <div class="project-thumb"></div>
-              <h3>Portfolio Website</h3>
-              <p>Personal portfolio with modern design and animations</p>
-            </div>
-            <div class="project-card">
-              <div class="project-thumb"></div>
-              <h3>UI Design System</h3>
-              <p>Component library for web applications</p>
-            </div>
-            <div class="project-card">
-              <div class="project-thumb"></div>
-              <h3>Hackathon Project</h3>
-              <p>Byte Bash Blitz winning submission</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certifications -->
-      <section class="certifications slide" id="certifications">
-        <div class="section-card">
-          <h2 class="section-title">Certifications</h2>
-          <div class="cert-list">
-            <div class="cert-item">
-              <span class="cert-icon">📜</span>
-              <div class="cert-info">
-                <h3>Public Speaking Excellence</h3>
-                <p>Toastmasters International</p>
-              </div>
-            </div>
-            <div class="cert-item">
-              <span class="cert-icon">💼</span>
-              <div class="cert-info">
-                <h3>Web Development</h3>
-                <p>Online Course Certification</p>
-              </div>
-            </div>
-            <div class="cert-item">
-              <span class="cert-icon">🎨</span>
-              <div class="cert-info">
-                <h3>UI/UX Design Fundamentals</h3>
-                <p>Design Institute</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section class="contact slide" id="contact">
-        <div class="section-card">
-          <h2 class="section-title">Get In Touch</h2>
-          <p class="contact-intro">Let's connect! Feel free to reach out for collaborations or just a friendly chat.</p>
-          <form class="contact-form">
-            <div class="form-group">
-              <input type="text" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-              <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-          </form>
-          <div class="social-links">
-            <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
-            <a href="#" class="social-link" aria-label="GitHub">🔗</a>
-            <a href="#" class="social-link" aria-label="Email">✉️</a>
           </div>
         </div>
       </section>
@@ -204,22 +116,35 @@
       if('serviceWorker' in navigator){
         navigator.serviceWorker.register('/service-worker.js').catch(()=>{/* silent */});
       }
-document.addEventListener('DOMContentLoaded', function(){
-  // Respect prefers-reduced-motion
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if(!reduced){
-    // small orchestrated entrance for the name (delay for a pleasant feel)
-    const name = document.querySelector('.name');
-    if(name){
-      // existing single-line entrance is replaced by per-letter animation
-      const letters = Array.from(name.querySelectorAll('.letter'));
-      letters.forEach((el,i)=>{
-        const delay = 120 + i * 60; // stagger
-        el.style.animation = `letterFloat 900ms cubic-bezier(.2,.8,.2,1) ${delay}ms both`;
-      });
-    }
-  }
+document.addEventListener('DOMContentLoaded', function(){
+  // Theme Toggle Functionality
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const body = document.body;
+  
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  body.setAttribute('data-theme', currentTheme);
+  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  
+  themeToggle.addEventListener('click', () => {
+    const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+  });
+
+  // Smooth Navigation Link Effects
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // Add gentle scale animation on click
+      this.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        this.style.transform = '';
+      }, 150);
+    });
+  });
 });
 
 /* Cursor-driven fluid flow animation */
@@ -307,141 +232,15 @@ document.addEventListener('DOMContentLoaded', function(){
   draw();
 })();
 
-// remove per-letter animations after a while to keep layout steady
+// Keep animations smooth and steady
 setTimeout(()=>{
-  const letters = document.querySelectorAll('.letter');
-  letters.forEach(l=>{
-    l.style.animation = '';
-    l.style.opacity = '1';
+  const fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach(el => {
+    el.style.animation = 'none';
+    el.style.opacity = '1';
+    el.style.transform = 'translateY(0)';
   });
-}, 3200);
-
-// --- Simple hash router: support links like #/about or #about and smooth-scroll to sections ---
-(function(){
-  function goTo(hash){
-    if(!hash) return window.scrollTo({top:0,behavior:'smooth'});
-    // allow both #about and #/about
-    const id = hash.replace(/^#\/?/,'');
-    const el = document.getElementById(id);
-    if(el){
-      el.scrollIntoView({behavior:'smooth',block:'start'});
-    }
-  }
-
-  // handle initial load
-  goTo(location.hash);
-
-  // listen for hash changes
-  window.addEventListener('hashchange', ()=> goTo(location.hash));
-
-  // intercept clicks on internal links to update hash without full reload
-  document.addEventListener('click', (e)=>{
-    const a = e.target.closest('a');
-    if(!a) return;
-    const href = a.getAttribute('href') || '';
-    if(href.startsWith('#')){
-      e.preventDefault();
-      history.pushState(null,'',href);
-      goTo(href);
-    }
-  });
-})();
-
-// --- Navigation: dots, keyboard, swipe ---
-(function(){
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const dots = Array.from(document.querySelectorAll('.nav-dot'));
-  if(!slides.length || !dots.length) return;
-
-  let currentSlide = 0;
-
-  function updateDots(){
-    dots.forEach((d,i)=>{
-      d.classList.toggle('active', i === currentSlide);
-    });
-  }
-
-  function goToSlide(index){
-    if(index < 0 || index >= slides.length) return;
-    currentSlide = index;
-    slides[index].scrollIntoView({behavior:'smooth',block:'start'});
-    updateDots();
-  }
-
-  // Dot click
-  dots.forEach((d,i)=>{
-    d.addEventListener('click', ()=> goToSlide(i));
-  });
-
-  // Keyboard navigation (Up/Down arrows)
-  window.addEventListener('keydown', (e)=>{
-    if(e.key === 'ArrowDown' || e.key === 'Down'){
-      e.preventDefault();
-      goToSlide(currentSlide + 1);
-    } else if(e.key === 'ArrowUp' || e.key === 'Up'){
-      e.preventDefault();
-      goToSlide(currentSlide - 1);
-    }
-  });
-
-  // Touch swipe support (mobile)
-  let touchStartY = 0;
-  let touchEndY = 0;
-  window.addEventListener('touchstart', (e)=>{
-    touchStartY = e.changedTouches[0].screenY;
-  }, {passive:true});
-  window.addEventListener('touchend', (e)=>{
-    touchEndY = e.changedTouches[0].screenY;
-    const diff = touchStartY - touchEndY;
-    if(Math.abs(diff) > 50){ // swipe threshold
-      if(diff > 0){
-        // swipe up = next slide
-        goToSlide(currentSlide + 1);
-      } else {
-        // swipe down = prev slide
-        goToSlide(currentSlide - 1);
-      }
-    }
-  }, {passive:true});
-
-  // Update active dot on scroll (in case user scrolls manually)
-  const scrollObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        const idx = slides.indexOf(en.target);
-        if(idx !== -1 && idx !== currentSlide){
-          currentSlide = idx;
-          updateDots();
-        }
-      }
-    });
-  },{threshold:0.5});
-  slides.forEach(s=> scrollObserver.observe(s));
-})();
-
-// --- Contact form handler ---
-(function(){
-  const form = document.querySelector('.contact-form');
-  if(!form) return;
-
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const formData = new FormData(form);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-
-    // Simple validation
-    if(!name || !email || !message){
-      alert('Please fill in all fields');
-      return;
-    }
-
-    // Demo mode - show success message
-    alert(`Thanks ${name}! Your message has been received. (Demo mode - no actual email sent)`);
-    form.reset();
-  });
-})();
+}, 2000);
 
     </script>
   </body>
