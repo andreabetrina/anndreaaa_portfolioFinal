@@ -1,13 +1,548 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andrea's Hobbies</title>
+  <title>The Hidden Bloom - Andrea Betrina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Hobbies Page Specific Styles */
+    .hobbies-page {
+      background: linear-gradient(135deg, #fff9f9 0%, #fff5f8 25%, #f0f4ff 50%, #fffbf5 75%, #fff 100%);
+      min-height: 100vh;
+      padding: 80px 20px 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .hobbies-page::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255,192,203,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(173,216,230,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255,228,196,0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hobbies-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Title Section */
+    .bloom-title {
+      font-family: 'Satisfy', cursive;
+      font-size: 4.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #8b4789 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 2px 2px 8px rgba(255,107,157,0.1);
+    }
+
+    .bloom-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      text-align: center;
+      color: #7f5a83;
+      margin-bottom: 80px;
+      font-weight: 500;
+      line-height: 1.6;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    /* Timeline Section */
+    .timeline-section {
+      margin: 100px 0;
+      position: relative;
+    }
+
+    .section-heading {
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      color: #8b4789;
+      text-align: center;
+      margin-bottom: 60px;
+      font-weight: 600;
+    }
+
+    /* Scrapbook-style heading for Journey - Image Based */
+    .scrapbook-heading-image {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 20px;
+    }
+
+    .scrapbook-heading-image img {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+    }
+
+    .timeline {
+      position: relative;
+      padding: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #ffb6d9, #c7a4db, #b6d4ff);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      margin-bottom: 80px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-item:nth-child(odd) {
+      padding-right: 55%;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      padding-left: 55%;
+      text-align: left;
+    }
+
+    .timeline-content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(255,182,193,0.15);
+      border: 2px solid rgba(255,192,203,0.3);
+      position: relative;
+      backdrop-filter: blur(10px);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 30px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid rgba(255,192,203,0.3);
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 30px;
+      width: 0;
+      height: 0;
+      border-right: 20px solid rgba(255,192,203,0.3);
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ff6b9d, #c44569);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 20px rgba(255,107,157,0.4);
+      z-index: 2;
+    }
+
+    .timeline-year {
+      font-family: 'Caveat', cursive;
+      font-size: 2.5rem;
+      color: #ff6b9d;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .timeline-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      color: #5a3d5c;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .timeline-description {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: #7f5a83;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .timeline-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffb6d9;
+      box-shadow: 0 6px 24px rgba(255,107,157,0.2);
+      margin: 15px auto;
+      display: block;
+    }
+
+    /* Art Gallery Section */
+    .art-gallery-section {
+      margin: 100px 0;
+      padding: 60px 40px;
+      background: rgba(255,250,240,0.6);
+      border-radius: 30px;
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .art-tile {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      cursor: pointer;
+    }
+
+    .art-tile:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(255,107,157,0.2);
+    }
+
+    .art-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .art-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 30px 20px 20px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .art-tile:hover .art-overlay {
+      transform: translateY(0);
+    }
+
+    .art-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: white;
+      text-align: center;
+    }
+
+    /* Passion Bubbles Section */
+    .passion-section {
+      margin: 100px 0;
+      text-align: center;
+    }
+
+    .passion-bubbles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .passion-bubble {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffeef8, #f5e6ff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(255,107,157,0.15);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .passion-bubble:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .passion-bubble:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .passion-bubble:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+
+    .passion-bubble:nth-child(5) {
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .passion-bubble:hover {
+      transform: scale(1.15) translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255,107,157,0.3);
+    }
+
+    .passion-icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .passion-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: #8b4789;
+      font-weight: 600;
+    }
+
+    .passion-tooltip {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      background: rgba(139, 71, 137, 0.95);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.1rem;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .passion-bubble:hover .passion-tooltip {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+
+    /* Quote Section */
+    .quote-section {
+      margin: 120px 0;
+      text-align: center;
+      padding: 80px 40px;
+      position: relative;
+    }
+
+    .quote-text {
+      font-family: 'Satisfy', cursive;
+      font-size: 2.5rem;
+      color: #8b4789;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding: 40px;
+      border: 3px solid transparent;
+      border-radius: 20px;
+      background: 
+        linear-gradient(white, white) padding-box,
+        linear-gradient(135deg, #ff6b9d, #c44569, #8b4789) border-box;
+      box-shadow: 0 8px 32px rgba(255,107,157,0.1);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 8px 32px rgba(255,107,157,0.1); }
+      50% { box-shadow: 0 12px 48px rgba(255,107,157,0.3); }
+    }
+
+    .quote-text::before {
+      content: '"';
+      font-size: 5rem;
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      color: #ffb6d9;
+      opacity: 0.5;
+    }
+
+    .quote-text::after {
+      content: '"';
+      font-size: 5rem;
+      position: absolute;
+      bottom: -40px;
+      right: 20px;
+      color: #ffb6d9;
+      opacity: 0.5;
+    }
+
+    /* Vision Board Section */
+    .vision-board-section {
+      margin: 100px 0;
+      text-align: center;
+    }
+
+    .vision-board-container {
+      margin-top: 40px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(255,182,193,0.15);
+      border: 3px dashed #ffb6d9;
+    }
+
+    .vision-placeholder {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      color: #c44569;
+      padding: 60px;
+      background: linear-gradient(135deg, #fff9f9, #f5f0ff);
+      border-radius: 20px;
+      border: 2px solid #ffb6d9;
+    }
+
+    /* Closing Section */
+    .closing-section {
+      margin: 120px 0 60px;
+      text-align: center;
+      padding: 80px 40px;
+      background: linear-gradient(135deg, rgba(255,182,217,0.1), rgba(199,164,219,0.1));
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,107,157,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .closing-text {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: #8b4789;
+      line-height: 2;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .bloom-title {
+        font-size: 3rem;
+      }
+
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        padding-left: 80px;
+        padding-right: 0;
+        text-align: left;
+      }
+
+      .timeline-dot {
+        left: 30px;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content::after,
+      .timeline-item:nth-child(even) .timeline-content::after {
+        left: -20px;
+        right: auto;
+        border-right: 20px solid rgba(255,192,203,0.3);
+        border-left: none;
+      }
+
+      .passion-bubble {
+        width: 120px;
+        height: 120px;
+      }
+
+      .quote-text {
+        font-size: 1.8rem;
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <span id="themeIcon">🌕</span>
+  </button>
+
+  <nav class="top-nav-bar" aria-label="Main navigation">
     <a href="index.html" class="nav-link">Home</a>
     <a href="about.html" class="nav-link">About</a>
     <a href="skills.html" class="nav-link">Skills</a>
@@ -16,20 +551,235 @@
     <a href="certifications.html" class="nav-link">Certifications</a>
     <a href="contact.html" class="nav-link">Contact</a>
   </nav>
-  <main class="page">
-    <section class="slide hobbies-slide">
-      <h1 class="section-title">Andrea's Hobbies</h1>
-      <p class="section-description">A glimpse into the creative and fun side of Andrea.</p>
-      <ul class="hobbies-list">
-        <li>🌸 Digital Art & Design</li>
-        <li>🎤 Public Speaking</li>
-        <li>🏀 Basketball & Athletics</li>
-        <li>💃 Dancing</li>
-        <li>📚 Reading & Learning</li>
-        <li>🎬 Watching Movies</li>
-      </ul>
-    </section>
+
+  <main class="hobbies-page">
+    <div class="hobbies-container">
+      <!-- Title Section -->
+      <h1 class="bloom-title">The Hidden Bloom</h1>
+      <p class="bloom-subtitle">
+        ✨ "Here's a little more about me — not the resume version, but the real one."
+      </p>
+
+      <!-- Timeline Section -->
+      <section class="timeline-section">
+        <div class="scrapbook-heading-image">
+          <img src="images/my-journey-scrapbook.png" alt="My Journey So Far" />
+        </div>
+        <div class="timeline">
+          <!-- School Days 2009-2021 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">🎤</div>
+            <div class="timeline-content">
+              <div class="timeline-year">2009 - 2021</div>
+              <div class="timeline-title">ADARSH VIDYA KENDRA</div>
+              <img src="images/timeline-school1.jpg" alt="School days" class="timeline-photo">
+              <p class="timeline-description">
+                Where it all began! Discovered my love for the stage through dance and athletics. 
+                Participated in spell bee competitions at the international level. 
+                First time speaking in public — realized that words have power, and I wanted to use them.
+                Every small win taught me to dream bigger. 🌟
+              </p>
+            </div>
+          </div>
+
+          <!-- High School 2021-2024 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">🩰</div>
+            <div class="timeline-content">
+              <div class="timeline-year">2021 - 2024</div>
+              <div class="timeline-title">KENDRIYA VIDYALAYA NAGERCOIL</div>
+              <img src="images/timeline-school2.jpg" alt="High school days" class="timeline-photo">
+              <p class="timeline-description">
+                Leadership took shape here. Became House Captain and learned what it means to inspire others.
+                Participated in Youth Parliament competitions — where my voice found purpose beyond the stage.
+                Built lifelong friendships, learned resilience, and grew into someone who believed in leading with empathy. 💪
+              </p>
+            </div>
+          </div>
+
+          <!-- College Life 2024-Present -->
+          <div class="timeline-item">
+            <div class="timeline-dot">🏃‍♀️</div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024 - Present</div>
+              <div class="timeline-title">STELLA MARY'S COLLEGE OF ENGINEERING</div>
+              <img src="images/timeline-college.jpg" alt="College days" class="timeline-photo">
+              <p class="timeline-description">
+                This is where everything came together! Joined Toastmasters — my biggest turning point.
+                Became a proud Basher at Byte Bash Blitz, balancing tech and creativity.
+                Made it to the college basketball team and continued my athletic journey.
+                Still learning, still growing, still becoming. The best is yet to come! 🚀
+              </p>
+            </div>
+          </div>
+
+          <!-- Future Vision -->
+          <div class="timeline-item">
+            <div class="timeline-dot">💻</div>
+            <div class="timeline-content">
+              <div class="timeline-year">Future</div>
+              <div class="timeline-title">Working on Myself & Future Visions</div>
+              <p class="timeline-description">
+                🌟 Grow as a confident communicator and leader<br>
+                🎨 Explore creativity beyond boundaries<br>
+                💡 Make something inspiring every single day<br>
+                🌸 Keep blooming, keep believing
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Art Gallery Section -->
+      <section class="art-gallery-section">
+        <h2 class="section-heading">The Artist Side of Me</h2>
+        <div class="art-grid">
+          <div class="art-tile">
+            <img src="images/art1.jpg" alt="Digital art piece" class="art-image">
+            <div class="art-overlay">
+              <p class="art-caption">Created on a quiet Sunday morning.</p>
+            </div>
+          </div>
+          <div class="art-tile">
+            <img src="images/art2.jpg" alt="Digital art piece" class="art-image">
+            <div class="art-overlay">
+              <p class="art-caption">Sometimes, colors express better than words.</p>
+            </div>
+          </div>
+          <div class="art-tile">
+            <img src="images/art3.jpg" alt="Digital art piece" class="art-image">
+            <div class="art-overlay">
+              <p class="art-caption">When emotions find their canvas.</p>
+            </div>
+          </div>
+          <div class="art-tile">
+            <img src="images/art4.jpg" alt="Digital art piece" class="art-image">
+            <div class="art-overlay">
+              <p class="art-caption">A moment captured in pixels and dreams.</p>
+            </div>
+          </div>
+          <div class="art-tile">
+            <img src="images/art5.jpg" alt="Digital art piece" class="art-image">
+            <div class="art-overlay">
+              <p class="art-caption">Where imagination meets reality.</p>
+            </div>
+          </div>
+          <div class="art-tile">
+            <img src="images/art6.jpg" alt="Digital art piece" class="art-image">
+            <div class="art-overlay">
+              <p class="art-caption">Art is how I breathe life into thoughts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Passion Bubbles Section -->
+      <section class="passion-section">
+        <h2 class="section-heading">What Keeps Me Alive</h2>
+        <div class="passion-bubbles">
+          <div class="passion-bubble">
+            <div class="passion-icon">🩰</div>
+            <div class="passion-label">Dancing</div>
+            <div class="passion-tooltip">Where my energy finds rhythm.</div>
+          </div>
+          <div class="passion-bubble">
+            <div class="passion-icon">🎤</div>
+            <div class="passion-label">Speaking</div>
+            <div class="passion-tooltip">Where my voice finds purpose.</div>
+          </div>
+          <div class="passion-bubble">
+            <div class="passion-icon">🏀</div>
+            <div class="passion-label">Basketball</div>
+            <div class="passion-tooltip">Where my spirit competes freely.</div>
+          </div>
+          <div class="passion-bubble">
+            <div class="passion-icon">🖌️</div>
+            <div class="passion-label">Art</div>
+            <div class="passion-tooltip">Where my thoughts take color.</div>
+          </div>
+          <div class="passion-bubble">
+            <div class="passion-icon">💡</div>
+            <div class="passion-label">Exploring</div>
+            <div class="passion-tooltip">Where curiosity leads to magic.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quote Section -->
+      <section class="quote-section">
+        <p class="quote-text">
+          Doing small things with great love isn't a choice — it's how I live every day.
+        </p>
+      </section>
+
+      <!-- Vision Board Section -->
+      <section class="vision-board-section">
+        <h2 class="section-heading">Dream Board 2025</h2>
+        <div class="vision-board-container">
+          <div class="vision-placeholder">
+            🌟 My Vision Board for 2025 🌟<br>
+            (Coming Soon - A visual journey of dreams and goals)
+          </div>
+        </div>
+      </section>
+
+      <!-- Closing Section -->
+      <section class="closing-section">
+        <p class="closing-text">
+          If you've made it this far, you now know the real me —<br>
+          not just the speaker, or the student,<br>
+          but the dreamer behind them. 🌷
+        </p>
+      </section>
+    </div>
   </main>
-  <script src="script.js"></script>
+
+  <script>
+    // Theme Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      const root = document.documentElement;
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      root.setAttribute('data-theme', currentTheme);
+      themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
+      
+      themeToggle.addEventListener('click', () => {
+        const theme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌕';
+      });
+
+      // Timeline Scroll Animation
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.timeline-item').forEach(item => {
+        observer.observe(item);
+      });
+
+      // Smooth scroll behavior
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
