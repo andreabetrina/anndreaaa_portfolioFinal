@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Basketball Team Captain - Andrea Betrina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="floating-elements" aria-hidden="true">
+      <span class="float-icon" style="top: 15%; left: 10%;">✨</span>
+      <span class="float-icon" style="top: 25%; left: 85%;">⭐</span>
+      <span class="float-icon" style="top: 60%; left: 8%;">💫</span>
+      <span class="float-icon" style="top: 70%; left: 90%;">🌸</span>
+      <span class="float-icon" style="top: 40%; left: 5%;">✦</span>
+      <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌙</span>
+    </button>
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="skills.html" class="nav-link">Skills</a>
+      <a href="../../achievements.html" class="nav-link active">Achievements</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="certifications.html" class="nav-link">Certifications</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <main class="page">
+      <div class="dreamy-gradient-bg"></div>
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+
+      <section class="achievement-detail slide">
+        <div class="detail-container">
+          <a href="../../achievements.html" class="back-link">← Back to Achievements</a>
+          
+          <div class="detail-header">
+            <span class="detail-icon">🏀</span>
+            <h1 class="detail-title">Basketball Team Captain</h1>
+            <p class="detail-subtitle">University Athletics</p>
+          </div>
+
+          <div class="detail-story">
+            <p class="detail-quote">"Leading my team taught me that true leadership is about lifting others up. Every game was a lesson in trust and teamwork."</p>
+            <p class="detail-description">
+              Being captain of the basketball team was one of the most rewarding experiences. It taught me discipline, 
+              strategy, and the importance of motivating others even in challenging times. On the court, I learned that 
+              leadership isn't about being the best player—it's about bringing out the best in everyone.
+            </p>
+          </div>
+
+          <div class="detail-gallery">
+            <h3 class="gallery-title">Moments & Memories</h3>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img src="../../images/WhatsApp Image 2025-10-18 at 1.19.00 AM.jpeg" alt="Basketball team captain" class="gallery-image">
+                <p class="gallery-caption">Leading the team on court</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">🏆</span>
+                </div>
+                <p class="gallery-caption">Tournament victory celebration</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">👥</span>
+                </div>
+                <p class="gallery-caption">Team huddle before the big game</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">🏀</span>
+                </div>
+                <p class="gallery-caption">Practice session with teammates</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">💪</span>
+                </div>
+                <p class="gallery-caption">Training and team building</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">🎯</span>
+                </div>
+                <p class="gallery-caption">Championship match moment</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">✨</span>
+                </div>
+                <p class="gallery-caption">Award ceremony with team</p>
+              </div>
+              <div class="gallery-item">
+                <div class="image-placeholder">
+                  <span class="placeholder-icon">🌟</span>
+                </div>
+                <p class="gallery-caption">Team spirit and unity</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../../script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function(){
+  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';
+  r.setAttribute('data-theme',c);
+  i.textContent=c==='dark'?'☀️':'🌕';
+  t.addEventListener('click',()=>{
+    const th=r.getAttribute('data-theme')==='light'?'dark':'light';
+    r.setAttribute('data-theme',th);
+    localStorage.setItem('theme',th);
+    i.textContent=th==='dark'?'☀️':'🌕';
+  });
+});
+(function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const canvas=document.getElementById('flow-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;const particles=[],maxParticles=80,palette=['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});let pointer={x:w/2,y:h/2};window.addEventListener('pointermove',(e)=>{pointer.x=e.clientX;pointer.y=e.clientY;spawnParticle(pointer.x,pointer.y);});function spawnParticle(x,y){if(particles.length>maxParticles)particles.shift();particles.push({x,y,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,size:60+Math.random()*80,life:1,dec:0.008,col:palette[Math.floor(Math.random()*palette.length)]});}function draw(){ctx.fillStyle='rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p=particles[i];p.x+=(pointer.x-p.x)*0.08+p.vx;p.y+=(pointer.y-p.y)*0.08+p.vy;p.life-=p.dec;const alpha=Math.max(0,p.life);ctx.beginPath();const grad=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);const m=p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r=m[1],g=m[2],b=m[3],innerAlpha=(0.65*alpha).toFixed(3);grad.addColorStop(0,`rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=grad;}ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}while(particles.length&&particles[0].life<=0)particles.shift();requestAnimationFrame(draw);}for(let i=0;i<8;i++)spawnParticle(w/2+(Math.random()-0.5)*200,h/2+(Math.random()-0.5)*200);draw();})();
+    </script>
+  </body>
+</html>
