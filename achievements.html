@@ -28,7 +28,6 @@
       <a href="achievements.html" class="nav-link active">Achievements</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="certifications.html" class="nav-link">Certifications</a>
-      <a href="timeline.html" class="nav-link">Timeline</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
     <main class="page">
@@ -218,14 +217,14 @@
     <script src="script.js"></script>
     <script>
 document.addEventListener('DOMContentLoaded', function(){
-  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),b=document.body,c=localStorage.getItem('theme')||'light';
-  b.setAttribute('data-theme',c);
-  i.textContent=c==='dark'?'☀️':'🌙';
+  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';
+  r.setAttribute('data-theme',c);
+  i.textContent=c==='dark'?'☀️':'🌕';
   t.addEventListener('click',()=>{
-    const th=b.getAttribute('data-theme')==='light'?'dark':'light';
-    b.setAttribute('data-theme',th);
+    const th=r.getAttribute('data-theme')==='light'?'dark':'light';
+    r.setAttribute('data-theme',th);
     localStorage.setItem('theme',th);
-    i.textContent=th==='dark'?'☀️':'🌙';
+    i.textContent=th==='dark'?'☀️':'🌕';
   });
 
   // Achievement Tabs Switching

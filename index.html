@@ -13,7 +13,7 @@
   <body>
     <!-- Theme Toggle Button (top-left) -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon">🌙</span>
+      <span id="themeIcon">🌕</span>
     </button>
 
     <!-- Top Navigation with Glassy Effect -->
@@ -24,7 +24,6 @@
       <a href="achievements.html" class="nav-link">Achievements</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="certifications.html" class="nav-link">Certifications</a>
-      <a href="timeline.html" class="nav-link">Timeline</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
     <main class="page">
@@ -69,7 +68,7 @@
             
             <!-- Call-to-Action Buttons with Gradient and Hover Effects -->
             <div class="cta-buttons fade-in" style="animation-delay: 0.7s;">
-              <a href="projects.html" class="cta-btn primary">
+              <a href="projects.html" class="cta-btn primary" id="viewWorkBtn">
                 <span class="btn-icon">🌸</span>
                 View My Work
               </a>
@@ -111,137 +110,165 @@
     </main>
 
     <script src="script.js"></script>
+    <!-- Floating Inbox Icon (top-left, above theme toggle) -->
+    <div id="floatingInbox" style="position:fixed;left:32px;top:90px;z-index:1000;display:flex;flex-direction:column;align-items:flex-start;">
+      <button id="inboxBtn" aria-label="Inbox" style="background:var(--inbox-bg,rgba(255,255,255,0.85));border-radius:50%;width:48px;height:48px;box-shadow:0 4px 16px rgba(157,124,255,0.12);border:none;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:background 0.3s;">
+        <span style="font-size:1.7rem;">📥</span>
+        <span id="inboxBadge" style="position:absolute;top:7px;right:7px;background:var(--inbox-badge-bg,#ff90b3);color:var(--inbox-badge-color,#fff);font-size:0.85rem;padding:1.5px 6px;border-radius:12px;transition:background 0.3s, color 0.3s;">1</span>
+      </button>
+      <div id="inboxMsg" style="display:none;position:absolute;left:60px;top:0;width:230px;background:var(--inbox-msg-bg,rgba(45,27,61,0.97));color:var(--inbox-msg-color,#fff);border-radius:14px;box-shadow:0 8px 32px rgba(255,158,212,0.13);padding:14px 14px;font-size:0.98rem;transition:background 0.3s, color 0.3s;">
+        <div style="margin-bottom:8px;font-size:0.97em;">1 message unread</div>
+        <div style="margin-bottom:10px;">Click the flower emoji in home page to explore about Andrea.<br>Click now!</div>
+        <button id="inboxGoBtn" style="background:var(--inbox-btn-bg,#ff90b3);color:var(--inbox-btn-color,#fff);border:none;border-radius:7px;padding:5px 13px;cursor:pointer;font-size:0.93rem;transition:background 0.3s, color 0.3s;">Go to Hobbies</button>
+      </div>
+    </div>
     <script>
       // register service worker for PWA/offline support
       if('serviceWorker' in navigator){
         navigator.serviceWorker.register('/service-worker.js').catch(()=>{/* silent */});
       }
 
-document.addEventListener('DOMContentLoaded', function(){
-  // Theme Toggle Functionality
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const body = document.body;
-  
-  // Check for saved theme preference or default to light mode
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  body.setAttribute('data-theme', currentTheme);
-  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-  
-  themeToggle.addEventListener('click', () => {
-    const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    body.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
-  });
+      document.addEventListener('DOMContentLoaded', function(){
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const root = document.documentElement;
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        root.setAttribute('data-theme', currentTheme);
+        themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
+        themeToggle.addEventListener('click', () => {
+          const theme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+          root.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+          themeIcon.textContent = theme === 'dark' ? '☀️' : '🌕';
+        });
 
-  // Smooth Navigation Link Effects
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-      // Add gentle scale animation on click
-      this.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        this.style.transform = '';
-      }, 150);
-    });
-  });
-});
+        // Smooth Navigation Link Effects
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              this.style.transform = '';
+            }, 150);
+          });
+        });
 
-/* Cursor-driven fluid flow animation */
-(function(){
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced) return; // disable if user prefers
+        // Flower emoji button double click to hobbies.html
+        let flowerClickCount = 0;
+        const viewWorkBtn = document.getElementById('viewWorkBtn');
+        if(viewWorkBtn){
+          viewWorkBtn.addEventListener('click', function(e){
+            flowerClickCount++;
+            if(flowerClickCount === 2){
+              window.location.href = 'hobbies.html';
+            }
+            setTimeout(()=>{flowerClickCount=0;}, 1200);
+          });
+        }
 
-  const canvas = document.getElementById('flow-canvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
+        // Inbox icon logic
+        const inboxBtn = document.getElementById('inboxBtn');
+        const inboxMsg = document.getElementById('inboxMsg');
+        const inboxGoBtn = document.getElementById('inboxGoBtn');
+        const inboxBadge = document.getElementById('inboxBadge');
+        function setInboxTheme(){
+          const isDark = root.getAttribute('data-theme') === 'dark';
+          document.documentElement.style.setProperty('--inbox-bg', isDark ? 'rgba(45,27,61,0.93)' : 'rgba(255,255,255,0.85)');
+          document.documentElement.style.setProperty('--inbox-badge-bg', isDark ? '#ffb6e6' : '#ff90b3');
+          document.documentElement.style.setProperty('--inbox-badge-color', isDark ? '#2d1b3d' : '#fff');
+          document.documentElement.style.setProperty('--inbox-msg-bg', isDark ? 'rgba(45,27,61,0.97)' : 'rgba(255,255,255,0.97)');
+          document.documentElement.style.setProperty('--inbox-msg-color', isDark ? '#fff' : '#2d1b3d');
+          document.documentElement.style.setProperty('--inbox-btn-bg', isDark ? '#ffb6e6' : '#ff90b3');
+          document.documentElement.style.setProperty('--inbox-btn-color', isDark ? '#2d1b3d' : '#fff');
+        }
+        setInboxTheme();
+        // Update inbox theme on theme toggle
+        themeToggle.addEventListener('click', setInboxTheme);
+        if(inboxBtn && inboxMsg && inboxGoBtn){
+          inboxBtn.addEventListener('click', function(){
+            inboxMsg.style.display = inboxMsg.style.display === 'none' ? 'block' : 'none';
+          });
+          inboxGoBtn.addEventListener('click', function(){
+            window.location.href = 'hobbies.html';
+          });
+        }
+      });
 
-  let w = canvas.width = window.innerWidth;
-  let h = canvas.height = window.innerHeight;
-
-  const particles = [];
-  const maxParticles = 80;
-
-  const palette = [
-    'rgba(255,144,179,0.14)',
-    'rgba(138,102,255,0.12)',
-    'rgba(255,210,180,0.08)'
-  ];
-
-  function resize(){
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-
-  let pointer = {x: w/2, y: h/2, px: w/2, py: h/2, moving: false};
-  window.addEventListener('pointermove', (e)=>{
-    pointer.x = e.clientX;
-    pointer.y = e.clientY;
-    pointer.moving = true;
-    spawnParticle(pointer.x, pointer.y);
-  });
-
-  function spawnParticle(x,y){
-    if(particles.length > maxParticles) particles.shift();
-    const vx = (Math.random()-0.5) * 0.6;
-    const vy = (Math.random()-0.5) * 0.6;
-    const size = 60 + Math.random()*80;
-    const col = palette[Math.floor(Math.random()*palette.length)];
-    particles.push({x,y,vx,vy,size,life:1,dec:0.008,col});
-  }
-
-  function draw(){
-    // soft fade to create trails
-    ctx.fillStyle = 'rgba(255,255,255,0.18)';
-    ctx.fillRect(0,0,w,h);
-
-    for(let i=0;i<particles.length;i++){
-      const p = particles[i];
-      p.x += (pointer.x - p.x) * 0.08 + p.vx;
-      p.y += (pointer.y - p.y) * 0.08 + p.vy;
-      p.life -= p.dec;
-      const alpha = Math.max(0, p.life);
-
-      ctx.beginPath();
-      const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
-      // parse rgb from the particle color (expected format: rgba(r,g,b,a))
-      const m = p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);
-      if(m){
-        const r = m[1], g = m[2], b = m[3];
-        const innerAlpha = (0.65 * alpha).toFixed(3);
-        grad.addColorStop(0, `rgba(${r},${g},${b},${innerAlpha})`);
-        grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
-        ctx.fillStyle = grad;
-      } else {
-        // fallback to solid color
-        ctx.fillStyle = p.col;
-      }
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-      ctx.fill();
-    }
-
-    // remove dead
-    while(particles.length && particles[0].life <= 0) particles.shift();
-
-    requestAnimationFrame(draw);
-  }
-
-  // pre-spawn a few gentle blobs in center
-  for(let i=0;i<8;i++) spawnParticle(w/2 + (Math.random()-0.5)*200, h/2 + (Math.random()-0.5)*200);
-  draw();
-})();
-
-// Keep animations smooth and steady
-setTimeout(()=>{
-  const fadeElements = document.querySelectorAll('.fade-in');
-  fadeElements.forEach(el => {
-    el.style.animation = 'none';
-    el.style.opacity = '1';
-    el.style.transform = 'translateY(0)';
-  });
-}, 2000);
-
+      // Cursor-driven fluid flow animation
+      (function(){
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(reduced) return;
+        const canvas = document.getElementById('flow-canvas');
+        if(!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w = canvas.width = window.innerWidth;
+        let h = canvas.height = window.innerHeight;
+        const particles = [];
+        const maxParticles = 80;
+        const palette = [
+          'rgba(255,144,179,0.14)',
+          'rgba(138,102,255,0.12)',
+          'rgba(255,210,180,0.08)'
+        ];
+        function resize(){
+          w = canvas.width = window.innerWidth;
+          h = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        let pointer = {x: w/2, y: h/2, px: w/2, py: h/2, moving: false};
+        window.addEventListener('pointermove', (e)=>{
+          pointer.x = e.clientX;
+          pointer.y = e.clientY;
+          pointer.moving = true;
+          spawnParticle(pointer.x, pointer.y);
+        });
+        function spawnParticle(x,y){
+          if(particles.length > maxParticles) particles.shift();
+          const vx = (Math.random()-0.5) * 0.6;
+          const vy = (Math.random()-0.5) * 0.6;
+          const size = 60 + Math.random()*80;
+          const col = palette[Math.floor(Math.random()*palette.length)];
+          particles.push({x,y,vx,vy,size,life:1,dec:0.008,col});
+        }
+        function draw(){
+          ctx.fillStyle = 'rgba(255,255,255,0.18)';
+          ctx.fillRect(0,0,w,h);
+          for(let i=0;i<particles.length;i++){
+            const p = particles[i];
+            p.x += (pointer.x - p.x) * 0.08 + p.vx;
+            p.y += (pointer.y - p.y) * 0.08 + p.vy;
+            p.life -= p.dec;
+            const alpha = Math.max(0, p.life);
+            ctx.beginPath();
+            const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+            const m = p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);
+            if(m){
+              const r = m[1], g = m[2], b = m[3];
+              const innerAlpha = (0.65 * alpha).toFixed(3);
+              grad.addColorStop(0, `rgba(${r},${g},${b},${innerAlpha})`);
+              grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+              ctx.fillStyle = grad;
+            } else {
+              ctx.fillStyle = p.col;
+            }
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+            ctx.fill();
+          }
+          while(particles.length && particles[0].life <= 0) particles.shift();
+          requestAnimationFrame(draw);
+        }
+        for(let i=0;i<8;i++) spawnParticle(w/2 + (Math.random()-0.5)*200, h/2 + (Math.random()-0.5)*200);
+        draw();
+      })();
+      setTimeout(()=>{
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(el => {
+          el.style.animation = 'none';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      }, 2000);
     </script>
   </body>
 </html>

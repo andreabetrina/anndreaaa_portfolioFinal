@@ -19,7 +19,7 @@
       <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon">🌙</span>
+      <span id="themeIcon">�</span>
     </button>
     <nav class="top-nav-bar" aria-label="Main navigation">
       <a href="index.html" class="nav-link">Home</a>
@@ -28,7 +28,6 @@
       <a href="achievements.html" class="nav-link">Achievements</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="certifications.html" class="nav-link active">Certifications</a>
-      <a href="timeline.html" class="nav-link">Timeline</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
     <main class="page">
@@ -255,7 +254,7 @@
     </main>
     <script src="script.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function(){const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),b=document.body,c=localStorage.getItem('theme')||'light';b.setAttribute('data-theme',c);i.textContent=c==='dark'?'☀️':'🌙';t.addEventListener('click',()=>{const th=b.getAttribute('data-theme')==='light'?'dark':'light';b.setAttribute('data-theme',th);localStorage.setItem('theme',th);i.textContent=th==='dark'?'☀️':'🌙';});});
+document.addEventListener('DOMContentLoaded', function(){const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';r.setAttribute('data-theme',c);i.textContent=c==='dark'?'☀️':'🌕';t.addEventListener('click',()=>{const th=r.getAttribute('data-theme')==='light'?'dark':'light';r.setAttribute('data-theme',th);localStorage.setItem('theme',th);i.textContent=th==='dark'?'☀️':'🌕';});});
 
 // Certification Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {

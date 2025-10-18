@@ -23,7 +23,7 @@
 
     <!-- Theme Toggle Button (top-left) -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span id="themeIcon">🌙</span>
+      <span id="themeIcon">�</span>
     </button>
 
     <!-- Top Navigation with Glassy Effect -->
@@ -34,7 +34,6 @@
       <a href="achievements.html" class="nav-link">Achievements</a>
       <a href="projects.html" class="nav-link">Projects</a>
       <a href="certifications.html" class="nav-link">Certifications</a>
-      <a href="timeline.html" class="nav-link">Timeline</a>
       <a href="contact.html" class="nav-link">Contact</a>
     </nav>
     
@@ -110,9 +109,7 @@
               <!-- Speaker Content -->
               <div class="personality-card active" data-card="speaker">
                 <div class="personality-image">
-                  <div class="image-placeholder">
-                    <span class="placeholder-icon">💬</span>
-                  </div>
+                  <img src="images/speaker.jpg" alt="Andrea speaking at event" class="personality-photo">
                 </div>
                 <div class="personality-content">
                   <h4 class="personality-role">Public Speaker</h4>
@@ -156,9 +153,7 @@
               <!-- Athlete Content -->
               <div class="personality-card" data-card="athlete">
                 <div class="personality-image">
-                  <div class="image-placeholder">
-                    <span class="placeholder-icon">🏀</span>
-                  </div>
+                  <img src="images/WhatsApp Image 2025-10-18 at 1.19.00 AM.jpeg" alt="Andrea as athlete" class="personality-photo">
                 </div>
                 <div class="personality-content">
                   <h4 class="personality-role">Dedicated Athlete</h4>
@@ -179,9 +174,7 @@
               <!-- Creator Content -->
               <div class="personality-card" data-card="creator">
                 <div class="personality-image">
-                  <div class="image-placeholder">
-                    <span class="placeholder-icon">🎨</span>
-                  </div>
+                  <img src="images/WhatsApp Image 2025-10-18 at 1.19.34 AM.jpeg" alt="Andrea as creator" class="personality-photo">
                 </div>
                 <div class="personality-content">
                   <h4 class="personality-role">Creative Designer</h4>
@@ -230,6 +223,17 @@
           </div>
         </div>
       </section>
+
+      <!-- Andrea Says Quote Card -->
+      <section class="andrea-says-section">
+        <div class="andrea-says-card">
+          <div class="quote-icon">
+            <img src="images/WhatsApp Image 2025-10-11 at 9.48.19 AM.jpeg" alt="Andrea" class="quote-profile-image">
+          </div>
+          <h3 class="quote-title">Andrea Says...</h3>
+          <p class="quote-text">"Every version of me learned something new 🌿"</p>
+        </div>
+      </section>
     </main>
 
     <script src="script.js"></script>
@@ -238,17 +242,17 @@ document.addEventListener('DOMContentLoaded', function(){
   // Theme Toggle Functionality
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
-  const body = document.body;
+  const root = document.documentElement;
   
   const currentTheme = localStorage.getItem('theme') || 'light';
-  body.setAttribute('data-theme', currentTheme);
-  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+  root.setAttribute('data-theme', currentTheme);
+  themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
   
   themeToggle.addEventListener('click', () => {
-    const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    body.setAttribute('data-theme', theme);
+    const theme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    themeIcon.textContent = theme === 'dark' ? '☀️' : '🌕';
   });
 
   // Personality Selector Functionality

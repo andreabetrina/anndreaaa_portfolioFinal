@@ -1,3 +1,47 @@
+/* --- Glowing Navigation Buttons (Home, About, etc.) --- */
+.nav-link {
+  position: relative;
+  transition: box-shadow 0.3s, color 0.3s;
+  box-shadow: 0 2px 12px rgba(255,144,179,0.10), 0 0px 0px transparent;
+  z-index: 1;
+}
+
+.nav-link.active, .nav-link:hover {
+  color: #fff !important;
+  background: linear-gradient(90deg, #ffb6e6 0%, #b89fff 100%);
+  box-shadow: 0 0 18px 0 #ffb6e6, 0 0 36px 0 #b89fff;
+  text-shadow: 0 0 8px #fff, 0 0 12px #ffb6e6;
+  border-radius: 24px;
+  border: none;
+}
+
+/* --- Glowing Social Icons --- */
+.social-icon {
+  transition: box-shadow 0.3s, background 0.3s, color 0.3s;
+  box-shadow: 0 2px 10px rgba(255,144,179,0.10), 0 0px 0px transparent;
+  border-radius: 50%;
+}
+.social-icon:hover, .social-icon:focus {
+  background: linear-gradient(90deg, #ff90b3 0%, #9d7cff 100%);
+  color: #fff;
+  box-shadow: 0 0 12px 2px #ff90b3, 0 0 24px 6px #9d7cff;
+  outline: none;
+}
+
+/* --- Glowing for dark mode --- */
+html[data-theme="dark"] .nav-link.active, html[data-theme="dark"] .nav-link:hover {
+  color: #fff !important;
+  background: linear-gradient(90deg, #b89fff 0%, #ffb6e6 100%);
+  box-shadow: 0 0 18px 0 #b89fff, 0 0 36px 0 #ffb6e6;
+  text-shadow: 0 0 10px #fff, 0 0 14px #b89fff;
+  border-radius: 24px;
+  border: none;
+}
+html[data-theme="dark"] .social-icon:hover, html[data-theme="dark"] .social-icon:focus {
+  background: linear-gradient(90deg, #ffb6e6 0%, #b89fff 100%);
+  color: #fff;
+  box-shadow: 0 0 14px 3px #ffb6e6, 0 0 28px 8px #b89fff;
+}
 /* styles.css */
 
 /* Smooth Scroll Behavior */
@@ -26,23 +70,32 @@ html{
   --radius: 18px;
 }
 
-/* Dark Mode Variables */
-[data-theme="dark"]{
-  --bg: #0f0f1a;
-  --text: #eaeaea;
-  --text-secondary: #a0a0a0;
-  --muted: #a0a0b5;
-  --pink: #ff6b99;
-  --pink-dark: #ff3d7f;
-  --rose: #ff5a8f;
-  --soft-pink: #3d2a3a;
-  --glow-a: rgba(255,107,153,0.3);
-  --glow-b: rgba(157,127,255,0.25);
-  --shadow-soft: rgba(255,107,153,0.12);
-  --shadow-medium: rgba(255,107,153,0.22);
-  --shadow-strong: rgba(255,107,153,0.32);
-  --nav-bg: rgba(20,20,35,0.9);
-  --card-bg: rgba(25,25,40,0.85);
+/* Lavender Night Mode Variables */
+html[data-theme="dark"]{
+  /* Lavender Night Background Gradient */
+  --bg: #1a1625;
+  --bg-solid: #1a1625;
+  background: #1a1625 !important;
+  background-color: #1a1625 !important;
+  --text: #ffffff;
+  --text-secondary: #e6d9ff;
+  --muted: #c7b3e6;
+  --pink: #ff9ed4;
+  --pink-dark: #ff6bc4;
+  --rose: #ffb3e6;
+  --soft-pink: #a78bfa;
+  --lavender: #9d7cff;
+  --lavender-light: #b89fff;
+  --lavender-dark: #7c3aed;
+  --glow-a: rgba(157, 124, 255, 0.6);
+  --glow-b: rgba(255, 158, 212, 0.5);
+  --shadow-soft: rgba(157, 124, 255, 0.25);
+  --shadow-medium: rgba(157, 124, 255, 0.4);
+  --shadow-strong: rgba(157, 124, 255, 0.6);
+  --nav-bg: rgba(26, 22, 37, 0.85);
+  --card-bg: rgba(45, 27, 61, 0.75);
+  --card-border: rgba(157, 124, 255, 0.3);
+  --glow-text: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(157, 124, 255, 0.4);
 }
 
 *{box-sizing:border-box}
@@ -64,6 +117,628 @@ body{
   -moz-osx-font-smoothing:grayscale;
   /* Smooth theme transitions */
   transition:background 0.4s ease, color 0.4s ease;
+  position: relative;
+  min-height:100vh;
+}
+
+/* Lavender Night Mode Background */
+html[data-theme="dark"] body {
+  background: #1a1625 !important;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(157, 124, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 158, 212, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 182, 230, 0.15) 0%, transparent 80%),
+    radial-gradient(circle at 10% 80%, rgba(186, 148, 255, 0.18) 0%, transparent 60%) !important;
+  animation: nightGlow 15s ease-in-out infinite;
+  color: #ffffff !important;
+  min-height: 100vh !important;
+}
+
+@keyframes nightGlow {
+  0%, 100% {
+    background-position: 0% 50%, 100% 50%, 50% 50%, 10% 80%;
+  }
+  50% {
+    background-position: 50% 100%, 50% 0%, 80% 20%, 80% 20%;
+  }
+}
+
+/* Glowing Text Effect in Night Mode - Lavender & Pink */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] .hero-title,
+html[data-theme="dark"] .section-title {
+  color: #ffffff;
+  text-shadow: var(--glow-text);
+  animation: textGlowPink 3s ease-in-out infinite;
+}
+
+@keyframes textGlowPink {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 
+                 0 0 40px rgba(255, 158, 212, 0.5),
+                 0 0 60px rgba(157, 124, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 
+                 0 0 60px rgba(255, 158, 212, 0.8),
+                 0 0 90px rgba(157, 124, 255, 0.5);
+  }
+}
+
+/* Enhanced Cards in Night Mode */
+html[data-theme="dark"] .section-card,
+html[data-theme="dark"] .skill-category,
+html[data-theme="dark"] .project-item,
+html[data-theme="dark"] .cert-card,
+html[data-theme="dark"] .achievement-item,
+html[data-theme="dark"] .personality-card {
+  background: rgba(45, 27, 61, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 158, 212, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 158, 212, 0.25),
+              0 4px 16px rgba(157, 124, 255, 0.2);
+}
+
+html[data-theme="dark"] .section-card:hover,
+html[data-theme="dark"] .skill-category:hover,
+html[data-theme="dark"] .project-item:hover,
+html[data-theme="dark"] .cert-card:hover,
+html[data-theme="dark"] .achievement-item:hover {
+  border-color: rgba(255, 158, 212, 0.6);
+  box-shadow: 0 12px 48px rgba(255, 158, 212, 0.4),
+              0 8px 32px rgba(157, 124, 255, 0.3);
+}
+
+/* Glowing Progress Bars in Night Mode - Pink & Lavender */
+html[data-theme="dark"] .progress-fill {
+  background: linear-gradient(90deg, #ff9ed4, #9d7cff, #ffb6e6);
+  box-shadow: 0 0 20px rgba(255, 158, 212, 0.7),
+              0 0 40px rgba(157, 124, 255, 0.5);
+  animation: progressGlowPink 2s ease-in-out infinite;
+}
+
+@keyframes progressGlowPink {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 158, 212, 0.7),
+                0 0 40px rgba(157, 124, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 158, 212, 1),
+                0 0 60px rgba(157, 124, 255, 0.7);
+  }
+}
+
+/* Glowing Buttons in Night Mode - Pink & Lavender */
+html[data-theme="dark"] .filter-btn,
+html[data-theme="dark"] .cert-filter-btn,
+html[data-theme="dark"] .personality-btn {
+  background: rgba(255, 158, 212, 0.2);
+  border-color: rgba(255, 158, 212, 0.4);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 182, 230, 0.6);
+}
+
+html[data-theme="dark"] .filter-btn:hover,
+html[data-theme="dark"] .cert-filter-btn:hover,
+html[data-theme="dark"] .personality-btn:hover {
+  background: rgba(255, 158, 212, 0.3);
+  border-color: rgba(255, 158, 212, 0.6);
+  box-shadow: 0 0 20px rgba(255, 158, 212, 0.7),
+              0 0 40px rgba(157, 124, 255, 0.4);
+}
+
+html[data-theme="dark"] .filter-btn.active,
+html[data-theme="dark"] .cert-filter-btn.active,
+html[data-theme="dark"] .personality-btn.active {
+  background: linear-gradient(135deg, rgba(255, 158, 212, 0.5), rgba(157, 124, 255, 0.4));
+  border-color: rgba(255, 158, 212, 0.8);
+  box-shadow: 0 0 30px rgba(255, 158, 212, 0.9),
+              0 0 60px rgba(157, 124, 255, 0.5);
+}
+
+/* Enhanced Navigation in Night Mode - Pink Accents */
+html[data-theme="dark"] .nav-link {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 182, 230, 0.4);
+}
+
+html[data-theme="dark"] .nav-link:hover {
+  color: #ffb6e6;
+  text-shadow: 0 0 15px rgba(255, 158, 212, 0.9),
+               0 0 30px rgba(255, 182, 230, 0.5);
+}
+
+html[data-theme="dark"] .nav-link.active {
+  color: #ff9ed4;
+  text-shadow: 0 0 20px rgba(255, 158, 212, 1),
+               0 0 40px rgba(157, 124, 255, 0.6);
+}
+
+/* Animated Stars/Particles in Night Mode - Pink & Lavender */
+html[data-theme="dark"] .bg-blobs span {
+  background: radial-gradient(circle, rgba(255, 158, 212, 0.3) 0%, rgba(157, 124, 255, 0.2) 50%, transparent 70%);
+  box-shadow: 0 0 40px rgba(255, 158, 212, 0.5),
+              0 0 60px rgba(157, 124, 255, 0.3);
+  animation: floatGlowPink 8s ease-in-out infinite;
+}
+
+@keyframes floatGlowPink {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+    box-shadow: 0 0 40px rgba(255, 158, 212, 0.5),
+                0 0 60px rgba(157, 124, 255, 0.3);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 60px rgba(255, 158, 212, 0.8),
+                0 0 80px rgba(157, 124, 255, 0.5);
+  }
+}
+
+/* Contact Form in Night Mode - Pink Accent */
+html[data-theme="dark"] .envelope-minimal {
+  background: rgba(45, 27, 61, 0.6);
+  border-color: rgba(255, 158, 212, 0.4);
+  box-shadow: 0 12px 40px rgba(255, 158, 212, 0.35),
+              0 0 60px rgba(157, 124, 255, 0.2);
+}
+
+html[data-theme="dark"] .contact-form-minimal input,
+html[data-theme="dark"] .contact-form-minimal textarea {
+  background: rgba(26, 22, 37, 0.8);
+  border-color: rgba(157, 124, 255, 0.3);
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .contact-form-minimal input::placeholder,
+html[data-theme="dark"] .contact-form-minimal textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+html[data-theme="dark"] .contact-form-minimal input:focus,
+html[data-theme="dark"] .contact-form-minimal textarea:focus {
+  border-color: rgba(157, 124, 255, 0.8);
+  box-shadow: 0 0 20px rgba(157, 124, 255, 0.4);
+}
+
+html[data-theme="dark"] .send-btn-minimal {
+  background: linear-gradient(135deg, rgba(255, 158, 212, 0.5), rgba(157, 124, 255, 0.4));
+  border-color: rgba(255, 158, 212, 0.6);
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 182, 230, 0.6);
+  box-shadow: 0 6px 24px rgba(255, 158, 212, 0.5);
+}
+
+html[data-theme="dark"] .send-btn-minimal:hover {
+  box-shadow: 0 10px 32px rgba(255, 158, 212, 0.7),
+              0 0 40px rgba(255, 158, 212, 0.5),
+              0 0 60px rgba(157, 124, 255, 0.3);
+}
+
+/* Social Icons in Night Mode - Pink Glow */
+html[data-theme="dark"] .social-link-minimal {
+  background: rgba(45, 27, 61, 0.6);
+  border-color: rgba(255, 158, 212, 0.4);
+  box-shadow: 0 4px 16px rgba(255, 158, 212, 0.3);
+}
+
+/* Enhanced Text Visibility in Dark Mode */
+html[data-theme="dark"] p,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .personality-description,
+html[data-theme="dark"] .project-description,
+html[data-theme="dark"] .achievement-description,
+html[data-theme="dark"] .about-text {
+  color: #f0e7ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* About Section Dark Mode */
+html[data-theme="dark"] .about-title {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 182, 230, 0.6);
+}
+
+html[data-theme="dark"] .about-inner {
+  background: rgba(45, 27, 61, 0.5) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+html[data-theme="dark"] .personality-quote,
+html[data-theme="dark"] .quote-text {
+  color: #ffd4f1;
+  font-weight: 500;
+}
+
+html[data-theme="dark"] .skill-name,
+html[data-theme="dark"] .cert-title,
+html[data-theme="dark"] .project-title,
+html[data-theme="dark"] .achievement-title {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 182, 230, 0.5);
+}
+
+/* Enhanced Tags/Badges in Dark Mode */
+html[data-theme="dark"] .skill-tag,
+html[data-theme="dark"] .personality-tags span,
+html[data-theme="dark"] .project-tags span,
+html[data-theme="dark"] .cert-date,
+html[data-theme="dark"] .learning-badge {
+  background: rgba(255, 158, 212, 0.25);
+  border: 1px solid rgba(255, 158, 212, 0.4);
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 182, 230, 0.4);
+}
+
+/* Enhanced Andrea Says Card in Dark Mode */
+html[data-theme="dark"] .andrea-says-card {
+  background: rgba(45, 27, 61, 0.7);
+  border: 2px solid rgba(255, 158, 212, 0.4);
+  box-shadow: 0 12px 40px rgba(255, 158, 212, 0.3),
+              0 0 60px rgba(157, 124, 255, 0.2);
+}
+
+html[data-theme="dark"] .quote-title {
+  color: #ff9ed4;
+  text-shadow: 0 0 20px rgba(255, 158, 212, 0.8);
+}
+
+/* Personality Section Dark Mode */
+html[data-theme="dark"] .personality-title {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 182, 230, 0.7);
+}
+
+html[data-theme="dark"] .personality-subtitle {
+  color: #e6d9ff !important;
+  text-shadow: 0 0 10px rgba(186, 148, 255, 0.4);
+}
+
+html[data-theme="dark"] .personality-section {
+  background: rgba(45, 27, 61, 0.4) !important;
+}
+
+/* Ensure all page sections have dark background */
+html[data-theme="dark"] .page,
+html[data-theme="dark"] .slide,
+html[data-theme="dark"] main {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] .about.slide {
+  background: transparent !important;
+}
+
+/* Dark mode gradient backgrounds */
+html[data-theme="dark"] .dreamy-gradient-bg {
+  background: linear-gradient(135deg, #1a1625 0%, #2d1b3d 25%, #1f1635 50%, #281a3f 75%, #1a1625 100%) !important;
+  background-size: 400% 400%;
+}
+
+html[data-theme="dark"] .gradient-overlay {
+  opacity: 0.3;
+}
+
+html[data-theme="dark"] .floating-gradient-blobs,
+html[data-theme="dark"] .gradient-blob {
+  opacity: 0.5;
+}
+
+/* ========== COMPREHENSIVE DARK MODE STYLES ========== */
+
+/* All Text Elements */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] span,
+html[data-theme="dark"] li,
+html[data-theme="dark"] label {
+  color: #f0e7ff !important;
+}
+
+html[data-theme="dark"] a {
+  color: #ff9ed4 !important;
+}
+
+/* All Section Backgrounds */
+html[data-theme="dark"] section,
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .container,
+html[data-theme="dark"] .skills.slide,
+html[data-theme="dark"] .projects.slide,
+html[data-theme="dark"] .achievements.slide,
+html[data-theme="dark"] .certifications.slide,
+html[data-theme="dark"] .contact.slide {
+  background: transparent !important;
+}
+
+/* CRITICAL: Override section-card white background */
+html[data-theme="dark"] .section-card {
+  background: rgba(45, 27, 61, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1.5px solid rgba(255, 158, 212, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(255, 158, 212, 0.25), 0 4px 16px rgba(157, 124, 255, 0.2) !important;
+}
+
+html[data-theme="dark"] .skills-intro,
+html[data-theme="dark"] .intro-text,
+html[data-theme="dark"] .subtitle {
+  color: #e6d9ff !important;
+}
+
+/* Hero/Landing Section */
+html[data-theme="dark"] .hero-section,
+html[data-theme="dark"] .landing,
+html[data-theme="dark"] .intro {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] .hero-content,
+html[data-theme="dark"] .intro-content {
+  color: #ffffff !important;
+}
+
+/* Skill Section */
+html[data-theme="dark"] .skill-item,
+html[data-theme="dark"] .skill-bar,
+html[data-theme="dark"] .progress-bar {
+  background: rgba(45, 27, 61, 0.6) !important;
+  border-color: rgba(255, 158, 212, 0.3) !important;
+}
+
+html[data-theme="dark"] .skill-level,
+html[data-theme="dark"] .skill-percentage {
+  color: #ff9ed4 !important;
+}
+
+/* Project Cards */
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .project-box {
+  background: rgba(45, 27, 61, 0.6) !important;
+  border: 1.5px solid rgba(255, 158, 212, 0.3) !important;
+}
+
+/* Achievement Items */
+html[data-theme="dark"] .achievement-card,
+html[data-theme="dark"] .timeline-item {
+  background: rgba(45, 27, 61, 0.6) !important;
+  border-color: rgba(255, 158, 212, 0.3) !important;
+}
+
+html[data-theme="dark"] .achievement-date,
+html[data-theme="dark"] .timeline-date {
+  color: #ffb6e6 !important;
+}
+
+/* Achievement Flip Cards - Front and Back */
+html[data-theme="dark"] .achievement-front {
+  background: linear-gradient(135deg, rgba(45, 27, 61, 0.7), rgba(55, 35, 75, 0.7)) !important;
+  border: 2px solid rgba(255, 158, 212, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(255, 158, 212, 0.2) !important;
+}
+
+html[data-theme="dark"] .achievement-story {
+  background: linear-gradient(135deg, rgba(45, 27, 61, 0.8), rgba(60, 38, 80, 0.8)) !important;
+  border: 2px solid rgba(157, 124, 255, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(157, 124, 255, 0.2) !important;
+}
+
+html[data-theme="dark"] .achievement-item:hover .achievement-front {
+  border-color: rgba(255, 158, 212, 0.7) !important;
+  box-shadow: 0 12px 32px rgba(255, 158, 212, 0.4) !important;
+}
+
+html[data-theme="dark"] .achievement-title {
+  color: #ffffff !important;
+  text-shadow: 0 0 15px rgba(255, 182, 230, 0.5) !important;
+}
+
+html[data-theme="dark"] .achievement-description,
+html[data-theme="dark"] .achievement-details {
+  color: #f0e7ff !important;
+}
+
+/* Contact Form */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: rgba(26, 22, 37, 0.8) !important;
+  border-color: rgba(157, 124, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Buttons */
+html[data-theme="dark"] button,
+html[data-theme="dark"] .btn,
+html[data-theme="dark"] .button {
+  background: linear-gradient(135deg, rgba(255, 158, 212, 0.5), rgba(157, 124, 255, 0.4)) !important;
+  border-color: rgba(255, 158, 212, 0.6) !important;
+  color: #ffffff !important;
+}
+
+/* Progress Bars */
+html[data-theme="dark"] .progress,
+html[data-theme="dark"] .progress-bg {
+  background: rgba(45, 27, 61, 0.6) !important;
+}
+
+/* Section Titles */
+html[data-theme="dark"] .section-title,
+html[data-theme="dark"] .page-title {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 182, 230, 0.6) !important;
+}
+
+/* Section Descriptions */
+html[data-theme="dark"] .section-description,
+html[data-theme="dark"] .page-description {
+  color: #e6d9ff !important;
+}
+
+/* Canvas and Background Elements */
+html[data-theme="dark"] #flow-canvas {
+  opacity: 0.3 !important;
+}
+
+html[data-theme="dark"] .bg-blobs .b {
+  background: radial-gradient(circle, rgba(255, 158, 212, 0.3) 0%, rgba(157, 124, 255, 0.2) 50%, transparent 70%) !important;
+}
+
+/* Social Links */
+html[data-theme="dark"] .social-link,
+html[data-theme="dark"] .social-icon {
+  background: rgba(45, 27, 61, 0.6) !important;
+  border-color: rgba(255, 158, 212, 0.4) !important;
+  color: #ffffff !important;
+}
+
+/* View My Work Button */
+html[data-theme="dark"] .cta-button,
+html[data-theme="dark"] .view-work-btn {
+  background: linear-gradient(135deg, rgba(255, 158, 212, 0.5), rgba(157, 124, 255, 0.4)) !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(255, 182, 230, 0.6) !important;
+}
+
+/* Icons and SVGs */
+html[data-theme="dark"] .icon,
+html[data-theme="dark"] svg {
+  filter: brightness(1.2) !important;
+}
+
+html[data-theme="dark"] .category-icon,
+html[data-theme="dark"] .skill-icon {
+  fill: #ff9ed4 !important;
+  stroke: #ff9ed4 !important;
+}
+
+/* Timeline Section */
+html[data-theme="dark"] .timeline-section {
+  background: transparent !important;
+}
+
+html[data-theme="dark"] .timeline-item::before,
+html[data-theme="dark"] .timeline-item::after {
+  background: rgba(255, 158, 212, 0.5) !important;
+}
+
+/* Certification Section */
+html[data-theme="dark"] .cert-grid,
+html[data-theme="dark"] .cert-container {
+  background: transparent !important;
+}
+
+/* Links in text */
+html[data-theme="dark"] a:hover {
+  color: #ffb6e6 !important;
+  text-shadow: 0 0 15px rgba(255, 182, 230, 0.8) !important;
+}
+
+/* Strong/Bold text */
+html[data-theme="dark"] strong,
+html[data-theme="dark"] b {
+  color: #ffffff !important;
+}
+
+/* Subtle text elements */
+html[data-theme="dark"] small,
+html[data-theme="dark"] .small-text,
+html[data-theme="dark"] .caption {
+  color: #c7b3e6 !important;
+}
+
+/* ========== END COMPREHENSIVE DARK MODE ========== */
+
+/* Enhanced Navigation Bar in Dark Mode */
+html[data-theme="dark"] .navbar {
+  background: rgba(26, 22, 37, 0.9);
+  border-bottom: 1px solid rgba(255, 158, 212, 0.3);
+  box-shadow: 0 4px 20px rgba(157, 124, 255, 0.2);
+}
+
+/* Enhanced Hero Section in Dark Mode */
+html[data-theme="dark"] .hero-subtitle,
+html[data-theme="dark"] .intro-text {
+  color: #e6d9ff;
+  text-shadow: 0 0 10px rgba(186, 148, 255, 0.4);
+}
+
+/* Enhanced Image Borders in Dark Mode */
+html[data-theme="dark"] .personality-photo,
+html[data-theme="dark"] .quote-profile-image {
+  border-color: rgba(255, 158, 212, 0.6);
+  box-shadow: 0 8px 32px rgba(255, 158, 212, 0.4),
+              0 0 40px rgba(157, 124, 255, 0.3);
+}
+
+/* Enhanced About Quote Section */
+html[data-theme="dark"] .about-quote {
+  color: #ffd4f1;
+  text-shadow: 0 0 15px rgba(255, 182, 230, 0.5);
+}
+
+html[data-theme="dark"] .social-link-minimal:hover {
+  border-color: rgba(255, 158, 212, 0.8);
+  box-shadow: 0 8px 32px rgba(255, 158, 212, 0.6),
+              0 0 40px rgba(255, 158, 212, 0.4),
+              0 0 60px rgba(157, 124, 255, 0.3);
+}
+
+/* Learning Badges in Night Mode - Pink Border */
+html[data-theme="dark"] .learning-badge {
+  background: rgba(45, 27, 61, 0.6);
+  border-color: rgba(255, 158, 212, 0.4);
+  box-shadow: 0 4px 16px rgba(255, 158, 212, 0.25);
+}
+
+html[data-theme="dark"] .learning-badge:hover {
+  border-color: rgba(255, 158, 212, 0.8);
+  box-shadow: 0 8px 24px rgba(255, 158, 212, 0.5),
+              0 0 40px rgba(157, 124, 255, 0.3);
+}
+
+/* Certificate Thumbnails in Night Mode - Pink & Lavender */
+html[data-theme="dark"] .cert-thumbnail {
+  background: linear-gradient(135deg, rgba(255, 158, 212, 0.35), rgba(157, 124, 255, 0.25));
+  border-color: rgba(255, 158, 212, 0.5);
+  box-shadow: 0 0 30px rgba(255, 158, 212, 0.4),
+              0 0 50px rgba(157, 124, 255, 0.2);
+}
+
+/* About Personality Section in Night Mode - Pink Dominant */
+html[data-theme="dark"] .personality-section {
+  background: rgba(45, 27, 61, 0.7);
+  border-color: rgba(255, 158, 212, 0.5);
+  box-shadow: 0 16px 56px rgba(255, 158, 212, 0.4),
+              0 8px 24px rgba(157, 124, 255, 0.3),
+              inset 0 1px 0 rgba(255, 182, 230, 0.4);
+}
+
+html[data-theme="dark"] .personality-title {
+  background: linear-gradient(135deg, #ffffff, #ff9ed4, #9d7cff, #ffb6e6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
 }
 
 .page{
@@ -84,6 +759,17 @@ body{
   justify-content:center;
   padding:60px 24px;
   position:relative;
+}
+
+/* Allow About section to expand beyond viewport */
+.about.slide{
+  min-height:100vh;
+  height:auto;
+  align-items:flex-start;
+  padding-top:80px;
+  padding-bottom:120px;
+  scroll-snap-align:none;
+  flex-direction:column;
 }
 
 #flow-canvas{
@@ -167,6 +853,39 @@ body{
   box-shadow:0 6px 20px var(--shadow-medium);
   border-color:var(--pink);
 }
+
+/* Lavender Night Mode Theme Toggle - Pink Glow */
+html[data-theme="dark"] .theme-toggle {
+  background: rgba(255, 158, 212, 0.3);
+  border-color: rgba(255, 158, 212, 0.6);
+  box-shadow: 0 4px 16px rgba(255, 158, 212, 0.5),
+              0 0 30px rgba(255, 158, 212, 0.3),
+              0 0 50px rgba(157, 124, 255, 0.2);
+  animation: toggleGlowPink 3s ease-in-out infinite;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(255, 158, 212, 0.5);
+  border-color: rgba(255, 158, 212, 0.9);
+  box-shadow: 0 6px 20px rgba(255, 158, 212, 0.7),
+              0 0 40px rgba(255, 158, 212, 0.5),
+              0 0 60px rgba(157, 124, 255, 0.4);
+  transform: scale(1.1) rotate(15deg);
+}
+
+@keyframes toggleGlowPink {
+  0%, 100% {
+    box-shadow: 0 4px 16px rgba(255, 158, 212, 0.5),
+                0 0 30px rgba(255, 158, 212, 0.3),
+                0 0 50px rgba(157, 124, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 6px 24px rgba(255, 158, 212, 0.7),
+                0 0 50px rgba(255, 158, 212, 0.5),
+                0 0 70px rgba(157, 124, 255, 0.4);
+  }
+}
+
 .theme-toggle:active{
   transform:scale(0.95);
 }
@@ -552,7 +1271,7 @@ body{
   max-width:900px;
   width:100%;
   margin:0 auto;
-  padding:42px 36px;
+  padding:36px 36px;
   background: 
     linear-gradient(135deg, rgba(255,240,245,0.85) 0%, rgba(245,250,255,0.85) 50%, rgba(255,245,250,0.85) 100%),
     linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.995));
@@ -560,13 +1279,13 @@ body{
   box-shadow:0 24px 70px rgba(12,18,25,0.06), 0 12px 32px rgba(138,102,255,0.03);
   backdrop-filter: blur(8px);
 }
-.about-title{font-size:28px;margin:0 0 18px;font-weight:700;color:var(--text)}
-.about-text{color:var(--muted);line-height:1.7;margin:14px 0;font-size:16px}
+.about-title{font-size:28px;margin:0 0 16px;font-weight:700;color:var(--text)}
+.about-text{color:var(--muted);line-height:1.7;margin:12px 0;font-size:16px}
 
 /* Personality Selector Section */
 .personality-section{
-  margin-top:48px;
-  padding-top:48px;
+  margin-top:8px;
+  padding-top:16px;
   border-top:2px solid rgba(255,144,179,0.15);
   position:relative;
 }
@@ -1009,6 +1728,14 @@ body{
   font-size:80px;
   animation:gentleFloat 3s ease-in-out infinite;
 }
+.personality-photo{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:16px;
+  border:3px solid rgba(255,144,179,0.3);
+  box-shadow:0 8px 24px rgba(255,144,179,0.15);
+}
 
 /* Personality Content */
 .personality-content{
@@ -1115,6 +1842,103 @@ body{
   text-align:center;
 }
 
+/* Andrea Says Quote Card */
+.andrea-says-section{
+  width:100%;
+  max-width:900px;
+  display:flex;
+  justify-content:center;
+  padding:60px 24px 80px 24px;
+  margin:50px auto 0 auto;
+  position:relative;
+  z-index:10;
+}
+.andrea-says-card{
+  max-width:650px;
+  width:100%;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+  border-radius:20px;
+  padding:32px 40px;
+  box-shadow:0 8px 32px rgba(186,148,255,0.2), 0 2px 8px rgba(255,144,179,0.15);
+  border:1px solid rgba(255,255,255,0.5);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  animation:floatGentle 4s ease-in-out infinite;
+}
+.andrea-says-card::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  right:-50%;
+  width:200px;
+  height:200px;
+  background:radial-gradient(circle, rgba(255,144,179,0.15) 0%, transparent 70%);
+  border-radius:50%;
+  filter:blur(40px);
+  animation:floatGentleCorner 20s ease-in-out infinite;
+}
+.quote-icon{
+  font-size:48px;
+  margin-bottom:12px;
+  animation:gentleFloat 3s ease-in-out infinite;
+}
+.quote-profile-image{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid rgba(255,144,179,0.5);
+  box-shadow:0 6px 16px rgba(255,144,179,0.3);
+}
+.quote-title{
+  font-size:22px;
+  font-weight:600;
+  color:var(--text);
+  margin:0 0 16px 0;
+  background:linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.quote-text{
+  font-size:20px;
+  font-weight:500;
+  color:var(--text);
+  margin:0;
+  line-height:1.6;
+  font-style:italic;
+  opacity:0.9;
+}
+
+/* Dark Mode for Andrea Says Card */
+html[data-theme="dark"] .andrea-says-card{
+  background:rgba(45,27,61,0.5);
+  border:1px solid rgba(255,158,212,0.3);
+  box-shadow:0 8px 32px rgba(255,158,212,0.2), 0 2px 8px rgba(157,124,255,0.15);
+}
+html[data-theme="dark"] .quote-text{
+  color:#fff;
+  text-shadow:0 0 10px rgba(255,158,212,0.3);
+}
+
+@media (max-width:768px){
+  .andrea-says-section{padding:0 20px 40px 20px}
+  .andrea-says-card{padding:28px 32px}
+  .quote-icon{font-size:40px}
+  .quote-title{font-size:20px}
+  .quote-text{font-size:18px}
+}
+@media (max-width:520px){
+  .andrea-says-section{padding:0 16px 32px 16px}
+  .andrea-says-card{padding:24px 28px}
+  .quote-icon{font-size:36px}
+  .quote-title{font-size:18px}
+  .quote-text{font-size:16px}
+}
+
 /* Skills Section Intro */
 .skills-intro{
   text-align:center;
@@ -1144,7 +1968,18 @@ body{
 }
 .category-icon{
   font-size:32px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   animation:gentleFloat 3s ease-in-out infinite;
+}
+.category-icon svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.3s ease;
+}
+.skill-category:hover .category-icon svg {
+  transform: scale(1.15) rotate(5deg);
 }
 .category-title{
   font-size:22px;
@@ -1291,7 +2126,24 @@ body{
 }
 .badge-emoji{
   font-size:36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   animation:gentleFloat 2.5s ease-in-out infinite;
+}
+.badge-emoji svg {
+  width: 20px;
+  height: 20px;
+}
+.learning-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+.learning-icon svg {
+  width: 24px;
+  height: 24px;
 }
 .badge-text{
   font-size:16px;
