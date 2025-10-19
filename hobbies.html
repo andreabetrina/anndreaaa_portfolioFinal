@@ -60,7 +60,7 @@
       font-size: 1.5rem;
       text-align: center;
       color: #7f5a83;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
       font-weight: 500;
       line-height: 1.6;
       animation: fadeIn 1.5s ease-out;
@@ -84,7 +84,7 @@
     /* Scrapbook-style heading for Journey - Image Based */
     .scrapbook-heading-image {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
       padding: 20px;
     }
 
@@ -112,7 +112,7 @@
     }
 
     .timeline-item {
-      margin-bottom: 80px;
+      margin-bottom: 100px;
       position: relative;
       opacity: 0;
       transform: translateY(30px);
@@ -142,6 +142,20 @@
       border: 2px solid rgba(255,192,203,0.3);
       position: relative;
       backdrop-filter: blur(10px);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(255,107,157,0.3), 
+                  0 8px 24px rgba(255,182,193,0.2);
+      border-color: rgba(255,107,157,0.6);
+      background: rgba(255, 255, 255, 0.95);
     }
 
     .timeline-item:nth-child(odd) .timeline-content::after {
@@ -185,6 +199,286 @@
       z-index: 2;
     }
 
+    /* Circular Frame Along Timeline */
+    .timeline-profile {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 120px;
+      height: 120px;
+      transform: translateX(-50%);
+      transition: top 0.3s ease-out;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .timeline-profile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, #ff6b9d, #c44569, #8b4789);
+      box-shadow: 0 8px 32px rgba(255,107,157,0.4),
+                  0 0 60px rgba(255,107,157,0.2);
+      animation: pulseGlowProfile 3s ease-in-out infinite;
+      position: relative;
+    }
+
+    .timeline-profile-inner::before {
+      content: '';
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255,107,157,0.3), rgba(139,71,137,0.3));
+      filter: blur(15px);
+      z-index: -1;
+      animation: pulseRing 3s ease-in-out infinite;
+    }
+
+    .timeline-profile-inner img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    @keyframes pulseGlowProfile {
+      0%, 100% {
+        box-shadow: 0 8px 32px rgba(255,107,157,0.4),
+                    0 0 60px rgba(255,107,157,0.2);
+      }
+      50% {
+        box-shadow: 0 12px 48px rgba(255,107,157,0.6),
+                    0 0 80px rgba(255,107,157,0.4);
+      }
+    }
+
+    @keyframes pulseRing {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    /* ========== DARK MODE STYLES ========== */
+    html[data-theme="dark"] .hobbies-page {
+      background: #1a1625;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(157, 124, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 158, 212, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(255, 182, 230, 0.1) 0%, transparent 80%);
+    }
+
+    html[data-theme="dark"] .hobbies-page::before {
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 158, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(157, 124, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(186, 148, 255, 0.08) 0%, transparent 50%);
+    }
+
+    html[data-theme="dark"] .bloom-title {
+      background: linear-gradient(135deg, #ff9ed4 0%, #ffb6e6 50%, #b89fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 40px rgba(255, 158, 212, 0.5);
+      filter: drop-shadow(0 0 20px rgba(255, 158, 212, 0.3));
+    }
+
+    html[data-theme="dark"] .bloom-subtitle {
+      color: #e6d9ff;
+      text-shadow: 0 0 10px rgba(186, 148, 255, 0.4);
+    }
+
+    html[data-theme="dark"] .section-heading {
+      color: #ff9ed4;
+      text-shadow: 0 0 20px rgba(255, 158, 212, 0.5);
+    }
+
+    html[data-theme="dark"] .timeline::before {
+      background: linear-gradient(180deg, #ff9ed4, #b89fff, #ffb6e6);
+      box-shadow: 0 0 20px rgba(255, 158, 212, 0.5);
+    }
+
+    html[data-theme="dark"] .timeline-content {
+      background: rgba(45, 27, 61, 0.8);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 158, 212, 0.4);
+      box-shadow: 0 8px 32px rgba(255, 158, 212, 0.3);
+    }
+
+    html[data-theme="dark"] .timeline-content:hover {
+      border-color: rgba(255, 158, 212, 0.6);
+      box-shadow: 0 12px 48px rgba(255, 158, 212, 0.4);
+    }
+
+    html[data-theme="dark"] .timeline-item:nth-child(odd) .timeline-content::after {
+      border-left-color: rgba(255, 158, 212, 0.4);
+    }
+
+    html[data-theme="dark"] .timeline-item:nth-child(even) .timeline-content::after {
+      border-right-color: rgba(255, 158, 212, 0.4);
+    }
+
+    html[data-theme="dark"] .timeline-dot {
+      background: linear-gradient(135deg, #ff9ed4, #b89fff);
+      box-shadow: 0 4px 20px rgba(255, 158, 212, 0.6),
+                  0 0 40px rgba(255, 158, 212, 0.4);
+    }
+
+    html[data-theme="dark"] .timeline-profile-inner {
+      background: linear-gradient(135deg, #ff9ed4, #b89fff, #ffb6e6);
+      box-shadow: 0 8px 32px rgba(255, 158, 212, 0.6),
+                  0 0 60px rgba(255, 158, 212, 0.4);
+    }
+
+    html[data-theme="dark"] .timeline-profile-inner::before {
+      background: linear-gradient(135deg, rgba(255, 158, 212, 0.4), rgba(186, 148, 255, 0.4));
+    }
+
+    html[data-theme="dark"] .timeline-year {
+      color: #ff9ed4;
+      text-shadow: 0 0 15px rgba(255, 158, 212, 0.6);
+    }
+
+    html[data-theme="dark"] .timeline-title {
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 182, 230, 0.4);
+    }
+
+    html[data-theme="dark"] .timeline-description {
+      color: #f0e7ff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    html[data-theme="dark"] .art-gallery-section {
+      background: rgba(45, 27, 61, 0.5);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 158, 212, 0.3);
+    }
+
+    html[data-theme="dark"] .art-tile {
+      background: rgba(45, 27, 61, 0.6);
+      border: 2px solid rgba(255, 158, 212, 0.3);
+      box-shadow: 0 8px 24px rgba(255, 158, 212, 0.2);
+    }
+
+    html[data-theme="dark"] .art-tile:hover {
+      border-color: rgba(255, 158, 212, 0.6);
+      box-shadow: 0 16px 48px rgba(255, 158, 212, 0.4);
+    }
+
+    html[data-theme="dark"] .art-overlay {
+      background: linear-gradient(to top, rgba(45, 27, 61, 0.95), transparent);
+    }
+
+    html[data-theme="dark"] .art-caption {
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 182, 230, 0.6);
+    }
+
+    html[data-theme="dark"] .passion-bubble {
+      background: linear-gradient(135deg, rgba(255, 158, 212, 0.2), rgba(186, 148, 255, 0.2));
+      border: 2px solid rgba(255, 158, 212, 0.4);
+      box-shadow: 0 10px 30px rgba(255, 158, 212, 0.3);
+    }
+
+    html[data-theme="dark"] .passion-bubble:hover {
+      background: linear-gradient(135deg, rgba(255, 158, 212, 0.3), rgba(186, 148, 255, 0.3));
+      border-color: rgba(255, 158, 212, 0.6);
+      box-shadow: 0 15px 40px rgba(255, 158, 212, 0.5);
+    }
+
+    html[data-theme="dark"] .passion-label {
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 182, 230, 0.6);
+    }
+
+    html[data-theme="dark"] .passion-tooltip {
+      background: rgba(255, 158, 212, 0.95);
+      color: #1a1625;
+      box-shadow: 0 4px 20px rgba(255, 158, 212, 0.6);
+    }
+
+    html[data-theme="dark"] .quote-text {
+      color: #ffffff;
+      background: 
+        linear-gradient(rgba(45, 27, 61, 0.8), rgba(45, 27, 61, 0.8)) padding-box,
+        linear-gradient(135deg, #ff9ed4, #b89fff, #ffb6e6) border-box;
+      box-shadow: 0 8px 32px rgba(255, 158, 212, 0.3);
+      text-shadow: 0 0 20px rgba(255, 182, 230, 0.4);
+    }
+
+    html[data-theme="dark"] .quote-text::before,
+    html[data-theme="dark"] .quote-text::after {
+      color: #ff9ed4;
+      opacity: 0.6;
+      text-shadow: 0 0 20px rgba(255, 158, 212, 0.8);
+    }
+
+    @keyframes glowDark {
+      0%, 100% { 
+        box-shadow: 0 8px 32px rgba(255, 158, 212, 0.3),
+                    0 0 40px rgba(255, 158, 212, 0.2); 
+      }
+      50% { 
+        box-shadow: 0 12px 48px rgba(255, 158, 212, 0.5),
+                    0 0 60px rgba(255, 158, 212, 0.4); 
+      }
+    }
+
+    html[data-theme="dark"] .quote-text {
+      animation: glowDark 3s ease-in-out infinite;
+    }
+
+    html[data-theme="dark"] .vision-board-container {
+      background: rgba(45, 27, 61, 0.6);
+      backdrop-filter: blur(20px);
+      border: 3px dashed rgba(255, 158, 212, 0.5);
+      box-shadow: 0 8px 32px rgba(255, 158, 212, 0.2);
+    }
+
+    html[data-theme="dark"] .vision-placeholder {
+      background: linear-gradient(135deg, rgba(255, 158, 212, 0.15), rgba(186, 148, 255, 0.15));
+      border: 2px solid rgba(255, 158, 212, 0.4);
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(255, 182, 230, 0.5);
+    }
+
+    html[data-theme="dark"] .closing-section {
+      background: linear-gradient(135deg, rgba(255, 158, 212, 0.15), rgba(186, 148, 255, 0.15));
+      border: 2px solid rgba(255, 158, 212, 0.3);
+    }
+
+    html[data-theme="dark"] .closing-section::before {
+      background: radial-gradient(circle at 50% 50%, rgba(255, 158, 212, 0.1) 0%, transparent 70%);
+    }
+
+    html[data-theme="dark"] .closing-text {
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 182, 230, 0.5);
+    }
+
+    html[data-theme="dark"] .scrapbook-heading-image img {
+      filter: drop-shadow(2px 4px 12px rgba(255, 158, 212, 0.4)) brightness(1.1);
+    }
+
+    /* Dark mode for mobile responsive */
+    @media (max-width: 768px) {
+      html[data-theme="dark"] .timeline-item:nth-child(odd) .timeline-content::after,
+      html[data-theme="dark"] .timeline-item:nth-child(even) .timeline-content::after {
+        border-right-color: rgba(255, 158, 212, 0.4);
+        border-left: none;
+      }
+    }
+    /* ========== END DARK MODE STYLES ========== */
+
     .timeline-year {
       font-family: 'Caveat', cursive;
       font-size: 2.5rem;
@@ -206,18 +500,8 @@
       font-size: 1rem;
       color: #7f5a83;
       line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    .timeline-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #ffb6d9;
-      box-shadow: 0 6px 24px rgba(255,107,157,0.2);
-      margin: 15px auto;
-      display: block;
+      margin-bottom: 0;
+      flex: 1;
     }
 
     /* Art Gallery Section */
@@ -506,15 +790,29 @@
         left: 30px;
       }
 
+      .timeline-profile {
+        left: 30px;
+        width: 80px;
+        height: 80px;
+        transform: translateX(0);
+      }
+
+      .timeline-profile-inner {
+        padding: 3px;
+      }
+
       .timeline-item:nth-child(odd),
       .timeline-item:nth-child(even) {
-        padding-left: 80px;
+        padding-left: 120px;
         padding-right: 0;
         text-align: left;
       }
 
       .timeline-dot {
         left: 30px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
       }
 
       .timeline-item:nth-child(odd) .timeline-content::after,
@@ -543,8 +841,8 @@
   </button>
 
   <nav class="top-nav-bar" aria-label="Main navigation">
+    <a href="about.html" class="nav-link" style="background: linear-gradient(135deg, #ff90b3, #ff6b99); color: white; box-shadow: 0 4px 16px rgba(255,144,179,0.3);">← Back to About</a>
     <a href="index.html" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
     <a href="skills.html" class="nav-link">Skills</a>
     <a href="achievements.html" class="nav-link">Achievements</a>
     <a href="projects.html" class="nav-link">Projects</a>
@@ -566,13 +864,19 @@
           <img src="images/my-journey-scrapbook.png" alt="My Journey So Far" />
         </div>
         <div class="timeline">
+          <!-- Animated Profile Photo -->
+          <div class="timeline-profile" id="timelineProfile">
+            <div class="timeline-profile-inner">
+              <img src="images/WhatsApp Image 2025-10-11 at 9.48.19 AM.jpeg" alt="Andrea Betrina">
+            </div>
+          </div>
+
           <!-- School Days 2009-2021 -->
-          <div class="timeline-item">
+          <div class="timeline-item" data-year="2009">
             <div class="timeline-dot">🎤</div>
             <div class="timeline-content">
               <div class="timeline-year">2009 - 2021</div>
               <div class="timeline-title">ADARSH VIDYA KENDRA</div>
-              <img src="images/timeline-school1.jpg" alt="School days" class="timeline-photo">
               <p class="timeline-description">
                 Where it all began! Discovered my love for the stage through dance and athletics. 
                 Participated in spell bee competitions at the international level. 
@@ -583,12 +887,11 @@
           </div>
 
           <!-- High School 2021-2024 -->
-          <div class="timeline-item">
+          <div class="timeline-item" data-year="2021">
             <div class="timeline-dot">🩰</div>
             <div class="timeline-content">
               <div class="timeline-year">2021 - 2024</div>
               <div class="timeline-title">KENDRIYA VIDYALAYA NAGERCOIL</div>
-              <img src="images/timeline-school2.jpg" alt="High school days" class="timeline-photo">
               <p class="timeline-description">
                 Leadership took shape here. Became House Captain and learned what it means to inspire others.
                 Participated in Youth Parliament competitions — where my voice found purpose beyond the stage.
@@ -598,12 +901,11 @@
           </div>
 
           <!-- College Life 2024-Present -->
-          <div class="timeline-item">
+          <div class="timeline-item" data-year="2024">
             <div class="timeline-dot">🏃‍♀️</div>
             <div class="timeline-content">
               <div class="timeline-year">2024 - Present</div>
               <div class="timeline-title">STELLA MARY'S COLLEGE OF ENGINEERING</div>
-              <img src="images/timeline-college.jpg" alt="College days" class="timeline-photo">
               <p class="timeline-description">
                 This is where everything came together! Joined Toastmasters — my biggest turning point.
                 Became a proud Basher at Byte Bash Blitz, balancing tech and creativity.
@@ -614,7 +916,7 @@
           </div>
 
           <!-- Future Vision -->
-          <div class="timeline-item">
+          <div class="timeline-item" data-year="future">
             <div class="timeline-dot">💻</div>
             <div class="timeline-content">
               <div class="timeline-year">Future</div>
@@ -768,6 +1070,47 @@
       document.querySelectorAll('.timeline-item').forEach(item => {
         observer.observe(item);
       });
+
+      // Animated Profile Photo Movement
+      const timelineProfile = document.getElementById('timelineProfile');
+      const timelineSection = document.querySelector('.timeline');
+      const timelineItems = document.querySelectorAll('.timeline-item');
+
+      function updateProfilePosition() {
+        if (!timelineSection || timelineItems.length === 0) return;
+
+        const scrollY = window.scrollY;
+        const timelineSectionTop = timelineSection.getBoundingClientRect().top + scrollY;
+        const timelineSectionHeight = timelineSection.offsetHeight;
+        const viewportCenter = scrollY + window.innerHeight / 2;
+
+        // Calculate position relative to timeline section
+        const relativeScroll = viewportCenter - timelineSectionTop;
+        const scrollProgress = Math.max(0, Math.min(1, relativeScroll / timelineSectionHeight));
+
+        // Move profile photo along the timeline
+        const maxMove = timelineSectionHeight - 200; // Leave some space at bottom
+        const newTop = scrollProgress * maxMove;
+
+        if (relativeScroll >= 0 && relativeScroll <= timelineSectionHeight) {
+          timelineProfile.style.top = newTop + 'px';
+        }
+      }
+
+      // Update on scroll
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateProfilePosition();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // Initial position
+      updateProfilePosition();
 
       // Smooth scroll behavior
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {

@@ -54,36 +54,32 @@
           
           <!-- Filter Tabs -->
           <div class="cert-filters">
-            <button class="cert-filter-btn active" data-filter="all">
-              <span class="filter-emoji">✨</span>
-              <span>All</span>
+            <button class="cert-filter-btn active" data-filter="linkedin">
+              <span class="filter-emoji">💼</span>
+              <span>LinkedIn Learning</span>
             </button>
-            <button class="cert-filter-btn" data-filter="tech">
-              <span class="filter-emoji">💻</span>
-              <span>Tech</span>
+            <button class="cert-filter-btn" data-filter="courses">
+              <span class="filter-emoji">📚</span>
+              <span>Courses</span>
             </button>
             <button class="cert-filter-btn" data-filter="design">
               <span class="filter-emoji">🎨</span>
               <span>Design</span>
             </button>
-            <button class="cert-filter-btn" data-filter="communication">
-              <span class="filter-emoji">�️</span>
-              <span>Communication</span>
-            </button>
-            <button class="cert-filter-btn" data-filter="others">
+            <a href="pages/certifications/outstanding-certificates.html" class="cert-filter-btn" style="text-decoration: none;">
               <span class="filter-emoji">🌟</span>
               <span>Others</span>
-            </button>
+            </a>
           </div>
 
           <!-- Certifications Grid -->
           <div class="cert-grid-new">
             
-            <!-- Tech Certifications -->
-            <div class="cert-card" data-category="tech">
+            <!-- Courses Certifications -->
+            <div class="cert-card" data-category="courses">
               <div class="cert-thumbnail">
                 <div class="cert-thumb-icon">💻</div>
-                <div class="cert-badge tech">Tech</div>
+                <div class="cert-badge courses">Courses</div>
               </div>
               <div class="cert-content">
                 <h3 class="cert-title">Complete Web Development Bootcamp</h3>
@@ -95,10 +91,10 @@
               </div>
             </div>
 
-            <div class="cert-card" data-category="tech">
+            <div class="cert-card" data-category="courses">
               <div class="cert-thumbnail">
                 <div class="cert-thumb-icon">⚛️</div>
-                <div class="cert-badge tech">Tech</div>
+                <div class="cert-badge courses">Courses</div>
               </div>
               <div class="cert-content">
                 <h3 class="cert-title">React - The Complete Guide</h3>
@@ -110,10 +106,10 @@
               </div>
             </div>
 
-            <div class="cert-card" data-category="tech">
+            <div class="cert-card" data-category="courses">
               <div class="cert-thumbnail">
                 <div class="cert-thumb-icon">🐍</div>
-                <div class="cert-badge tech">Tech</div>
+                <div class="cert-badge courses">Courses</div>
               </div>
               <div class="cert-content">
                 <h3 class="cert-title">Python for Data Science</h3>
@@ -171,32 +167,68 @@
               </div>
             </div>
 
-            <!-- Communication Certifications -->
-            <div class="cert-card" data-category="communication">
-              <div class="cert-thumbnail">
-                <div class="cert-thumb-icon">🗣️</div>
-                <div class="cert-badge communication">Communication</div>
+            <!-- LinkedIn Learning Certifications -->
+            <div class="cert-card cert-card-minimal" data-category="linkedin">
+              <div class="cert-thumbnail-full">
+                <img src="images/1744825576782.jpg" alt="LinkedIn Certificate" class="cert-image">
               </div>
-              <div class="cert-content">
-                <h3 class="cert-title">Toastmasters Competent Communicator</h3>
-                <p class="cert-issuer">Toastmasters International · 2024</p>
-                <p class="cert-description">Completed 10 speeches demonstrating competence in public speaking.</p>
-                <button class="verify-btn" onclick="window.open('#', '_blank')">
+              <div class="cert-verify-section">
+                <button class="verify-btn-full" onclick="window.open('https://www.linkedin.com/learning/certificates/2b29c86fd94116739cd2f0b03d172638e4eb85ebff0298a74e9a79a37b3928bd?trk=share_certificate', '_blank')">
                   <span>✓</span> Verify Certificate
                 </button>
               </div>
             </div>
 
-            <div class="cert-card" data-category="communication">
-              <div class="cert-thumbnail">
-                <div class="cert-thumb-icon">💬</div>
-                <div class="cert-badge communication">Communication</div>
+            <div class="cert-card cert-card-minimal" data-category="linkedin">
+              <div class="cert-thumbnail-full">
+                <img src="images/1744966012525.jpg" alt="LinkedIn Certificate" class="cert-image">
               </div>
-              <div class="cert-content">
-                <h3 class="cert-title">Effective Communication Skills</h3>
-                <p class="cert-issuer">LinkedIn Learning · 2024</p>
-                <p class="cert-description">Professional communication, active listening, and interpersonal skills.</p>
-                <button class="verify-btn" onclick="window.open('#', '_blank')">
+              <div class="cert-verify-section">
+                <button class="verify-btn-full" onclick="window.open('https://www.linkedin.com/learning/certificates/5b37d41f0895bafd8f081e771173d0371b4eef027d9fff955fcc930d01bf552d?trk=share_certificate', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card cert-card-minimal" data-category="linkedin">
+              <div class="cert-thumbnail-full">
+                <img src="images/1744972176562.jpg" alt="LinkedIn Certificate" class="cert-image">
+              </div>
+              <div class="cert-verify-section">
+                <button class="verify-btn-full" onclick="window.open('https://www.linkedin.com/learning/certificates/246f2214470dce563124ceb8f22e021094220f2f33270f3aba750653c415a1c4?trk=share_certificate', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card cert-card-minimal" data-category="linkedin">
+              <div class="cert-thumbnail-full">
+                <img src="images/1745243879045 (1).jpg" alt="LinkedIn Certificate" class="cert-image">
+              </div>
+              <div class="cert-verify-section">
+                <button class="verify-btn-full" onclick="window.open('https://www.linkedin.com/learning/certificates/2bbfa5c4b7d4b22be99f66c24edfe18cfe58e8825dc3f0a8f8e09b3b2ca9bf8c?trk=share_certificate', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card cert-card-minimal" data-category="linkedin">
+              <div class="cert-thumbnail-full">
+                <img src="images/1749205892678.jpg" alt="LinkedIn Certificate" class="cert-image">
+              </div>
+              <div class="cert-verify-section">
+                <button class="verify-btn-full" onclick="window.open('https://www.linkedin.com/learning/certificates/3da4fd15ea56235ed0dc39c96f724b7e02b1cd242515abdf573f0063803dba0f?trk=share_certificate', '_blank')">
+                  <span>✓</span> Verify Certificate
+                </button>
+              </div>
+            </div>
+
+            <div class="cert-card cert-card-minimal" data-category="linkedin">
+              <div class="cert-thumbnail-full">
+                <img src="images/1751186865855.jpg" alt="LinkedIn Certificate" class="cert-image">
+              </div>
+              <div class="cert-verify-section">
+                <button class="verify-btn-full" onclick="window.open('https://www.linkedin.com/learning/certificates/3da4fd15ea56235ed0dc39c96f724b7e02b1cd242515abdf573f0063803dba0f?trk=share_certificate', '_blank')">
                   <span>✓</span> Verify Certificate
                 </button>
               </div>
@@ -258,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function(){const t=document.getEle
 
 // Certification Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
-  const filterBtns = document.querySelectorAll('.cert-filter-btn');
+  const filterBtns = document.querySelectorAll('.cert-filter-btn[data-filter]');
   const certCards = document.querySelectorAll('.cert-card');
   
   filterBtns.forEach(btn => {
@@ -273,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
       certCards.forEach((card, index) => {
         const category = card.dataset.category;
         
-        if (filter === 'all' || category === filter) {
+        if (category === filter) {
           setTimeout(() => {
             card.style.display = 'flex';
             setTimeout(() => card.classList.add('show'), 10);
@@ -288,12 +320,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Initialize - show all certificates with stagger
+  // Initialize - show linkedin certificates by default with stagger
   setTimeout(() => {
     certCards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add('show');
-      }, index * 80);
+      const category = card.dataset.category;
+      if (category === 'linkedin') {
+        setTimeout(() => {
+          card.style.display = 'flex';
+          card.classList.add('show');
+        }, index * 80);
+      } else {
+        card.style.display = 'none';
+      }
     });
   }, 100);
 });

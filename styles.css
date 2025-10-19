@@ -690,6 +690,193 @@ html[data-theme="dark"] .caption {
 
 /* ========== END COMPREHENSIVE DARK MODE ========== */
 
+/* ========== FONT VISIBILITY FIXES ========== */
+
+/* Ensure all text elements have proper visibility in light mode */
+body,
+p,
+span,
+div,
+li,
+a,
+button,
+input,
+textarea,
+select,
+label {
+  color: var(--text);
+}
+
+/* Specific text elements that need high contrast in light mode */
+.intro.small,
+.caption,
+.about-text,
+.skills-intro,
+.intro-text,
+.description,
+.personality-description,
+.project-description,
+.achievement-description,
+.timeline-description {
+  color: #333333 !important;
+}
+
+/* Ensure headings are dark in light mode */
+h1, h2, h3, h4, h5, h6,
+.name,
+.about-title,
+.personality-title,
+.section-title,
+.page-title {
+  color: #111111 !important;
+}
+
+/* Navigation links in light mode */
+.nav-link {
+  color: #333333 !important;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Dark Mode Text Visibility - Complete Override */
+html[data-theme="dark"] body,
+html[data-theme="dark"] p,
+html[data-theme="dark"] span:not(.btn-label):not(.tag):not(.skill-tag),
+html[data-theme="dark"] div,
+html[data-theme="dark"] li {
+  color: #f0e7ff !important;
+}
+
+/* Dark mode headings - bright white */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: #ffffff !important;
+  text-shadow: 0 0 15px rgba(255, 182, 230, 0.4);
+}
+
+/* Dark mode navigation links */
+html[data-theme="dark"] .nav-link {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 182, 230, 0.3);
+}
+
+/* Dark mode descriptions and paragraphs */
+html[data-theme="dark"] .intro.small,
+html[data-theme="dark"] .caption,
+html[data-theme="dark"] .about-text,
+html[data-theme="dark"] .skills-intro,
+html[data-theme="dark"] .intro-text,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .personality-description,
+html[data-theme="dark"] .project-description,
+html[data-theme="dark"] .achievement-description,
+html[data-theme="dark"] .timeline-description,
+html[data-theme="dark"] .bloom-subtitle {
+  color: #f0e7ff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark mode skill names and titles */
+html[data-theme="dark"] .skill-name,
+html[data-theme="dark"] .cert-title,
+html[data-theme="dark"] .project-title,
+html[data-theme="dark"] .achievement-title,
+html[data-theme="dark"] .timeline-title,
+html[data-theme="dark"] .personality-role {
+  color: #ffffff !important;
+  text-shadow: 0 0 12px rgba(255, 182, 230, 0.5);
+}
+
+/* Dark mode secondary text */
+html[data-theme="dark"] .text-secondary,
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .personality-subtitle {
+  color: #e6d9ff !important;
+}
+
+/* Dark mode muted text */
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .small-text,
+html[data-theme="dark"] .caption {
+  color: #c7b3e6 !important;
+}
+
+/* Dark mode button labels */
+html[data-theme="dark"] .btn-label,
+html[data-theme="dark"] .personality-btn .btn-label {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .personality-btn.active .btn-label {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(255, 182, 230, 0.6);
+}
+
+/* Dark mode tags and badges */
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .skill-tag,
+html[data-theme="dark"] .personality-tags span,
+html[data-theme="dark"] .project-tags span {
+  color: #ffffff !important;
+  background: rgba(255, 158, 212, 0.3);
+  border-color: rgba(255, 158, 212, 0.5);
+}
+
+/* Dark mode links */
+html[data-theme="dark"] a {
+  color: #ff9ed4 !important;
+}
+
+html[data-theme="dark"] a:hover {
+  color: #ffb6e6 !important;
+}
+
+/* Dark mode form inputs */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  color: #ffffff !important;
+  background: rgba(26, 22, 37, 0.8) !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Dark mode buttons - ensure white text visibility */
+html[data-theme="dark"] .cta-btn.primary,
+html[data-theme="dark"] .cta-btn,
+html[data-theme="dark"] button,
+html[data-theme="dark"] .btn {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .cta-btn.primary {
+  background: linear-gradient(135deg, #ff9ed4, #ff6bc4) !important;
+  box-shadow: 0 6px 20px rgba(255, 158, 212, 0.5);
+}
+
+html[data-theme="dark"] .cta-btn.primary:hover {
+  background: linear-gradient(135deg, #ffb6e6, #ff9ed4) !important;
+  box-shadow: 0 12px 30px rgba(255, 158, 212, 0.7);
+}
+
+html[data-theme="dark"] .send-btn-minimal,
+html[data-theme="dark"] .filter-btn,
+html[data-theme="dark"] .cert-filter-btn {
+  color: #ffffff !important;
+}
+
+/* ========== END FONT VISIBILITY FIXES ========== */
+
 /* Enhanced Navigation Bar in Dark Mode */
 html[data-theme="dark"] .navbar {
   background: rgba(26, 22, 37, 0.9);
@@ -1865,6 +2052,186 @@ html[data-theme="dark"] .theme-toggle:hover {
   text-align:center;
 }
 
+/* Hidden Bloom Button Section */
+.hidden-bloom-section {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  padding: 60px 24px 40px 24px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.hidden-bloom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 48px;
+  background: linear-gradient(135deg, #ff6b99, #ff90b3, #ff6b99);
+  background-size: 200% 200%;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 40px rgba(255, 107, 157, 0.5),
+              0 0 50px rgba(255, 144, 179, 0.4),
+              0 0 70px rgba(255, 107, 157, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  animation: bloomPulse 3s ease-in-out infinite,
+             bloomGradientShift 4s ease-in-out infinite;
+}
+
+.hidden-bloom-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hidden-bloom-btn:hover::before {
+  opacity: 1;
+  animation: bloomRotate 3s linear infinite;
+}
+
+.hidden-bloom-btn:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 16px 48px rgba(255, 107, 157, 0.6),
+              0 0 60px rgba(255, 144, 179, 0.5),
+              0 0 80px rgba(255, 107, 157, 0.4);
+}
+
+.bloom-text {
+  position: relative;
+  z-index: 1;
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4),
+               0 0 20px rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.bloom-flower {
+  font-size: 28px;
+  position: relative;
+  z-index: 1;
+  animation: bloomFloat 2s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(255, 107, 157, 0.6));
+}
+
+@keyframes bloomPulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.4),
+                0 0 40px rgba(255, 144, 179, 0.3),
+                0 0 60px rgba(255, 107, 157, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.6),
+                0 0 60px rgba(255, 144, 179, 0.5),
+                0 0 80px rgba(255, 107, 157, 0.4);
+  }
+}
+
+@keyframes bloomGradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes bloomFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes bloomRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dark Mode - Hidden Bloom Button */
+html[data-theme="dark"] .hidden-bloom-btn {
+  background: linear-gradient(135deg, #ff9ed4, #ffb6e6, #b89fff);
+  background-size: 200% 200%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(255, 158, 212, 0.6),
+              0 0 50px rgba(255, 182, 230, 0.5),
+              0 0 70px rgba(186, 148, 255, 0.4);
+}
+
+html[data-theme="dark"] .hidden-bloom-btn:hover {
+  box-shadow: 0 16px 48px rgba(255, 158, 212, 0.8),
+              0 0 60px rgba(255, 182, 230, 0.7),
+              0 0 80px rgba(186, 148, 255, 0.6);
+}
+
+html[data-theme="dark"] .bloom-text {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+               0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes bloomPulseDark {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(255, 158, 212, 0.5),
+                0 0 40px rgba(255, 182, 230, 0.4),
+                0 0 60px rgba(186, 148, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(255, 158, 212, 0.7),
+                0 0 60px rgba(255, 182, 230, 0.6),
+                0 0 80px rgba(186, 148, 255, 0.5);
+  }
+}
+
+html[data-theme="dark"] .hidden-bloom-btn {
+  animation: bloomPulseDark 3s ease-in-out infinite,
+             bloomGradientShift 4s ease-in-out infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hidden-bloom-btn {
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  
+  .bloom-sparkle,
+  .bloom-flower {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hidden-bloom-section {
+    padding: 40px 20px 30px 20px;
+  }
+  
+  .hidden-bloom-btn {
+    font-size: 15px;
+    padding: 14px 28px;
+  }
+}
+
 /* Andrea Says Quote Card */
 .andrea-says-section{
   width:100%;
@@ -2103,18 +2470,19 @@ html[data-theme="dark"] .quote-text{
 }
 .learning-badges{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:16px;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
 }
 .learning-badge{
   background:linear-gradient(135deg,rgba(255,240,245,0.6),rgba(255,230,240,0.6));
   border:2px solid rgba(255,144,179,0.2);
   border-radius:16px;
-  padding:20px;
+  padding:24px 32px;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   align-items:center;
-  gap:8px;
+  gap:20px;
+  min-height:120px;
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
   position:relative;
   overflow:hidden;
@@ -2148,15 +2516,17 @@ html[data-theme="dark"] .quote-text{
   border-color:var(--pink);
 }
 .badge-emoji{
-  font-size:36px;
-  display:inline-flex;
+  flex-shrink:0;
+  display:flex;
   align-items:center;
   justify-content:center;
-  animation:gentleFloat 2.5s ease-in-out infinite;
+  width:48px;
+  height:48px;
 }
 .badge-emoji svg {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
+  color:var(--pink);
 }
 .learning-icon {
   display: inline-flex;
@@ -2169,17 +2539,24 @@ html[data-theme="dark"] .quote-text{
   height: 24px;
 }
 .badge-text{
-  font-size:16px;
+  font-size:18px;
   font-weight:700;
   color:var(--text);
+  text-align:left;
+  flex:1;
+  display:flex;
+  align-items:center;
 }
 .badge-status{
-  font-size:12px;
+  font-size:13px;
   font-weight:600;
   color:var(--pink-dark);
   background:rgba(255,144,179,0.15);
-  padding:4px 12px;
-  border-radius:12px;
+  padding:8px 20px;
+  border-radius:20px;
+  text-align:center;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 
 .skill-grid{
@@ -2853,6 +3230,23 @@ html[data-theme="dark"] .quote-text{
   color:var(--text);
   cursor:pointer;
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+  overflow:visible;
+}
+
+.cert-filter-btn::before{
+  content:'';
+  position:absolute;
+  top:-4px;
+  left:-4px;
+  right:-4px;
+  bottom:-4px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark),#ff90b3,#ff6b99);
+  border-radius:50px;
+  opacity:0;
+  filter:blur(12px);
+  transition:opacity 0.3s ease;
+  z-index:-1;
 }
 
 .cert-filter-btn:hover{
@@ -2861,11 +3255,25 @@ html[data-theme="dark"] .quote-text{
   box-shadow:0 8px 20px rgba(255,107,153,0.15);
 }
 
+.cert-filter-btn:hover::before{
+  opacity:0.4;
+}
+
 .cert-filter-btn.active{
   background:linear-gradient(135deg,var(--pink) 0%,var(--pink-dark) 100%);
   border-color:var(--pink-dark);
   color:white;
   box-shadow:0 8px 24px rgba(255,107,153,0.3);
+}
+
+.cert-filter-btn.active::before{
+  opacity:0.6;
+  animation:glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+  0%,100%{opacity:0.6;filter:blur(12px)}
+  50%{opacity:0.8;filter:blur(16px)}
 }
 
 .cert-filter-btn .filter-emoji{
@@ -2887,6 +3295,76 @@ html[data-theme="dark"] .quote-text{
   grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap:28px;
   margin-top:24px;
+}
+
+.cert-grid-outstanding{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:32px;
+  margin-top:32px;
+}
+
+.cert-card-outstanding{
+  display:flex;
+  flex-direction:column;
+  background:rgba(255,255,255,0.7);
+  border-radius:20px;
+  overflow:hidden;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+  border:2px solid rgba(255,144,179,0.2);
+  box-shadow:0 8px 32px rgba(255,144,179,0.1);
+  position:relative;
+}
+
+.cert-card-outstanding::before{
+  content:'';
+  position:absolute;
+  top:-2px;
+  left:-2px;
+  right:-2px;
+  bottom:-2px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark),#ff90b3,#ff6b99);
+  border-radius:20px;
+  opacity:0;
+  filter:blur(8px);
+  transition:opacity 0.4s ease;
+  z-index:-1;
+}
+
+.cert-card-outstanding:hover{
+  transform:translateY(-8px);
+  border-color:var(--pink);
+  box-shadow:0 16px 48px rgba(255,144,179,0.25);
+}
+
+.cert-card-outstanding:hover::before{
+  opacity:0.5;
+}
+
+.cert-thumbnail-outstanding{
+  height:200px;
+  background:linear-gradient(135deg,rgba(255,240,245,0.8),rgba(255,220,235,0.8));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.cert-thumbnail-outstanding::after{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:radial-gradient(circle at 50% 50%,rgba(255,144,179,0.15),transparent);
+}
+
+.cert-thumb-icon-large{
+  font-size:80px;
+  z-index:2;
+  animation:gentleFloat 3s ease-in-out infinite;
 }
 
 .cert-card{
@@ -2922,6 +3400,16 @@ html[data-theme="dark"] .quote-text{
   overflow:hidden;
 }
 
+.cert-thumbnail img.cert-image{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:1;
+}
+
 .cert-thumbnail::before{
   content:'';
   position:absolute;
@@ -2931,12 +3419,80 @@ html[data-theme="dark"] .quote-text{
   height:200%;
   background:radial-gradient(circle,rgba(255,255,255,0.3) 0%,transparent 70%);
   animation:shimmer 4s ease-in-out infinite;
+  z-index:0;
 }
 
 .cert-thumb-icon{
   font-size:72px;
   z-index:2;
   animation:gentleFloat 3s ease-in-out infinite;
+}
+
+.cert-card-minimal{
+  display:flex;
+  flex-direction:column;
+  background:rgba(255,255,255,0.6);
+  border-radius:18px;
+  overflow:hidden;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+  border:2px solid rgba(255,144,179,0.2);
+  box-shadow:0 8px 24px rgba(255,144,179,0.1);
+}
+
+.cert-card-minimal:hover{
+  transform:translateY(-6px);
+  border-color:var(--pink);
+  box-shadow:0 12px 32px rgba(255,144,179,0.25);
+}
+
+.cert-thumbnail-full{
+  position:relative;
+  width:100%;
+  height:auto;
+  overflow:hidden;
+  background:#f5f5f5;
+}
+
+.cert-thumbnail-full img.cert-image{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.cert-verify-section{
+  padding:16px;
+  display:flex;
+  justify-content:center;
+  background:rgba(255,255,255,0.8);
+}
+
+.verify-btn-full{
+  width:100%;
+  padding:14px 24px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  color:white;
+  border:none;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  box-shadow:0 4px 12px rgba(255,144,179,0.3);
+}
+
+.verify-btn-full:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(255,144,179,0.4);
+  background:linear-gradient(135deg,var(--pink-dark),var(--pink));
+}
+
+.verify-btn-full span{
+  font-size:18px;
 }
 
 .cert-badge{
@@ -2968,6 +3524,14 @@ html[data-theme="dark"] .quote-text{
 
 .cert-badge.others{
   background:linear-gradient(135deg,#43e97b,#38f9d7);
+}
+
+.cert-badge.linkedin{
+  background:linear-gradient(135deg,#0077b5,#00a0dc);
+}
+
+.cert-badge.courses{
+  background:linear-gradient(135deg,#667eea,#764ba2);
 }
 
 .cert-content{
@@ -3734,6 +4298,12 @@ html[data-theme="dark"] .quote-text{
   cursor:not-allowed;
 }
 
+.send-btn-minimal.btn-clicked{
+  background:linear-gradient(135deg,#9d7cff,#b89fff);
+  transform:scale(0.98);
+  box-shadow:0 6px 20px rgba(157,124,255,0.45);
+}
+
 .send-btn-minimal .btn-icon{
   font-size:22px;
 }
@@ -3826,6 +4396,16 @@ html[data-theme="dark"] .quote-text{
 
 .social-link-minimal.email:hover{
   background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  color:white;
+  border-color:transparent;
+}
+
+.social-link-minimal.duolingo{
+  color:#58cc02;
+}
+
+.social-link-minimal.duolingo:hover{
+  background:linear-gradient(135deg,#58cc02,#4aa301);
   color:white;
   border-color:transparent;
 }
@@ -4216,9 +4796,10 @@ html[data-theme="dark"] .quote-text{
   .skill-percent{font-size:13px}
   .progress-bar{height:8px}
   .learning-title{font-size:20px}
-  .learning-badges{grid-template-columns:1fr;gap:12px}
-  .badge-emoji{font-size:32px}
-  .badge-text{font-size:15px}
+  .learning-badges{grid-template-columns:1fr;gap:16px}
+  .learning-badge{padding:20px 24px;min-height:100px}
+  .badge-emoji svg{width:24px;height:24px}
+  .badge-text{font-size:16px}
   .achievement-tabs{gap:8px;flex-direction:column}
   .achievement-tab{width:100%;justify-content:center;padding:12px 16px}
   .achievement-grid-new{grid-template-columns:1fr;gap:20px}
@@ -4236,6 +4817,10 @@ html[data-theme="dark"] .quote-text{
   .demo-btn,.story-btn{padding:10px 16px;font-size:13px}
   .projects-intro{font-size:15px}
   .cert-grid-new{grid-template-columns:1fr;gap:20px}
+  .cert-grid-outstanding{grid-template-columns:1fr;gap:24px}
+  .cert-card-outstanding{border-radius:16px}
+  .cert-thumbnail-outstanding{height:160px}
+  .cert-thumb-icon-large{font-size:64px}
   .cert-filters{gap:6px;flex-direction:column}
   .cert-filter-btn{width:100%;justify-content:center;padding:10px 16px;font-size:13px}
   .cert-thumbnail{height:160px}
@@ -4244,6 +4829,7 @@ html[data-theme="dark"] .quote-text{
   .cert-title{font-size:18px}
   .cert-description{font-size:13px}
   .verify-btn{padding:10px 16px;font-size:13px}
+  .verify-btn-full{padding:12px 20px;font-size:14px}
   .cert-intro{font-size:15px}
 }
 
@@ -5557,6 +6143,61 @@ html[data-theme="dark"] .quote-text{
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+/* Portfolio Footer */
+.portfolio-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 24px 0;
+}
+
+.footer-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #ffb6c1;
+  margin: 0;
+  position: relative;
+  text-shadow: 0 0 20px rgba(255, 182, 193, 0.4),
+               0 0 40px rgba(255, 182, 193, 0.2);
+  animation: softGlow 3s ease-in-out infinite;
+}
+
+.footer-text b {
+  font-weight: 600;
+  color: #ff90b3;
+}
+
+.heart-glow {
+  display: inline-block;
+  font-size: 18px;
+  animation: heartPulse 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 153, 0.6))
+          drop-shadow(0 0 16px rgba(255, 107, 153, 0.4));
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 182, 193, 0.4),
+                 0 0 40px rgba(255, 182, 193, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 182, 193, 0.6),
+                 0 0 60px rgba(255, 182, 193, 0.3);
+  }
+}
+
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(255, 107, 153, 0.6))
+            drop-shadow(0 0 16px rgba(255, 107, 153, 0.4));
+  }
+  50% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px rgba(255, 107, 153, 0.8))
+            drop-shadow(0 0 24px rgba(255, 107, 153, 0.5));
   }
 }
 

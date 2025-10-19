@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SAWIT AI Challenge - Andrea Betrina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <div class="floating-elements" aria-hidden="true">
+      <span class="float-icon" style="top: 15%; left: 10%;">✨</span>
+      <span class="float-icon" style="top: 25%; left: 85%;">⭐</span>
+      <span class="float-icon" style="top: 60%; left: 8%;">💫</span>
+      <span class="float-icon" style="top: 70%; left: 90%;">🌸</span>
+      <span class="float-icon" style="top: 40%; left: 5%;">✦</span>
+      <span class="float-icon" style="top: 80%; left: 15%;">✨</span>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌕</span>
+    </button>
+    <nav class="top-nav-bar" aria-label="Main navigation">
+      <a href="../../index.html" class="nav-link">Home</a>
+      <a href="../../about.html" class="nav-link">About</a>
+      <a href="../../skills.html" class="nav-link">Skills</a>
+      <a href="../../achievements.html" class="nav-link">Achievements</a>
+      <a href="../../projects.html" class="nav-link active">Projects</a>
+      <a href="../../certifications.html" class="nav-link">Certifications</a>
+      <a href="../../contact.html" class="nav-link">Contact</a>
+    </nav>
+    <main class="page">
+      <!-- Dreamy Animated Gradient Background -->
+      <div class="dreamy-gradient-bg"></div>
+      
+      <!-- Floating Gradient Blobs -->
+      <div class="floating-gradient-blobs">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+
+      <div class="gradient-overlay" aria-hidden="true"></div>
+      <div class="bg-blobs" aria-hidden="true">
+        <span class="b b1"></span><span class="b b2"></span><span class="b b3"></span>
+        <span class="b b4"></span><span class="b b5"></span><span class="b b6"></span>
+      </div>
+      <canvas id="flow-canvas" aria-hidden="true"></canvas>
+      
+      <section class="project-detail slide">
+        <div class="section-card">
+          <a href="../../projects.html" class="back-link">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+            </svg>
+            Back to Projects
+          </a>
+
+          <div class="project-detail-header">
+            <div class="project-badges-group">
+              <span class="project-badge tech">Tech</span>
+              <span class="project-badge">AI</span>
+              <span class="project-badge">Innovation</span>
+            </div>
+            <h1 class="project-detail-title">SAWIT AI Challenge</h1>
+            <p class="project-detail-subtitle">ReportAI - HAQQ's Data Artificial Intelligence Innovation</p>
+          </div>
+
+          <div class="project-detail-image-hero">
+            <img src="../../images/sawit-challenge.png" alt="SAWIT AI Challenge" />
+          </div>
+
+          <div class="project-detail-content">
+            <div class="project-detail-section">
+              <h2 class="project-detail-section-title">
+                <span class="section-emoji">🎯</span>
+                Overview
+              </h2>
+              <p class="project-detail-text">
+                Welcome to ReportAI! This innovative project was developed as part of the SAWIT AI Challenge, leveraging HAQQ's cutting-edge tools for data artificial intelligence innovation. The platform is designed to analyze and summarize AI-aligned documents with remarkable accuracy and efficiency.
+              </p>
+              <p class="project-detail-text">
+                ReportAI transforms complex data into actionable insights, making it an invaluable tool for researchers, data analysts, and business professionals who need to quickly understand large volumes of AI-related documentation.
+              </p>
+            </div>
+
+            <div class="project-detail-section">
+              <h2 class="project-detail-section-title">
+                <span class="section-emoji">✨</span>
+                Key Features
+              </h2>
+              <ul class="project-detail-list">
+                <li><strong>AI Document Analysis:</strong> Advanced algorithms to parse and understand AI-aligned documents</li>
+                <li><strong>Intelligent Summarization:</strong> Generates concise, accurate summaries of complex technical content</li>
+                <li><strong>HAQQ Integration:</strong> Utilizes HAQQ's powerful AI tools for enhanced data processing</li>
+                <li><strong>Real-time Processing:</strong> Fast analysis and summary generation for quick insights</li>
+                <li><strong>Context Awareness:</strong> Maintains context and key information throughout the summarization process</li>
+                <li><strong>User-Friendly Interface:</strong> Intuitive design for easy document upload and result viewing</li>
+              </ul>
+            </div>
+
+            <div class="project-detail-section">
+              <h2 class="project-detail-section-title">
+                <span class="section-emoji">🛠️</span>
+                Technologies Used
+              </h2>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">AI/ML</span>
+                <span class="tech-tag">NLP</span>
+                <span class="tech-tag">HAQQ API</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">Natural Language Processing</span>
+              </div>
+            </div>
+
+            <div class="project-detail-section">
+              <h2 class="project-detail-section-title">
+                <span class="section-emoji">🎨</span>
+                Development Process
+              </h2>
+              <p class="project-detail-text">
+                The development of ReportAI involved extensive research into natural language processing and document analysis techniques. We integrated HAQQ's AI tools to create a robust pipeline that can handle various document formats and extract meaningful insights.
+              </p>
+              <p class="project-detail-text">
+                The challenge required innovative problem-solving to ensure accuracy while maintaining processing speed. We implemented advanced algorithms for context preservation and key information extraction.
+              </p>
+            </div>
+
+            <div class="project-detail-section">
+              <h2 class="project-detail-section-title">
+                <span class="section-emoji">🏆</span>
+                Challenge Objectives
+              </h2>
+              <ul class="project-detail-list">
+                <li>Demonstrate innovative use of HAQQ's AI tools</li>
+                <li>Create a practical solution for document intelligence</li>
+                <li>Showcase technical excellence in AI implementation</li>
+                <li>Deliver a user-centric product that solves real-world problems</li>
+                <li>Push the boundaries of AI-powered document analysis</li>
+              </ul>
+            </div>
+
+            <div class="project-detail-section">
+              <h2 class="project-detail-section-title">
+                <span class="section-emoji">💡</span>
+                Learning Outcomes
+              </h2>
+              <ul class="project-detail-list">
+                <li>Advanced understanding of natural language processing</li>
+                <li>Experience with HAQQ's AI platform and tools</li>
+                <li>Skills in building scalable AI-powered applications</li>
+                <li>Knowledge of document intelligence and summarization techniques</li>
+                <li>Collaboration and problem-solving in competitive settings</li>
+                <li>Integration of multiple AI technologies into a cohesive solution</li>
+              </ul>
+            </div>
+
+            <div class="project-detail-cta">
+              <a href="https://reportai.example.com" target="_blank" class="cta-button">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                </svg>
+                View Live Demo
+              </a>
+              <a href="../../projects.html" class="cta-button secondary">
+                View All Projects
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../../script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function(){
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', savedTheme);
+  themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌕';
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌕';
+  });
+});
+    </script>
+  </body>
+</html>
