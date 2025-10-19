@@ -79,6 +79,23 @@
       text-align: center;
       margin-bottom: 60px;
       font-weight: 600;
+      text-shadow: 0 0 30px rgba(139, 71, 137, 0.3),
+                   0 0 50px rgba(255, 107, 157, 0.2),
+                   0 2px 10px rgba(139, 71, 137, 0.15);
+      animation: sectionGlowLight 3s ease-in-out infinite;
+    }
+
+    @keyframes sectionGlowLight {
+      0%, 100% {
+        text-shadow: 0 0 30px rgba(139, 71, 137, 0.3),
+                     0 0 50px rgba(255, 107, 157, 0.2),
+                     0 2px 10px rgba(139, 71, 137, 0.15);
+      }
+      50% {
+        text-shadow: 0 0 40px rgba(139, 71, 137, 0.5),
+                     0 0 70px rgba(255, 107, 157, 0.3),
+                     0 2px 15px rgba(139, 71, 137, 0.25);
+      }
     }
 
     /* Scrapbook-style heading for Journey - Image Based */
@@ -86,13 +103,41 @@
       text-align: center;
       margin-bottom: 40px;
       padding: 20px;
+      opacity: 0;
+      animation: fadeInGlow 1.5s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeInGlow {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+        filter: drop-shadow(0 0 0 rgba(255,107,157,0));
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+        filter: drop-shadow(0 0 30px rgba(255,107,157,0.4)) 
+                drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+      }
     }
 
     .scrapbook-heading-image img {
       max-width: 100%;
       height: auto;
       display: inline-block;
-      filter: drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+      animation: pulseGlowImage 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlowImage {
+      0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(255,107,157,0.3)) 
+                drop-shadow(2px 4px 8px rgba(0,0,0,0.1));
+      }
+      50% {
+        filter: drop-shadow(0 0 40px rgba(255,107,157,0.6)) 
+                drop-shadow(4px 8px 16px rgba(0,0,0,0.15));
+      }
     }
 
     .timeline {
@@ -466,7 +511,23 @@
     }
 
     html[data-theme="dark"] .scrapbook-heading-image img {
-      filter: drop-shadow(2px 4px 12px rgba(255, 158, 212, 0.4)) brightness(1.1);
+      filter: drop-shadow(0 0 30px rgba(255, 158, 212, 0.6)) 
+              drop-shadow(2px 4px 12px rgba(255, 158, 212, 0.4)) 
+              brightness(1.1);
+      animation: pulseGlowImageDark 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlowImageDark {
+      0%, 100% {
+        filter: drop-shadow(0 0 30px rgba(255, 158, 212, 0.6)) 
+                drop-shadow(2px 4px 12px rgba(255, 158, 212, 0.4)) 
+                brightness(1.1);
+      }
+      50% {
+        filter: drop-shadow(0 0 50px rgba(255, 158, 212, 0.9)) 
+                drop-shadow(4px 8px 20px rgba(255, 158, 212, 0.6)) 
+                brightness(1.2);
+      }
     }
 
     /* Dark mode for mobile responsive */
@@ -485,6 +546,27 @@
       color: #ff6b9d;
       font-weight: 700;
       margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(255,107,157,0.6),
+                   0 0 40px rgba(255,107,157,0.3);
+      animation: yearGlow 2s ease-in-out infinite;
+      display: inline-block;
+      padding: 5px 15px;
+      background: linear-gradient(135deg, rgba(255,107,157,0.1), rgba(196,69,105,0.1));
+      border-radius: 15px;
+      border: 2px solid rgba(255,107,157,0.3);
+    }
+
+    @keyframes yearGlow {
+      0%, 100% {
+        text-shadow: 0 0 20px rgba(255,107,157,0.6),
+                     0 0 40px rgba(255,107,157,0.3);
+        border-color: rgba(255,107,157,0.3);
+      }
+      50% {
+        text-shadow: 0 0 30px rgba(255,107,157,0.9),
+                     0 0 60px rgba(255,107,157,0.5);
+        border-color: rgba(255,107,157,0.6);
+      }
     }
 
     .timeline-title {
@@ -708,6 +790,222 @@
     .vision-board-section {
       margin: 100px 0;
       text-align: center;
+    }
+
+    /* Then & Now Comparison Section */
+    .then-now-section {
+      margin: 120px 0;
+      padding: 60px 40px;
+      background: rgba(255, 250, 245, 0.6);
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .then-now-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255,182,193,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .then-now-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .then-now-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin: 60px 0;
+      position: relative;
+    }
+
+    .then-now-photos::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, transparent, #ffb6d9, #c7a4db, #ffb6d9, transparent);
+      transform: translateX(-50%);
+      box-shadow: 0 0 20px rgba(255,182,217,0.6);
+    }
+
+    .photo-box {
+      position: relative;
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .photo-box.fade-in-left {
+      animation: fadeInLeft 1s ease-out forwards;
+    }
+
+    .photo-box.fade-in-right {
+      animation: fadeInRight 1s ease-out forwards;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .photo-box img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(255,107,157,0.2),
+                  0 4px 16px rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 3px solid rgba(255,182,217,0.3);
+    }
+
+    .photo-box:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(255,107,157,0.4),
+                  0 8px 24px rgba(255,107,157,0.3),
+                  0 0 40px rgba(255,182,217,0.5);
+      border-color: rgba(255,107,157,0.6);
+    }
+
+    .photo-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 2.5rem;
+      color: #c44569;
+      margin-top: 20px;
+      font-weight: 600;
+      text-shadow: 0 2px 10px rgba(196,69,105,0.2);
+    }
+
+    .photo-caption .year {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      font-weight: 500;
+      display: block;
+      margin-top: 5px;
+      color: #7f5a83;
+    }
+
+    .then-now-description {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+      color: #7f5a83;
+      line-height: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 40px auto 0;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(255,182,193,0.15);
+      opacity: 0;
+      transition: all 0.8s ease-out;
+    }
+
+    .then-now-description.fade-up {
+      animation: fadeUp 1s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dark Mode for Then & Now Section */
+    html[data-theme="dark"] .then-now-section {
+      background: rgba(45, 27, 61, 0.5);
+    }
+
+    html[data-theme="dark"] .then-now-photos::after {
+      background: linear-gradient(180deg, transparent, #ff9ed4, #b89fff, #ff9ed4, transparent);
+      box-shadow: 0 0 30px rgba(255, 158, 212, 0.8);
+    }
+
+    html[data-theme="dark"] .photo-box img {
+      border-color: rgba(255, 158, 212, 0.4);
+      box-shadow: 0 12px 40px rgba(255, 158, 212, 0.3),
+                  0 4px 16px rgba(157, 124, 255, 0.2);
+    }
+
+    html[data-theme="dark"] .photo-box:hover img {
+      border-color: rgba(255, 158, 212, 0.8);
+      box-shadow: 0 20px 60px rgba(255, 158, 212, 0.5),
+                  0 8px 24px rgba(255, 158, 212, 0.4),
+                  0 0 40px rgba(255, 158, 212, 0.6);
+    }
+
+    html[data-theme="dark"] .photo-caption {
+      color: #ff9ed4;
+      text-shadow: 0 0 20px rgba(255, 158, 212, 0.6);
+    }
+
+    html[data-theme="dark"] .photo-caption .year {
+      color: #e6d9ff;
+    }
+
+    html[data-theme="dark"] .then-now-description {
+      background: rgba(45, 27, 61, 0.8);
+      color: #f0e7ff;
+      box-shadow: 0 8px 32px rgba(255, 158, 212, 0.3);
+    }
+
+    /* Responsive for Then & Now */
+    @media (max-width: 768px) {
+      .then-now-photos {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .then-now-photos::after {
+        display: none;
+      }
+
+      .photo-box img {
+        height: 300px;
+      }
+
+      .photo-caption {
+        font-size: 2rem;
+      }
+
+      .then-now-description {
+        font-size: 1rem;
+        padding: 20px;
+      }
     }
 
     .vision-board-container {
@@ -937,37 +1235,37 @@
         <h2 class="section-heading">The Artist Side of Me</h2>
         <div class="art-grid">
           <div class="art-tile">
-            <img src="images/art1.jpg" alt="Digital art piece" class="art-image">
+            <img src="images/girl.jpg" alt="Girl digital art" class="art-image">
             <div class="art-overlay">
               <p class="art-caption">Created on a quiet Sunday morning.</p>
             </div>
           </div>
           <div class="art-tile">
-            <img src="images/art2.jpg" alt="Digital art piece" class="art-image">
+            <img src="images/blind.jpg" alt="Blind digital art" class="art-image">
             <div class="art-overlay">
               <p class="art-caption">Sometimes, colors express better than words.</p>
             </div>
           </div>
           <div class="art-tile">
-            <img src="images/art3.jpg" alt="Digital art piece" class="art-image">
+            <img src="images/rapp.jpg" alt="Rapp digital art" class="art-image">
             <div class="art-overlay">
               <p class="art-caption">When emotions find their canvas.</p>
             </div>
           </div>
           <div class="art-tile">
-            <img src="images/art4.jpg" alt="Digital art piece" class="art-image">
+            <img src="images/girll.jpg" alt="Girl digital art" class="art-image">
             <div class="art-overlay">
               <p class="art-caption">A moment captured in pixels and dreams.</p>
             </div>
           </div>
           <div class="art-tile">
-            <img src="images/art5.jpg" alt="Digital art piece" class="art-image">
+            <img src="images/build.jpg" alt="Building digital art" class="art-image">
             <div class="art-overlay">
               <p class="art-caption">Where imagination meets reality.</p>
             </div>
           </div>
           <div class="art-tile">
-            <img src="images/art6.jpg" alt="Digital art piece" class="art-image">
+            <img src="images/symm.jpg" alt="Symmetry art piece" class="art-image">
             <div class="art-overlay">
               <p class="art-caption">Art is how I breathe life into thoughts.</p>
             </div>
@@ -1014,14 +1312,32 @@
         </p>
       </section>
 
+      <!-- Then & Now Comparison Section -->
+      <section class="then-now-section">
+        <h2 class="section-heading">A Year of Change 💕</h2>
+        <div class="then-now-container">
+          <div class="then-now-photos">
+            <div class="photo-box" data-animate="left">
+              <img src="images/WhatsApp Image 2025-10-18 at 11.41.38 PM.jpeg" alt="Then - One year ago">
+              <p class="photo-caption">Then <span class="year">2024</span></p>
+            </div>
+            <div class="photo-box" data-animate="right">
+              <img src="images/WhatsApp Image 2025-10-19 at 12.15.00 AM.jpeg" alt="Now - Present day">
+              <p class="photo-caption">Now <span class="year">2025</span></p>
+            </div>
+          </div>
+          <div class="then-now-description" data-animate="up">
+            This one year has transformed me in ways I never imagined — every lesson, every setback, and every little win shaped me into who I am today, a more confident speaker and a better version of myself.
+            I may look the same, but I've grown into someone stronger, calmer, and more grateful.
+          </div>
+        </div>
+      </section>
+
       <!-- Vision Board Section -->
       <section class="vision-board-section">
         <h2 class="section-heading">Dream Board 2025</h2>
         <div class="vision-board-container">
-          <div class="vision-placeholder">
-            🌟 My Vision Board for 2025 🌟<br>
-            (Coming Soon - A visual journey of dreams and goals)
-          </div>
+          <img src="images/beliveing myself.png" alt="Dream Board 2025 - Believing in Myself" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 8px 32px rgba(255,107,157,0.2);">
         </div>
       </section>
 
@@ -1069,6 +1385,32 @@
 
       document.querySelectorAll('.timeline-item').forEach(item => {
         observer.observe(item);
+      });
+
+      // Then & Now Section Scroll Animation
+      const thenNowObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const animateType = element.getAttribute('data-animate');
+            
+            if (animateType === 'left') {
+              element.classList.add('fade-in-left');
+            } else if (animateType === 'right') {
+              element.classList.add('fade-in-right');
+            } else if (animateType === 'up') {
+              element.classList.add('fade-up');
+            }
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      // Observe Then & Now elements
+      document.querySelectorAll('.photo-box, .then-now-description').forEach(element => {
+        thenNowObserver.observe(element);
       });
 
       // Animated Profile Photo Movement
@@ -1124,5 +1466,9 @@
       });
     });
   </script>
+  <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-text">Made with <span class="heart">💗</span> — © 2025 Andrea Betrina</div>
+    </footer>
 </body>
 </html>

@@ -3232,6 +3232,7 @@ html[data-theme="dark"] .quote-text{
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
   position:relative;
   overflow:visible;
+  box-shadow:0 4px 16px rgba(255,182,193,0.3), 0 2px 8px rgba(255,107,157,0.2);
 }
 
 .cert-filter-btn::before{
@@ -3243,7 +3244,7 @@ html[data-theme="dark"] .quote-text{
   bottom:-4px;
   background:linear-gradient(135deg,var(--pink),var(--pink-dark),#ff90b3,#ff6b99);
   border-radius:50px;
-  opacity:0;
+  opacity:0.3;
   filter:blur(12px);
   transition:opacity 0.3s ease;
   z-index:-1;
@@ -3252,22 +3253,22 @@ html[data-theme="dark"] .quote-text{
 .cert-filter-btn:hover{
   background:rgba(255,255,255,0.8);
   transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(255,107,153,0.15);
+  box-shadow:0 8px 20px rgba(255,107,153,0.3), 0 4px 12px rgba(255,182,193,0.4);
 }
 
 .cert-filter-btn:hover::before{
-  opacity:0.4;
+  opacity:0.6;
 }
 
 .cert-filter-btn.active{
   background:linear-gradient(135deg,var(--pink) 0%,var(--pink-dark) 100%);
   border-color:var(--pink-dark);
   color:white;
-  box-shadow:0 8px 24px rgba(255,107,153,0.3);
+  box-shadow:0 8px 24px rgba(255,107,153,0.4), 0 4px 16px rgba(255,182,193,0.3);
 }
 
 .cert-filter-btn.active::before{
-  opacity:0.6;
+  opacity:0.8;
   animation:glowPulse 2s ease-in-out infinite;
 }
 
@@ -3483,16 +3484,19 @@ html[data-theme="dark"] .quote-text{
   justify-content:center;
   gap:8px;
   box-shadow:0 4px 12px rgba(255,144,179,0.3);
+  text-shadow:0 0 10px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.3);
 }
 
 .verify-btn-full:hover{
   transform:translateY(-2px);
   box-shadow:0 6px 20px rgba(255,144,179,0.4);
   background:linear-gradient(135deg,var(--pink-dark),var(--pink));
+  text-shadow:0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5), 0 0 40px rgba(255,255,255,0.3);
 }
 
 .verify-btn-full span{
   font-size:18px;
+  display:none;
 }
 
 .cert-badge{
@@ -3590,6 +3594,7 @@ html[data-theme="dark"] .quote-text{
 .verify-btn span{
   font-size:16px;
   font-weight:bold;
+  display:none;
 }
 
 .contact-intro{
@@ -4341,7 +4346,7 @@ html[data-theme="dark"] .quote-text{
   border:2px solid transparent;
   transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
   text-decoration:none;
-  box-shadow:0 4px 16px rgba(0,0,0,0.08);
+  box-shadow:0 4px 16px rgba(255,182,193,0.3), 0 2px 8px rgba(255,107,157,0.2);
 }
 
 .social-link-minimal svg{
@@ -4352,7 +4357,7 @@ html[data-theme="dark"] .quote-text{
 
 .social-link-minimal:hover{
   transform:translateY(-6px) scale(1.05);
-  box-shadow:0 12px 28px rgba(0,0,0,0.15);
+  box-shadow:0 12px 28px rgba(255,107,157,0.4), 0 6px 16px rgba(255,182,193,0.3);
   border-color:currentColor;
 }
 
@@ -4360,52 +4365,22 @@ html[data-theme="dark"] .quote-text{
   transform:scale(1.15) rotate(5deg);
 }
 
-.social-link-minimal.linkedin{
-  color:#0077b5;
-}
-
-.social-link-minimal.linkedin:hover{
-  background:linear-gradient(135deg,#0077b5,#005a8c);
-  color:white;
-  border-color:transparent;
-}
-
-.social-link-minimal.github{
-  color:#333;
-}
-
-.social-link-minimal.github:hover{
-  background:linear-gradient(135deg,#333,#000);
-  color:white;
-  border-color:transparent;
-}
-
-.social-link-minimal.instagram{
-  color:#e4405f;
-}
-
-.social-link-minimal.instagram:hover{
-  background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
-  color:white;
-  border-color:transparent;
-}
-
-.social-link-minimal.email{
-  color:var(--pink-dark);
-}
-
-.social-link-minimal.email:hover{
-  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-  color:white;
-  border-color:transparent;
-}
-
+.social-link-minimal.linkedin,
+.social-link-minimal.github,
+.social-link-minimal.instagram,
+.social-link-minimal.pinterest,
+.social-link-minimal.email,
 .social-link-minimal.duolingo{
-  color:#58cc02;
+  color:#3a3a3a;
 }
 
+.social-link-minimal.linkedin:hover,
+.social-link-minimal.github:hover,
+.social-link-minimal.instagram:hover,
+.social-link-minimal.pinterest:hover,
+.social-link-minimal.email:hover,
 .social-link-minimal.duolingo:hover{
-  background:linear-gradient(135deg,#58cc02,#4aa301);
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
   color:white;
   border-color:transparent;
 }
