@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -53,17 +62,14 @@
           <div class="detail-story">
             <p class="detail-quote">"Making content accessible to everyone! An AI-powered tool that generates accurate captions for videos."</p>
             <p class="detail-description">
-              Captioner Demo is an innovative AI-powered solution developed for Smart India Hackathon. It automatically 
-              generates accurate and synchronized captions for video content, making media more accessible and inclusive. 
-              Using advanced speech recognition and natural language processing, the tool ensures high accuracy while 
-              supporting multiple languages, helping bridge communication gaps and enhance content reach.
+              Captioner is a speech-to-text solution developed for Smart India Hackathon 2025. It aims to assist the Deaf and hard-of-hearing community by converting spoken language into real-time text captions. I also created the demo video for this project, showcasing how Captioner makes communication more inclusive and effortless.
             </p>
           </div>
 
           <!-- Project Showcase Section -->
           <div class="project-showcase">
             <div class="showcase-image">
-              <img src="../../images/Screenshot (423).png" alt="Captioner Demo" class="project-detail-image">
+              <img src="../../images/images(1).jpg" alt="Captioner Demo" class="project-detail-image">
             </div>
             <div class="showcase-actions">
               <a href="#" class="demo-link-btn" target="_blank">

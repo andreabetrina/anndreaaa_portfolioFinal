@@ -30,6 +30,30 @@ document.querySelectorAll('.project-item, .cert-card, .achievement-item').forEac
 });
 
 // ==========================================
+// SCROLL TO TOP BUTTON
+// ==========================================
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+if (scrollToTopBtn) {
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      scrollToTopBtn.classList.add('show');
+    } else {
+      scrollToTopBtn.classList.remove('show');
+    }
+  });
+
+  // Smooth scroll to top on click
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+// ==========================================
 // FILTER FUNCTIONALITY
 // ==========================================
 

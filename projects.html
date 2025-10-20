@@ -58,12 +58,6 @@
       <canvas id="flow-canvas" aria-hidden="true"></canvas>
       <section class="projects slide" id="projects">
         <div class="section-card">
-          <a href="achievements.html" class="back-link">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-            </svg>
-            Back to Achievements
-          </a>
 
           <h2 class="section-title">Projects & Works</h2>
           <p class="projects-intro">Where creativity meets learning — every project tells a story of growth, curiosity, and passion! ✨</p>
@@ -115,7 +109,7 @@
                   <span class="project-badge tech">Tech</span>
                 </div>
                 <h3 class="project-name">SpeakEase Platform</h3>
-                <p class="project-desc">An innovative platform empowering public speakers with AI-driven feedback and practice tools.</p>
+                <p class="project-desc">SpeakEase is a simple yet powerful text-to-speech app developed during the BoltAI Hackathon 2025</p>
               </div>
             </a>
 
@@ -129,7 +123,7 @@
                   <span class="project-badge">UI Design</span>
                 </div>
                 <h3 class="project-name">Personal Portfolio</h3>
-                <p class="project-desc">A fully responsive, interactive portfolio showcasing my journey, skills, and personality through modern design.</p>
+                <p class="project-desc">This is my first ever static portfolio, a project that marked the beginning of my web development journey.</p>
               </div>
             </a>
 
@@ -143,63 +137,63 @@
                   <span class="project-badge tech">Tech</span>
                 </div>
                 <h3 class="project-name">GUVI AI Chatbot</h3>
-                <p class="project-desc">An intelligent AI-powered chatbot designed to assist learners with course recommendations and queries.</p>
+                <p class="project-desc">A simple chatbot developed during the SWAIT Challenge by GUVI to answer queries about ShinChan.</p>
               </div>
             </a>
 
             <!-- Captioner Demo (SIH Project) -->
             <a href="pages/projects/project-captioner.html" class="project-item" data-category="tech">
               <div class="project-image-wrapper">
-                <img src="images/Screenshot (423).png" alt="Captioner Demo" class="project-image">
+                <img src="images/Your paragraph text.png" alt="Captioner Demo" class="project-image">
               </div>
               <div class="project-content">
                 <div class="project-header">
                   <span class="project-badge tech">Tech</span>
                 </div>
                 <h3 class="project-name">Captioner Demo</h3>
-                <p class="project-desc">Smart India Hackathon project - An AI-powered tool that generates accurate captions for videos, making content more accessible.</p>
+                <p class="project-desc">Smart India Hackathon project - Turning voices into words — empowering the Deaf community with accessibility through technology.</p>
               </div>
             </a>
 
             <!-- Digital Doodling -->
             <a href="pages/projects/project-doodling.html" class="project-item" data-category="art">
               <div class="project-image-wrapper">
-                <img src="images/Screenshot (421).png" alt="Digital Doodling Gallery" class="project-image">
+                <img src="assets/images/projects/doodling-thumbnail.jpg" alt="Digital Doodling Gallery" class="project-image">
               </div>
               <div class="project-content">
                 <div class="project-header">
                   <span class="project-badge art">Art</span>
                 </div>
                 <h3 class="project-name">Digital Doodling Gallery</h3>
-                <p class="project-desc">A curated collection of my digital art — from character designs to abstract pieces. Each artwork captures a mood, a moment, or a memory.</p>
+                <p class="project-desc">A small collection of my Canva doodles that reflect my creativity and fun side.</p>
               </div>
             </a>
 
             <!-- Snapchat Filter -->
             <a href="pages/projects/project-snapchat.html" class="project-item" data-category="art tech">
               <div class="project-image-wrapper">
-                <img src="images/snapchat-filter.png" alt="Snapchat Filter" class="project-image">
+                <img src="assets/images/projects/project-screenshot-3.png" alt="Snapchat Filter" class="project-image">
               </div>
               <div class="project-content">
                 <div class="project-header">
                   <span class="project-badge art">AR Filter</span>
                 </div>
                 <h3 class="project-name">Andreaa's Snapchat</h3>
-                <p class="project-desc">Custom AR filters and creative lens experiences designed for Snapchat, blending art and technology for interactive fun!</p>
+                <p class="project-desc">A custom Snapchat heart filter created during my Rookie to Bashers selection.</p>
               </div>
             </a>
 
-            <!-- SAWIT AI Challenge -->
+            <!-- THIS PORTFOLIO -->
             <a href="pages/projects/project-sawit.html" class="project-item" data-category="tech">
               <div class="project-image-wrapper">
-                <img src="images/sawit-challenge.png" alt="SAWIT AI Challenge" class="project-image">
+                <img src="assets/images/projects/portfolio-thumbnail.png" alt="SAWIT AI Challenge" class="project-image">
               </div>
               <div class="project-content">
                 <div class="project-header">
                   <span class="project-badge tech">Tech</span>
                 </div>
-                <h3 class="project-name">SAWIT AI Challenge</h3>
-                <p class="project-desc">Welcome to reportai! Use HAQQ's tools for data artificial intelligence innovation. Give me the summary of the AI-aligned documents!</p>
+                <h3 class="project-name">This Portfolio</h3>
+                <p class="project-desc">A dynamic portfolio built for a contest, showcasing my skills with creativity and learning.</p>
               </div>
             </a>
 
@@ -254,5 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 (function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const canvas=document.getElementById('flow-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;const particles=[],maxParticles=80,palette=['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});let pointer={x:w/2,y:h/2};window.addEventListener('pointermove',(e)=>{pointer.x=e.clientX;pointer.y=e.clientY;spawnParticle(pointer.x,pointer.y);});function spawnParticle(x,y){if(particles.length>maxParticles)particles.shift();particles.push({x,y,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,size:60+Math.random()*80,life:1,dec:0.008,col:palette[Math.floor(Math.random()*palette.length)]});}function draw(){ctx.fillStyle='rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p=particles[i];p.x+=(pointer.x-p.x)*0.08+p.vx;p.y+=(pointer.y-p.y)*0.08+p.vy;p.life-=p.dec;const alpha=Math.max(0,p.life);ctx.beginPath();const grad=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);const m=p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r=m[1],g=m[2],b=m[3],innerAlpha=(0.65*alpha).toFixed(3);grad.addColorStop(0,`rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=grad;}ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}while(particles.length&&particles[0].life<=0)particles.shift();requestAnimationFrame(draw);}for(let i=0;i<8;i++)spawnParticle(w/2+(Math.random()-0.5)*200,h/2+(Math.random()-0.5)*200);draw();})();
     </script>
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
   </body>
 </html>

@@ -34,9 +34,9 @@
       <a href="../../index.html" class="nav-link">Home</a>
       <a href="../../about.html" class="nav-link">About</a>
       <a href="../../skills.html" class="nav-link">Skills</a>
-      <a href="../../achievements.html" class="nav-link">Achievements</a>
+      <a href="../../achievements.html" class="nav-link active">Achievements</a>
       <a href="../../projects.html" class="nav-link">Projects</a>
-      <a href="../../certifications.html" class="nav-link active">Certifications</a>
+      <a href="../../certifications.html" class="nav-link">Certifications</a>
       <a href="../../contact.html" class="nav-link">Contact</a>
     </nav>
     <main class="page">
@@ -57,20 +57,18 @@
       </div>
       <canvas id="flow-canvas" aria-hidden="true"></canvas>
       
-      <section class="certifications slide" id="outstanding-certificates">
-        <div class="section-card">
-          <a href="../../achievements.html" class="back-link">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-            </svg>
-            Back to Achievements
-          </a>
+      <section class="achievement-detail slide" id="outstanding-certificates">
+        <div class="detail-container">
+          <a href="../../achievements.html" class="back-link">← Back to Achievements</a>
+          
+          <div class="detail-header">
+            <span class="detail-icon">🏆</span>
+            <h1 class="detail-title">Outstanding Certificates</h1>
+            <p class="detail-subtitle">My Most Prestigious Achievements</p>
+          </div>
 
-          <h2 class="section-title">Outstanding Certificates</h2>
-          <p class="cert-intro">My most prestigious achievements and recognitions! 🏆✨</p>
-
-          <!-- Outstanding Certificates Gallery -->
           <div class="detail-gallery">
+            <h3 class="gallery-title">Recognitions & Awards</h3>
             <div class="gallery-grid">
               
               <!-- Certificate 1 -->
@@ -117,20 +115,6 @@ document.addEventListener('DOMContentLoaded', function(){
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌕';
-  });
-
-  // Animate cards on load
-  const cards = document.querySelectorAll('.cert-card-outstanding');
-  cards.forEach((card, index) => {
-    setTimeout(() => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(20px)';
-      setTimeout(() => {
-        card.style.transition = 'all 0.5s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }, 50);
-    }, index * 100);
   });
 });
 

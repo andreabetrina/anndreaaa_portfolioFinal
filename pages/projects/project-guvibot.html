@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -47,16 +56,13 @@
           <div class="detail-header">
             <span class="detail-icon">🤖</span>
             <h1 class="detail-title">Guvi Bot</h1>
-            <p class="detail-subtitle">AI-Powered Learning Assistant</p>
+            <p class="detail-subtitle">AI-Powered Chatbot </p>
           </div>
 
           <div class="detail-story">
-            <p class="detail-quote">"Learning made smarter! An intelligent chatbot designed to assist students with course queries and guidance."</p>
+            <p class="detail-quote">"A simple chatbot developed during the SWAIT Challenge by GUVI to answer queries about ShinChan."</p>
             <p class="detail-description">
-              Guvi Bot is an AI-powered chatbot designed to enhance the learning experience for Guvi platform users. 
-              It provides instant responses to student queries, course recommendations, and learning path guidance. 
-              Built with natural language processing capabilities, the bot understands context and delivers personalized 
-              assistance, making online learning more interactive and accessible.
+              ShinChan Bot is a basic chat bot I created during the SWAIT Challenge by GUVI. It was my first attempt at building an interactive bot that responds to questions related to ShinChan. This project gave me a hands-on start in exploring conversational AI.
             </p>
           </div>
 
@@ -66,7 +72,7 @@
               <img src="../../images/Screenshot (425).png" alt="GUVI AI Chatbot" class="project-detail-image">
             </div>
             <div class="showcase-actions">
-              <a href="#" class="demo-link-btn" target="_blank">
+              <a href="https://www.guvi.in/rag/42dff1da-7861-4714-9390-40978b4ecb56/?fbclid=PAQ0xDSwKS_YNleHRuA2FlbQIxMAABp7wcsNfJg3o8NSNBLTPzoOoeAZVpH2mW3zyxHKOXniXG9l1fOHDivo_h4wa6_aem_1ifOgkH8kdG6Ko60eynryQ" class="demo-link-btn" target="_blank">
                 <span class="btn-icon">🚀</span>
                 <span class="btn-text">View Live Demo</span>
               </a>

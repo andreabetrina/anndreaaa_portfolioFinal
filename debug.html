@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dark Mode Debug</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
     <script>
       (function() {
         const theme = localStorage.getItem('theme') || 'light';
@@ -12,6 +13,8 @@
         console.log('Anti-flicker script ran. Theme set to:', theme);
       })();
     </script>
+    <!-- Theme Management Script -->
+    <script src="theme.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;

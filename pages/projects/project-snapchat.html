@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -48,122 +57,32 @@
       </div>
       <canvas id="flow-canvas" aria-hidden="true"></canvas>
       
-      <section class="project-detail slide">
-        <div class="section-card">
-          <a href="../../projects.html" class="back-link">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-            </svg>
-            Back to Projects
-          </a>
-
-          <div class="project-detail-header">
-            <div class="project-badges-group">
-              <span class="project-badge art">AR Filter</span>
-              <span class="project-badge">Creative</span>
-              <span class="project-badge">Snapchat</span>
-            </div>
-            <h1 class="project-detail-title">Andreaa's Snapchat</h1>
-            <p class="project-detail-subtitle">Custom AR Filters & Creative Lens Experiences</p>
+      <section class="achievement-detail slide">
+        <div class="detail-container">
+          <a href="../../projects.html" class="back-link">← Back to Projects</a>
+          
+          <div class="detail-header">
+            <span class="detail-icon">🎤</span>
+            <h1 class="detail-title">Andreaa's Snapchat</h1>
+            <p class="detail-subtitle">Custom AR Filters & Creative Lens Experiences</p>
           </div>
 
-          <div class="project-detail-image-hero">
-            <img src="../../images/snapchat-filter.png" alt="Andreaa's Snapchat Filters" />
+          <div class="detail-story">
+            <p class="detail-quote">"Bringing joy and creativity to Snapchat! Custom AR filters crafted with artistic vision and augmented reality technology."</p>
+            <p class="detail-description">
+              Andreaa's Snapchat is a collection of custom AR filters and creative lens experiences designed to bring joy, fun, and creativity to Snapchat users. Each filter is crafted with attention to detail, blending artistic vision with augmented reality technology. This Snapchat Heart Filter was created during my Rookie to Bashers selection—it adds floating hearts over your face, giving a fun and lively touch to selfies. The filter can be downloaded and saved to local storage for later use.
+            </p>
           </div>
 
-          <div class="project-detail-content">
-            <div class="project-detail-section">
-              <h2 class="project-detail-section-title">
-                <span class="section-emoji">🎯</span>
-                Overview
-              </h2>
-              <p class="project-detail-text">
-                Andreaa's Snapchat is a collection of custom AR filters and creative lens experiences designed to bring joy, fun, and creativity to Snapchat users. Each filter is crafted with attention to detail, blending artistic vision with augmented reality technology.
-              </p>
-              <p class="project-detail-text">
-                From playful face filters to interactive world effects, these lenses showcase the perfect fusion of art and technology, creating memorable experiences for users worldwide.
-              </p>
+          <!-- Project Showcase Section -->
+          <div class="project-showcase">
+            <div class="showcase-image">
+              <img src="../../assets/images/projects/project-screenshot-3.png" alt="Andreaa's Snapchat Filters" class="project-detail-image">
             </div>
-
-            <div class="project-detail-section">
-              <h2 class="project-detail-section-title">
-                <span class="section-emoji">✨</span>
-                Features
-              </h2>
-              <ul class="project-detail-list">
-                <li><strong>Face Filters:</strong> Expressive AR filters that enhance selfies with creative effects</li>
-                <li><strong>World Lenses:</strong> Interactive 3D objects that respond to the environment</li>
-                <li><strong>Beauty Effects:</strong> Subtle enhancements that bring out natural beauty</li>
-                <li><strong>Fun Animations:</strong> Dynamic effects with engaging animations and interactions</li>
-                <li><strong>Branded Experiences:</strong> Custom filters for events and special occasions</li>
-                <li><strong>User Engagement:</strong> Designed for maximum shareability and user interaction</li>
-              </ul>
-            </div>
-
-            <div class="project-detail-section">
-              <h2 class="project-detail-section-title">
-                <span class="section-emoji">🛠️</span>
-                Tools & Technologies
-              </h2>
-              <div class="tech-tags">
-                <span class="tech-tag">Lens Studio</span>
-                <span class="tech-tag">3D Modeling</span>
-                <span class="tech-tag">AR Technology</span>
-                <span class="tech-tag">Visual Effects</span>
-                <span class="tech-tag">Animation</span>
-                <span class="tech-tag">Face Tracking</span>
-                <span class="tech-tag">Photoshop</span>
-                <span class="tech-tag">Blender</span>
-              </div>
-            </div>
-
-            <div class="project-detail-section">
-              <h2 class="project-detail-section-title">
-                <span class="section-emoji">🎨</span>
-                Creative Process
-              </h2>
-              <p class="project-detail-text">
-                Each filter begins with a concept inspired by trends, emotions, or artistic themes. The design process involves sketching, 3D modeling, and testing different effects to create the perfect balance between aesthetics and performance.
-              </p>
-              <p class="project-detail-text">
-                Using Snapchat's Lens Studio, I bring these concepts to life by incorporating face tracking, 3D objects, animations, and interactive elements that engage users and encourage sharing.
-              </p>
-            </div>
-
-            <div class="project-detail-section">
-              <h2 class="project-detail-section-title">
-                <span class="section-emoji">🌟</span>
-                Impact & Reach
-              </h2>
-              <p class="project-detail-text">
-                These filters have been used by thousands of Snapchat users worldwide, generating engagement and spreading creativity. Each lens tells a story and creates a unique experience that resonates with the Snapchat community.
-              </p>
-            </div>
-
-            <div class="project-detail-section">
-              <h2 class="project-detail-section-title">
-                <span class="section-emoji">💡</span>
-                What I Learned
-              </h2>
-              <ul class="project-detail-list">
-                <li>AR development and face tracking technology</li>
-                <li>3D modeling and animation for AR experiences</li>
-                <li>User experience design for interactive media</li>
-                <li>Optimizing performance for mobile devices</li>
-                <li>Understanding social media trends and user preferences</li>
-                <li>Balancing creativity with technical constraints</li>
-              </ul>
-            </div>
-
-            <div class="project-detail-cta">
-              <a href="https://www.snapchat.com/add/anndreaaa" target="_blank" class="cta-button">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                  <path d="M12.206,2.003c-0.988-0.026-2.134,0.132-3.355,0.776c-1.634,0.861-2.769,2.446-3.067,4.285 c-0.296,1.831,0.078,3.637,0.744,5.272c0.349,0.858,0.773,1.686,1.259,2.468c0.125,0.202,0.255,0.401,0.391,0.597 c-0.142,0.046-0.296,0.088-0.465,0.127c-0.551,0.126-1.282,0.187-1.949,0.407c-0.33,0.109-0.642,0.266-0.858,0.526 c-0.201,0.242-0.289,0.552-0.27,0.861c0.036,0.583,0.478,1.057,1.009,1.244c0.797,0.281,1.71,0.241,2.557,0.132 c0.424-0.055,0.842-0.14,1.252-0.254c0.103-0.029,0.205-0.059,0.306-0.091c0.184,0.335,0.383,0.659,0.609,0.965 c0.577,0.782,1.299,1.447,2.149,1.912c0.638,0.349,1.352,0.583,2.087,0.659c0.365,0.038,0.738,0.029,1.101-0.029 c0.726-0.115,1.424-0.389,2.042-0.788c0.912-0.589,1.666-1.433,2.187-2.402c0.146-0.272,0.274-0.552,0.385-0.839 c0.084,0.024,0.169,0.047,0.254,0.069c0.424,0.109,0.858,0.187,1.296,0.229c0.875,0.084,1.798,0.049,2.607-0.254 c0.403-0.151,0.775-0.414,0.971-0.798c0.098-0.192,0.14-0.408,0.129-0.622c-0.023-0.437-0.289-0.833-0.655-1.045 c-0.366-0.212-0.801-0.295-1.228-0.321c-0.854-0.052-1.736,0.052-2.557,0.321c-0.206,0.068-0.407,0.15-0.598,0.249 c0.131-0.189,0.257-0.381,0.377-0.577c0.48-0.781,0.894-1.602,1.234-2.457c0.679-1.706,1.027-3.595,0.657-5.449 c-0.184-0.923-0.551-1.811-1.106-2.563c-0.556-0.753-1.296-1.361-2.142-1.752C14.524,2.138,13.194,2.029,12.206,2.003z"/>
-                </svg>
-                Try My Filters
-              </a>
-              <a href="../../projects.html" class="cta-button secondary">
-                View All Projects
+            <div class="showcase-actions">
+              <a href="https://www.snapchat.com/add/anndreaaa" class="demo-link-btn" target="_blank">
+                <span class="btn-icon">🚀</span>
+                <span class="btn-text">Try My Filters</span>
               </a>
             </div>
           </div>

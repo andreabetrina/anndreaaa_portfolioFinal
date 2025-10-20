@@ -9,14 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <!-- Anti-flicker script: Set theme before page renders -->
-    <script>
-      (function() {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
+    <form class="contact-form-minimal" id="contactForm" action="https://formspree.io/f/xgvnbonn" method="POST">
+
+    </form>
+
     <!-- Theme Management Script -->
-    <script src="theme.js"></script>
+    /* add to styles.css */
+    button {
+      background: linear-gradient(to right, #ff9ebd, #ff7cb1);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #ff9ebd;
+    }
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">

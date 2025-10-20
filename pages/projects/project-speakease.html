@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -51,12 +60,9 @@
           </div>
 
           <div class="detail-story">
-            <p class="detail-quote">"Empowering voices through technology! Speakease makes public speaking accessible and confidence-building."</p>
+            <p class="detail-quote">" SpeakEase is an AI-powered text-to-speech app built during BoltAI Hackathon 2025.."</p>
             <p class="detail-description">
-              Speakease is an innovative platform designed to help users improve their public speaking skills. 
-              With features like speech analysis, real-time feedback, and practice modules, it creates a supportive 
-              environment for developing communication confidence. Perfect for students, professionals, and anyone 
-              looking to enhance their speaking abilities.
+              SpeakEase is a simple yet powerful text-to-speech app developed during the BoltAI Hackathon 2025. It converts written text into natural-sounding audio, making reading and listening more accessible and engaging
             </p>
           </div>
 
@@ -66,7 +72,7 @@
               <img src="../../images/Screenshot (420).png" alt="SpeakEase Platform" class="project-detail-image">
             </div>
             <div class="showcase-actions">
-              <a href="#" class="demo-link-btn" target="_blank">
+              <a href="https://delightful-belekoy-9d2b94.netlify.app/" class="demo-link-btn" target="_blank">
                 <span class="btn-icon">🚀</span>
                 <span class="btn-text">View Live Demo</span>
               </a>

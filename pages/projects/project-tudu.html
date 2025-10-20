@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -52,22 +61,8 @@
           <div class="detail-story">
             <p class="detail-quote">"Stay organized, stay productive! A smart, friendly, and feel-good to-do list app."</p>
             <p class="detail-description">
-              Tudu is a modern task management application designed to help users stay focused and organized. 
-              With features like task prioritization, deadline tracking, and motivational quotes, Tudu makes 
-              productivity enjoyable and effective. Built with a clean, intuitive interface for seamless user experience.
+              #TUDU is a simple and efficient to-do list app built during the BoltAI Hackathon 2025. It helps users conveniently organize daily tasks, stay focused, and track progress with an easy-to-use, clutter-free interface.
             </p>
-          </div>
-
-          <!-- Tech Stack Section -->
-          <div class="detail-story">
-            <h2 class="detail-subtitle" style="font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #333; font-weight: 600;">🛠️ Tech Stack Used</h2>
-            <div class="tech-tags" style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; justify-content: center;">
-              <span class="tech-tag" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">HTML5</span>
-              <span class="tech-tag" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">CSS3</span>
-              <span class="tech-tag" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">JavaScript</span>
-              <span class="tech-tag" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">Responsive Design</span>
-              <span class="tech-tag" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); color: white; padding: 0.6rem 1.2rem; border-radius: 25px; font-size: 0.95rem; font-weight: 500; box-shadow: 0 4px 15px rgba(48, 207, 208, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">Local Storage</span>
-            </div>
           </div>
 
           <!-- Project Showcase Section -->

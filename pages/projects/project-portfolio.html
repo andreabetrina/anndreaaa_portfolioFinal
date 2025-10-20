@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -66,7 +75,7 @@
               <img src="../../images/Screenshot (422).png" alt="Personal Portfolio" class="project-detail-image">
             </div>
             <div class="showcase-actions">
-              <a href="../../index.html" class="demo-link-btn">
+              <a href="https://andreabetrina.github.io/andrea-portfolio/" class="demo-link-btn" target="_blank">
                 <span class="btn-icon">🏠</span>
                 <span class="btn-text">View Portfolio</span>
               </a>
