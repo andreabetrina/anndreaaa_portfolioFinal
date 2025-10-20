@@ -2,35 +2,11 @@
 // Theme Management, Animations, and Interactions
 
 // ==========================================
-// THEME TOGGLE
+// THEME TOGGLE - Managed by theme.js
 // ==========================================
-document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const html = document.documentElement;
-  
-  // Set up theme toggle if button exists
-  if (themeToggle && themeIcon) {
-    // Sync icon with current theme (theme is already set by anti-flicker script)
-    const currentTheme = html.getAttribute('data-theme') || 'light';
-    themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
-    
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', function() {
-      const oldTheme = html.getAttribute('data-theme') || 'light';
-      const newTheme = oldTheme === 'light' ? 'dark' : 'light';
-      
-      // Update theme
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      
-      // Update icon
-      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌕';
-      
-      console.log('Theme toggled from', oldTheme, 'to', newTheme);
-    });
-  }
-});
+// Theme management is now handled by the dedicated theme.js file
+// which is loaded before this script
+// The themeManager object provides: init(), get(), set(), toggle(), setupToggle()
 
 // ==========================================
 // SMOOTH SCROLL REVEAL ANIMATIONS

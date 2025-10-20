@@ -8,6 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <!-- Theme Management Script -->
+    <script src="../../theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -64,23 +73,23 @@
             <div class="gallery-grid">
               <div class="gallery-item">
                 <img src="../../images/WhatsApp Image 2025-10-19 at 12.15.00 AM.jpeg" alt="Basher moment 1" class="gallery-image">
-                <p class="gallery-caption">Team in action</p>
+                <p class="gallery-caption"> #WeeklyBash 8, Rookie's Clan selection, Won 1st place in the Quiz</p>
               </div>
               <div class="gallery-item">
                 <img src="../../images/roo.jpg" alt="Basher moment 2" class="gallery-image">
-                <p class="gallery-caption">Collaboration</p>
+                <p class="gallery-caption">#WeeklyBash 21, Won 1st place in the Quiz </p>
               </div>
               <div class="gallery-item">
                 <img src="../../images/principal.jpg" alt="Basher moment 3" class="gallery-image">
-                <p class="gallery-caption">Achievement moment</p>
+                <p class="gallery-caption">#BadgeDay'25, Being promoted as a Basher👊</p>
               </div>
               <div class="gallery-item">
                 <img src="../../images/ceo.jpg" alt="Basher moment 4" class="gallery-image">
-                <p class="gallery-caption">Leadership</p>
+                <p class="gallery-caption">BEST ROOKIE'25 </p>
               </div>
               <div class="gallery-item">
                 <img src="../../images/fare.jpg" alt="Basher moment 5" class="gallery-image">
-                <p class="gallery-caption">Victory celebration</p>
+                <p class="gallery-caption">The Heartfelted Farewell</p>
               </div>
             </div>
           </div>

@@ -8,12 +8,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <!-- Anti-flicker script: Set theme before page renders -->
     <script>
       (function() {
         const theme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
+    <!-- Theme Management Script -->
+    <script src="theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -98,7 +101,7 @@
                 <div class="achievement-item">
                   <span class="achievement-icon-new">📊</span>
                   <h3 class="achievement-title">Best Presentation Award</h3>
-                  <p class="achievement-subtitle">Tech Symposium 2024</p>
+                  <p class="achievement-subtitle">Tech Symposiums </p>
                   <p class="achievement-preview">"Winning this award validated all the late-night preparation. It showed me that passion and preparation create magic together."</p>
                   <a href="pages/achievements/achievement-presentation.html" class="know-more-btn">Know More →</a>
                 </div>
@@ -118,7 +121,7 @@
 
                 <div class="achievement-item">
                   <span class="achievement-icon-new">🏀</span>
-                  <h3 class="achievement-title">Basketball Team Captain</h3>
+                  <h3 class="achievement-title">Basketball Athlete</h3>
                   <p class="achievement-subtitle">University Athletics</p>
                   <p class="achievement-preview">"Leading my team taught me that true leadership is about lifting others up. Every game was a lesson in trust and teamwork."</p>
                   <a href="pages/achievements/achievement-captain.html" class="know-more-btn">Know More →</a>
@@ -127,7 +130,7 @@
                 <div class="achievement-item">
                   <span class="achievement-icon-new">📋</span>
                   <h3 class="achievement-title">Event Coordinator</h3>
-                  <p class="achievement-subtitle">Tech Fest 2024</p>
+                  <p class="achievement-subtitle">Student Coodinator</p>
                   <p class="achievement-preview">"Organizing this fest from scratch was challenging but rewarding. I learned that great events are built on great teams and clear vision."</p>
                   <a href="pages/achievements/achievement-coordinator.html" class="know-more-btn">Know More →</a>
                 </div>
