@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Debug</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        console.log('Anti-flicker script ran. Theme set to:', theme);
+      })();
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .debug-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(200, 200, 200, 0.2);
+            border-radius: 5px;
+        }
+        .status-good { color: green; font-weight: bold; }
+        .status-bad { color: red; font-weight: bold; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span id="themeIcon">🌕</span> Toggle Theme
+    </button>
+
+    <div class="debug-container">
+        <h1>Dark Mode Debug Panel</h1>
+        
+        <div class="test-section">
+            <h3>1. HTML Element Attributes</h3>
+            <p>data-theme attribute: <span id="theme-attr">checking...</span></p>
+            <p>Current localStorage theme: <span id="local-theme">checking...</span></p>
+        </div>
+
+        <div class="test-section">
+            <h3>2. Theme Toggle Button</h3>
+            <p>Button exists: <span id="button-exists">checking...</span></p>
+            <p>Button ID is 'themeToggle': <span id="button-id">checking...</span></p>
+            <p>Icon span exists: <span id="icon-exists">checking...</span></p>
+            <p>Icon element ID: <span id="icon-id">checking...</span></p>
+        </div>
+
+        <div class="test-section">
+            <h3>3. Click Test</h3>
+            <p>Click the toggle button above and watch the status update here:</p>
+            <p>Last theme switched to: <span id="last-switched">not clicked yet</span></p>
+            <p>Click count: <span id="click-count">0</span></p>
+        </div>
+
+        <div class="test-section">
+            <h3>4. CSS Rules Check</h3>
+            <p>Checking if CSS dark mode rules exist...</p>
+            <p id="css-check">checking...</p>
+        </div>
+
+        <div class="test-section">
+            <h3>5. Manual Test</h3>
+            <button onclick="switchToDark()">Force Dark Mode</button>
+            <button onclick="switchToLight()">Force Light Mode</button>
+            <button onclick="clearTheme()">Clear localStorage</button>
+            <button onclick="location.reload()">Reload Page</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Debug functions
+        function updateDebug() {
+            const html = document.documentElement;
+            const themeAttr = html.getAttribute('data-theme');
+            const localTheme = localStorage.getItem('theme');
+            const button = document.getElementById('themeToggle');
+            const icon = document.getElementById('themeIcon');
+
+            document.getElementById('theme-attr').textContent = themeAttr || 'not set';
+            document.getElementById('local-theme').textContent = localTheme || 'not set';
+            document.getElementById('button-exists').innerHTML = button ? '<span class="status-good">✓ YES</span>' : '<span class="status-bad">✗ NO</span>';
+            document.getElementById('button-id').innerHTML = button && button.id === 'themeToggle' ? '<span class="status-good">✓ YES</span>' : '<span class="status-bad">✗ NO</span>';
+            document.getElementById('icon-exists').innerHTML = icon ? '<span class="status-good">✓ YES</span>' : '<span class="status-bad">✗ NO</span>';
+            document.getElementById('icon-id').innerHTML = icon && icon.id === 'themeIcon' ? '<span class="status-good">✓ YES</span>' : '<span class="status-bad">✗ NO</span>';
+        }
+
+        function switchToDark() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            document.getElementById('themeIcon').textContent = '☀️';
+            updateDebug();
+            console.log('Forced dark mode');
+        }
+
+        function switchToLight() {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            document.getElementById('themeIcon').textContent = '🌕';
+            updateDebug();
+            console.log('Forced light mode');
+        }
+
+        function clearTheme() {
+            localStorage.removeItem('theme');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.getElementById('themeIcon').textContent = '🌕';
+            updateDebug();
+            console.log('Cleared localStorage');
+        }
+
+        // Track clicks
+        let clickCount = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== DEBUG PAGE LOADED ===');
+            updateDebug();
+            
+            const button = document.getElementById('themeToggle');
+            if (button) {
+                button.addEventListener('click', function() {
+                    clickCount++;
+                    const theme = document.documentElement.getAttribute('data-theme');
+                    document.getElementById('last-switched').textContent = theme;
+                    document.getElementById('click-count').textContent = clickCount;
+                    console.log('Toggle clicked. Current theme:', theme);
+                    updateDebug();
+                });
+                console.log('✓ Click listener attached to toggle button');
+            } else {
+                console.log('✗ Toggle button not found!');
+            }
+
+            // Check CSS rules
+            const styles = document.styleSheets;
+            let darkModeRuleFound = false;
+            for (let sheet of styles) {
+                try {
+                    const rules = sheet.cssRules || sheet.rules;
+                    for (let rule of rules) {
+                        if (rule.selectorText && rule.selectorText.includes('[data-theme="dark"]')) {
+                            darkModeRuleFound = true;
+                            break;
+                        }
+                    }
+                } catch (e) {
+                    // Ignore CORS errors
+                }
+            }
+            document.getElementById('css-check').innerHTML = darkModeRuleFound ? 
+                '<span class="status-good">✓ Dark mode CSS rules found</span>' : 
+                '<span class="status-bad">✗ No dark mode CSS rules found</span>';
+        });
+    </script>
+</body>
+</html>

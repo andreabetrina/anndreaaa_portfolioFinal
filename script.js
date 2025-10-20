@@ -9,19 +9,27 @@ document.addEventListener('DOMContentLoaded', function() {
   const themeIcon = document.getElementById('themeIcon');
   const html = document.documentElement;
   
-  // Load saved theme or default to light
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  html.setAttribute('data-theme', savedTheme);
-  themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌕';
-  
-  // Toggle theme on button click
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌕';
-  });
+  // Set up theme toggle if button exists
+  if (themeToggle && themeIcon) {
+    // Sync icon with current theme (theme is already set by anti-flicker script)
+    const currentTheme = html.getAttribute('data-theme') || 'light';
+    themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
+    
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', function() {
+      const oldTheme = html.getAttribute('data-theme') || 'light';
+      const newTheme = oldTheme === 'light' ? 'dark' : 'light';
+      
+      // Update theme
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      // Update icon
+      themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌕';
+      
+      console.log('Theme toggled from', oldTheme, 'to', newTheme);
+    });
+  }
 });
 
 // ==========================================
