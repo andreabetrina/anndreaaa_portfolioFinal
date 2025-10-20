@@ -953,17 +953,13 @@ html[data-theme="dark"] .personality-title {
 
 .page{
   width:100%;
-  height:100vh;
-  overflow-y:auto;
+  min-height:100vh;
   overflow-x:hidden;
-  scroll-snap-type:y mandatory;
   position:relative;
 }
 
 .slide{
   min-height:100vh;
-  scroll-snap-align:start;
-  scroll-snap-stop:always;
   display:flex;
   align-items:center;
   justify-content:center;

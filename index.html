@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
   </head>
   <body>
     <!-- Theme Toggle Button (top-left) -->
@@ -122,21 +128,6 @@
       }
 
       document.addEventListener('DOMContentLoaded', function(){
-        // Theme Toggle Functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        const root = document.documentElement;
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        root.setAttribute('data-theme', currentTheme);
-        themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
-        themeToggle.addEventListener('click', () => {
-          const theme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-          root.setAttribute('data-theme', theme);
-          localStorage.setItem('theme', theme);
-          themeIcon.textContent = theme === 'dark' ? '☀️' : '🌕';
-        });
-
         // Smooth Navigation Link Effects
         document.querySelectorAll('.nav-link').forEach(link => {
           link.addEventListener('click', function(e) {

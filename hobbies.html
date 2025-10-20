@@ -8,6 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&family=Satisfy&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <style>
     /* Hobbies Page Specific Styles */
     .hobbies-page {
@@ -1352,24 +1358,10 @@
     </div>
   </main>
 
+  <script src="script.js"></script>
   <script>
-    // Theme Toggle
+    // Timeline Scroll Animation
     document.addEventListener('DOMContentLoaded', function() {
-      const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = document.getElementById('themeIcon');
-      const root = document.documentElement;
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      root.setAttribute('data-theme', currentTheme);
-      themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌕';
-      
-      themeToggle.addEventListener('click', () => {
-        const theme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌕';
-      });
-
-      // Timeline Scroll Animation
       const observerOptions = {
         threshold: 0.2,
         rootMargin: '0px 0px -100px 0px'
