@@ -9,25 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <!-- Anti-flicker script: Set theme before page renders -->
-    <form class="contact-form-minimal" id="contactForm" action="https://formspree.io/f/xgvnbonn" method="POST">
-
-    </form>
-
-    <!-- Theme Management Script -->
-    /* add to styles.css */
-    button {
-      background: linear-gradient(to right, #ff9ebd, #ff7cb1);
-      color: white;
-      border: none;
-      border-radius: 30px;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px #ff9ebd;
-    }
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <script src="theme.js"></script>
   </head>
   <body>
     <div class="floating-elements" aria-hidden="true">
@@ -166,6 +154,8 @@
     </main>
     <script src="script.js"></script>
     <script>
+document.addEventListener('DOMContentLoaded', function(){const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';r.setAttribute('data-theme',c);i.textContent=c==='dark'?'☀️':'🌕';t.addEventListener('click',()=>{const th=r.getAttribute('data-theme')==='light'?'dark':'light';r.setAttribute('data-theme',th);localStorage.setItem('theme',th);i.textContent=th==='dark'?'☀️':'🌕';});});
+
 // Confetti Animation
 function createConfetti() {
   const canvas = document.getElementById('confetti-canvas');
