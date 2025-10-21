@@ -55,7 +55,7 @@
           
           <div class="detail-header">
             <span class="detail-icon">🎨</span>
-            <h1 class="detail-title">Digital Doodling</h1>
+              <h3 style="font-weight: bold; text-align: center; margin-top: 2rem; margin-bottom: 2rem; font-size: 2rem;">Artwork Gallery</h3>
             <p class="detail-subtitle">Creative Art & Design Portfolio</p>
           </div>
 
@@ -65,22 +65,21 @@
               Here are a few of my doodles, all created with Canva. Doodling is something I truly enjoy — it’s my little creative escape that lets me express emotions, ideas, and imagination through simple, colorful designs.
             </p>
           </div>
-          <div class="""detail-gallery">
-            <h3 class="""gallery-title">Artwork Gallery</h3>
+          
             <div class="gallery-grid custom-art-grid">
                 <div class="gallery-item art-img-item">
                 <div class="art-img-glow">
-                  <img src="../../images/Copy of FREE Template Scrapbook Carousel (1).png" alt="Scrapbook Carousel" class="art-img">
+                  <img src="../../images/Copy of FREE Template Scrapbook Carousel (1).png" alt="Scrapbook Carousel" class="art-img" style="height: 120px;">
                 </div>
                 </div>
                 <div class="gallery-item art-img-item">
                 <div class="art-img-glow">
-                  <img src="../../images/serenity in bloom (1).png" alt="Serenity in Bloom" class="art-img">
+                  <img src="../../images/serenity in bloom (1).png" alt="Serenity in Bloom" class="art-img" style="height: 120px;">
                 </div>
                 </div>
                 <div class="gallery-item art-img-item">
                 <div class="art-img-glow">
-                  <img src="../../images/Untitled design (1).png" alt="Untitled Design" class="art-img">
+                  <img src="../../images/Untitled design (1).png" alt="Untitled Design" class="art-img" style="height: 120px;">
                 </div>
                 </div>
               </div>
@@ -125,18 +124,7 @@
               </style>
             </div>
             </section>
-              <div class="gallery-item art-img-item">
-                <div class="art-img-glow">
-                  <img src="../../images/serenity in bloom (1).png" alt="Serenity in Bloom" class="art-img">
-                </div>
-              </div>
-              <div class="gallery-item art-img-item">
-                <div class="art-img-glow">
-                  <img src="../../images/Untitled design (1).png" alt="Untitled Design" class="art-img">
-                </div>
-              </div>
-            </div>
-          </div>
+              
           <style>
           .custom-art-grid {
             display: flex;
@@ -175,74 +163,15 @@
             transform: scale(1.08) rotate(-2deg);
           }
           </style>
-          <!-- Project Showcase Section -->
-          <div class="project-showcase">
-            <div class="showcase-image">
-              <img src="../../images/Screenshot (421).png" alt="Digital Doodling Gallery" class="project-detail-image">
-            </div>
-            <div class="showcase-actions">
-              <a href="#" class="demo-link-btn" target="_blank">
-                <span class="btn-icon">🎨</span>
-                <span class="btn-text">View Gallery</span>
-              </a>
-              <a href="#" class="github-link-btn" target="_blank">
-                <span class="btn-icon">🖌️</span>
-                <span class="btn-text">Art Portfolio</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="detail-gallery">
-            <h3 class="gallery-title">Artwork Gallery</h3>
-            <div class="gallery-grid">
-              <div class="gallery-item">
-                <div class="image-placeholder">
-                  <span class="placeholder-icon">🖌️</span>
-                </div>
-                <p class="gallery-caption">Minimalist character designs</p>
-              </div>
-              <div class="gallery-item">
-                <div class="image-placeholder">
-                  <span class="placeholder-icon">🌈</span>
-                </div>
-                <p class="gallery-caption">Colorful abstract compositions</p>
-              </div>
-              <div class="gallery-item">
-                <div class="image-placeholder">
-                  <span class="placeholder-icon">✏️</span>
-                </div>
-                <p class="gallery-caption">Digital sketches and doodles</p>
-              </div>
-              <div class="gallery-item">
-                <div class="image-placeholder">
-                  <span class="placeholder-icon">🎭</span>
-                </div>
-                <p class="gallery-caption">Illustration series</p>
-              </div>
-              <div class="gallery-item">
-                <div class="image-placeholder">
-                  <span class="placeholder-icon">🖼️</span>
-                </div>
-                <p class="gallery-caption">Graphic design projects</p>
-              </div>
-            </div>
-          </div>
-        </div>
+         
+             
+         
+              
+              
       </section>
     </main>
     <script src="../../script.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function(){
-  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';
-  r.setAttribute('data-theme',c);
-  i.textContent=c==='dark'?'☀️':'🌕';
-  t.addEventListener('click',()=>{
-    const th=r.getAttribute('data-theme')==='light'?'dark':'light';
-    r.setAttribute('data-theme',th);
-    localStorage.setItem('theme',th);
-    i.textContent=th==='dark'?'☀️':'🌕';
-  });
-});
 (function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const canvas=document.getElementById('flow-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;const particles=[],maxParticles=80,palette=['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});let pointer={x:w/2,y:h/2};window.addEventListener('pointermove',(e)=>{pointer.x=e.clientX;pointer.y=e.clientY;spawnParticle(pointer.x,pointer.y);});function spawnParticle(x,y){if(particles.length>maxParticles)particles.shift();particles.push({x,y,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,size:60+Math.random()*80,life:1,dec:0.008,col:palette[Math.floor(Math.random()*palette.length)]});}function draw(){ctx.fillStyle='rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p=particles[i];p.x+=(pointer.x-p.x)*0.08+p.vx;p.y+=(pointer.y-p.y)*0.08+p.vy;p.life-=p.dec;const alpha=Math.max(0,p.life);ctx.beginPath();const grad=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);const m=p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r=m[1],g=m[2],b=m[3],innerAlpha=(0.65*alpha).toFixed(3);grad.addColorStop(0,`rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=grad;}ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}while(particles.length&&particles[0].life<=0)particles.shift();requestAnimationFrame(draw);}for(let i=0;i<8;i++)spawnParticle(w/2+(Math.random()-0.5)*200,h/2+(Math.random()-0.5)*200);draw();})();
     </script>
   </body>

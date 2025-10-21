@@ -143,16 +143,6 @@
     <script src="script.js"></script>
     <script>
 document.addEventListener('DOMContentLoaded', function(){
-  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';
-  r.setAttribute('data-theme',c);
-  i.textContent=c==='dark'?'☀️':'🌕';
-  t.addEventListener('click',()=>{
-    const th=r.getAttribute('data-theme')==='light'?'dark':'light';
-    r.setAttribute('data-theme',th);
-    localStorage.setItem('theme',th);
-    i.textContent=th==='dark'?'☀️':'🌕';
-  });
-
   // Achievement Tabs Switching
   const tabs = document.querySelectorAll('.achievement-tab');
   const tabContents = document.querySelectorAll('.tab-content');

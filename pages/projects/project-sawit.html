@@ -60,16 +60,15 @@
           </div>
 
           <div class="detail-story">
-            <p class="detail-quote">"Showcasing my journey, skills, and projects! A fully responsive portfolio built for the SAWIT AI Challenge to demonstrate creativity and technical excellence."</p>
-            <p class="detail-description">
-              This portfolio is a dynamic, fully-featured showcase of my skills, projects, and achievements. Built during the SAWIT AI Challenge, it represents my commitment to creating engaging, responsive, and visually compelling web experiences. The portfolio integrates smooth animations, theme switching, and a comprehensive project gallery—all designed with user experience and modern web standards in mind. It's not just a resume; it's a reflection of my creative and technical abilities.
+            <p class="detail-quote">"A dynamic portfolio built for a contest, showcasing my skills with creativity and learning."</p>"
+            This is my second portfolio, a project that holds a special place for me. I created it for a contest, and through the process, I learned how to make my portfolio more dynamic, interactive, and polished. It reflects how much I’ve grown as a developer and designer, and I truly enjoyed bringing it to life.
             </p>
           </div>
 
           <!-- Project Showcase Section -->
           <div class="project-showcase">
             <div class="showcase-image">
-              <img src="../../assets/images/projects/portfolio-thumbnail.png" alt="This Portfolio" class="project-detail-image">
+              <img src="/workspaces/anndreaaa_portfolioFinal/images/Screenshot (577).png" alt="This Portfolio Screenshot" class="project-detail-image">
             </div>
             <div class="showcase-actions">
               <a href="../../projects.html" class="demo-link-btn" target="_blank">
@@ -83,17 +82,6 @@
     </main>
     <script src="../../script.js"></script>
     <script>
-document.addEventListener('DOMContentLoaded', function(){
-  const t=document.getElementById('themeToggle'),i=document.getElementById('themeIcon'),r=document.documentElement,c=localStorage.getItem('theme')||'light';
-  r.setAttribute('data-theme',c);
-  i.textContent=c==='dark'?'☀️':'🌕';
-  t.addEventListener('click',()=>{
-    const th=r.getAttribute('data-theme')==='light'?'dark':'light';
-    r.setAttribute('data-theme',th);
-    localStorage.setItem('theme',th);
-    i.textContent=th==='dark'?'☀️':'🌕';
-  });
-});
 (function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const canvas=document.getElementById('flow-canvas');if(!canvas)return;const ctx=canvas.getContext('2d');let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;const particles=[],maxParticles=80,palette=['rgba(255,144,179,0.14)','rgba(138,102,255,0.12)','rgba(255,210,180,0.08)'];window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});let pointer={x:w/2,y:h/2};window.addEventListener('pointermove',(e)=>{pointer.x=e.clientX;pointer.y=e.clientY;spawnParticle(pointer.x,pointer.y);});function spawnParticle(x,y){if(particles.length>maxParticles)particles.shift();particles.push({x,y,vx:(Math.random()-0.5)*0.6,vy:(Math.random()-0.5)*0.6,size:60+Math.random()*80,life:1,dec:0.008,col:palette[Math.floor(Math.random()*palette.length)]});}function draw(){ctx.fillStyle='rgba(255,255,255,0.18)';ctx.fillRect(0,0,w,h);for(let i=0;i<particles.length;i++){const p=particles[i];p.x+=(pointer.x-p.x)*0.08+p.vx;p.y+=(pointer.y-p.y)*0.08+p.vy;p.life-=p.dec;const alpha=Math.max(0,p.life);ctx.beginPath();const grad=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size);const m=p.col.match(/rgba?\((\d+),\s*(\d+),\s*(\d+),?\s*[\d.]*\)/);if(m){const r=m[1],g=m[2],b=m[3],innerAlpha=(0.65*alpha).toFixed(3);grad.addColorStop(0,`rgba(${r},${g},${b},${innerAlpha})`);grad.addColorStop(1,`rgba(${r},${g},${b},0)`);ctx.fillStyle=grad;}ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}while(particles.length&&particles[0].life<=0)particles.shift();requestAnimationFrame(draw);}for(let i=0;i<8;i++)spawnParticle(w/2+(Math.random()-0.5)*200,h/2+(Math.random()-0.5)*200);draw();})();
     </script>
   </body>

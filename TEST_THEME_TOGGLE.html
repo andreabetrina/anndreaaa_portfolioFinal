@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Toggle Test</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Anti-flicker script -->
+    <script>
+      (function() {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+    <script src="theme.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            color: var(--text);
+            background: var(--bg);
+            transition: all 0.3s ease;
+        }
+        .test-container {
+            background: var(--card-bg);
+            border: 2px solid var(--soft-pink);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        .test-item {
+            margin: 15px 0;
+            padding: 10px;
+            border-left: 4px solid var(--pink);
+            background: rgba(255, 144, 179, 0.1);
+        }
+        .test-pass { border-left-color: #4caf50; background: rgba(76, 175, 80, 0.1); }
+        .test-fail { border-left-color: #f44336; background: rgba(244, 67, 54, 0.1); }
+        button { margin: 10px 5px; }
+        .console-output {
+            background: var(--text);
+            color: var(--bg);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        #themeToggle {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            display: inline-block !important;
+            margin: 0 10px !important;
+            width: auto !important;
+            height: auto !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            font-size: 16px !important;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span id="themeIcon">🌕</span>
+    </button>
+
+    <div class="test-container">
+        <h1>🧪 Theme Toggle Test Suite</h1>
+        
+        <h2>Manual Tests</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <button onclick="testToggle()">Test Toggle</button>
+        <button onclick="testPersistence()">Test Persistence</button>
+        <button onclick="testNavigation()">Test Navigation</button>
+        <button onclick="clearStorage()">Clear Storage</button>
+
+        <div id="results"></div>
+
+        <h2>Console Output</h2>
+        <div class="console-output" id="console"></div>
+    </div>
+
+    <script>
+        // Override console to capture output
+        const consoleOutput = [];
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            consoleOutput.push('[LOG] ' + args.join(' '));
+            updateConsole();
+        };
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            consoleOutput.push('[ERROR] ' + args.join(' '));
+            updateConsole();
+        };
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            consoleOutput.push('[WARN] ' + args.join(' '));
+            updateConsole();
+        };
+
+        function updateConsole() {
+            const consoleDiv = document.getElementById('console');
+            consoleDiv.innerHTML = consoleOutput.slice(-20).map(line => `<div>${line}</div>`).join('');
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+
+        function addResult(testName, passed, message = '') {
+            const resultsDiv = document.getElementById('results');
+            const item = document.createElement('div');
+            item.className = `test-item ${passed ? 'test-pass' : 'test-fail'}`;
+            item.innerHTML = `<strong>${testName}:</strong> ${passed ? '✅ PASS' : '❌ FAIL'} ${message}`;
+            resultsDiv.appendChild(item);
+            console.log(`${testName}: ${passed ? 'PASS' : 'FAIL'} ${message}`);
+        }
+
+        function testThemeState() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const icon = document.getElementById('themeIcon').textContent;
+            const stored = localStorage.getItem('theme') || 'light';
+            
+            console.log(`Theme state: data-theme="${theme}", icon="${icon}", localStorage="${stored}"`);
+            return { theme, icon, stored };
+        }
+
+        function testToggle() {
+            console.log('\n=== Testing Theme Toggle ===');
+            document.getElementById('results').innerHTML = '';
+            
+            const before = testThemeState();
+            console.log(`Before toggle: ${before.theme}`);
+            
+            // Simulate click
+            const toggle = document.getElementById('themeToggle');
+            toggle.click();
+            
+            const after = testThemeState();
+            console.log(`After toggle: ${after.theme}`);
+            
+            const toggled = before.theme !== after.theme;
+            addResult('Toggle Changes Theme', toggled, `${before.theme} → ${after.theme}`);
+            
+            const iconUpdated = (before.theme === 'light' && after.icon === '☀️') || 
+                               (before.theme === 'dark' && after.icon === '🌕');
+            addResult('Icon Updates Correctly', iconUpdated, `icon: ${after.icon}`);
+            
+            const storedCorrect = after.stored === after.theme;
+            addResult('Storage Persists', storedCorrect, `localStorage: ${after.stored}`);
+        }
+
+        function testPersistence() {
+            console.log('\n=== Testing Persistence ===');
+            document.getElementById('results').innerHTML = '';
+            
+            // Set to dark
+            localStorage.setItem('theme', 'dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            
+            const current = document.documentElement.getAttribute('data-theme');
+            addResult('Set Theme to Dark', current === 'dark', `current: ${current}`);
+            
+            // Reload (simulate by reinitializing)
+            const reloaded = localStorage.getItem('theme') || 'light';
+            addResult('Theme Persists in Storage', reloaded === 'dark', `persisted: ${reloaded}`);
+            
+            // Reset to light
+            localStorage.setItem('theme', 'light');
+            document.documentElement.setAttribute('data-theme', 'light');
+            addResult('Reset to Light Mode', true, 'theme reset');
+        }
+
+        function testNavigation() {
+            console.log('\n=== Testing Navigation ===');
+            document.getElementById('results').innerHTML = '';
+            
+            // Simulate navigation by checking CSS variables are accessible
+            const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg');
+            const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text');
+            
+            addResult('CSS Variables Available', bgColor.trim().length > 0, `bg: ${bgColor.trim()}`);
+            addResult('Text Color Available', textColor.trim().length > 0, `text: ${textColor.trim()}`);
+            
+            const theme = document.documentElement.getAttribute('data-theme');
+            addResult('Theme Attribute Set', theme === 'light' || theme === 'dark', `theme: ${theme}`);
+        }
+
+        function runAllTests() {
+            console.log('\n========== RUNNING ALL TESTS ==========\n');
+            document.getElementById('results').innerHTML = '';
+            
+            testToggle();
+            setTimeout(() => {
+                testPersistence();
+                setTimeout(() => {
+                    testNavigation();
+                    console.log('\n========== TESTS COMPLETE ==========\n');
+                }, 500);
+            }, 500);
+        }
+
+        function clearStorage() {
+            localStorage.removeItem('theme');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.getElementById('themeIcon').textContent = '🌕';
+            console.log('Storage cleared, theme reset to light');
+            addResult('Storage Cleared', true);
+        }
+
+        // Initial state
+        window.addEventListener('load', () => {
+            console.log('=== Page Loaded ===');
+            testThemeState();
+            console.log('✓ Theme toggle initialized');
+            console.log('✓ Anti-flicker script active');
+            console.log('✓ Ready for testing');
+        });
+    </script>
+</body>
+</html>

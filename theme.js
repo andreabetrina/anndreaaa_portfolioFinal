@@ -2,6 +2,7 @@
 // COMPREHENSIVE THEME MANAGEMENT
 // ==========================================
 // This file handles all theme switching, persistence, and initialization
+// This is the ONLY source of truth for theme management
 
 (function() {
   'use strict';
@@ -23,28 +24,30 @@
   function initializeTheme() {
     const savedTheme = localStorage.getItem(THEME_KEY) || DEFAULT_THEME;
     document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
   }
 
   /**
-   * Get current theme
+   * Get current theme from data-theme attribute
    */
   function getCurrentTheme() {
     return document.documentElement.getAttribute('data-theme') || DEFAULT_THEME;
   }
 
   /**
-   * Set theme
+   * Set theme and persist to localStorage
    */
   function setTheme(theme) {
     const validTheme = (theme === DARK_THEME) ? DARK_THEME : LIGHT_THEME;
     document.documentElement.setAttribute('data-theme', validTheme);
     localStorage.setItem(THEME_KEY, validTheme);
     updateThemeIcon(validTheme);
-    console.log(`Theme changed to: ${validTheme}`);
+    console.log(`✓ Theme changed to: ${validTheme}`);
   }
 
   /**
    * Toggle between light and dark theme
+   * Ensures proper revert by reading current state and switching
    */
   function toggleTheme() {
     const currentTheme = getCurrentTheme();
@@ -53,46 +56,82 @@
   }
 
   /**
-   * Update theme icon
+   * Update theme icon to match current theme
    */
   function updateThemeIcon(theme) {
     const themeIcon = document.getElementById('themeIcon');
     if (themeIcon) {
-      themeIcon.textContent = theme === DARK_THEME ? DARK_ICON : LIGHT_ICON;
+      const newIcon = theme === DARK_THEME ? DARK_ICON : LIGHT_ICON;
+      themeIcon.textContent = newIcon;
+      console.log(`✓ Icon updated to: ${newIcon} (${theme} mode)`);
     }
   }
 
   /**
    * Setup theme toggle button listener
+   * This runs on DOMContentLoaded to ensure DOM is ready
    */
   function setupThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     
     if (themeToggle) {
-      // Update icon on page load
+      // Initialize icon on page load
       const currentTheme = getCurrentTheme();
       updateThemeIcon(currentTheme);
 
-      // Add click listener
-      themeToggle.addEventListener('click', function(e) {
+      // Remove any existing listeners to prevent duplicates
+      // by replacing with a fresh clone
+      const newToggle = themeToggle.cloneNode(true);
+      themeToggle.parentNode.replaceChild(newToggle, themeToggle);
+
+      // Add single click listener to new element
+      newToggle.addEventListener('click', function(e) {
         e.preventDefault();
+        e.stopPropagation();
+        console.log(`Theme toggle clicked. Current: ${getCurrentTheme()}`);
         toggleTheme();
       });
 
-      // Ensure button is accessible
-      themeToggle.setAttribute('aria-pressed', getCurrentTheme() === DARK_THEME);
+      // Update aria-pressed attribute
+      updateAriaPressed(newToggle);
       
-      // Update aria-pressed on theme change
-      const observer = new MutationObserver(() => {
-        const isDark = getCurrentTheme() === DARK_THEME;
-        themeToggle.setAttribute('aria-pressed', isDark);
-      });
-      
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ['data-theme']
-      });
+      console.log('✓ Theme toggle initialized');
     }
+  }
+
+  /**
+   * Update aria-pressed attribute for accessibility
+   */
+  function updateAriaPressed(button) {
+    if (button) {
+      const isDark = getCurrentTheme() === DARK_THEME;
+      button.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+  }
+
+  /**
+   * Watch for theme changes and update UI accordingly
+   */
+  function setupThemeObserver() {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+          const newTheme = getCurrentTheme();
+          updateThemeIcon(newTheme);
+          const themeToggle = document.getElementById('themeToggle');
+          if (themeToggle) {
+            updateAriaPressed(themeToggle);
+          }
+          console.log(`✓ Theme observer detected change to: ${newTheme}`);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+      attributeOldValue: true
+    });
   }
 
   /**
@@ -109,10 +148,20 @@
   // Initialize theme immediately (before page renders)
   initializeTheme();
 
+  // Setup observer to watch for attribute changes
+  setupThemeObserver();
+
   // Setup toggle on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupThemeToggle);
   } else {
     setupThemeToggle();
   }
+
+  // Safety check to reinitialize if theme.js loads late
+  window.addEventListener('load', function() {
+    if (!document.getElementById('themeToggle')?.onclick) {
+      setupThemeToggle();
+    }
+  });
 })();
