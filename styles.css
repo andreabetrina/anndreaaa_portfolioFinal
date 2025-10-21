@@ -6587,8 +6587,8 @@ html[data-theme="dark"] .github-link-btn:hover {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 24px;
   width: 100%;
   box-sizing: border-box;
@@ -6601,6 +6601,13 @@ html[data-theme="dark"] .github-link-btn:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease;
   position: relative;
+  margin-bottom: 0; /* Remove extra margin if any */
+  width: 100%; /* Make gallery item full width */
+}
+
+.gallery-image {
+  width: 100%; /* Ensure image is full width */
+  display: block;
 }
 
 .gallery-item::before {
